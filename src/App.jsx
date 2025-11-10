@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import Inloggen from './pages/Authenticatie/Authenticatie.jsx';
 import Detailpage from './pages/CoureurDetail/CoureurDetail.jsx';
 import Navigation from './components/Navigation/Navigation.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
 function App() {
 
@@ -19,8 +20,9 @@ function App() {
                 <Route path='/inloggen' element={<Inloggen/>}/>
                 <Route path='/coureur/:id' element={<Detailpage/>}/>
             </Routes>
+            <Footer/>
         </>
     )
 }
 
-export default App
+export default App;
