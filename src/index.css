@@ -1,68 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    /*Font family*/
+    --font-primary: 'Titillium Web', sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    /*Font sizes*/
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-body: 1rem;
+    --font-size-label: 0.9375rem;
+    --font-size-button: 1rem;
+    --font-size-number: 3rem;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    /*Font weights*/
+    --font-weight-regular: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+    /*Line heights*/
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+
+    /*Base colors*/
+    --color-background: #000000;
+    --color-primary-red: #DF0600;
+    --color-dark-grey: #1C1C25;
+    --color-light-grey: #46454B;
+    --color-white: #FFFFFF;
+
+    /*Team colors*/
+    --color-mclaren: #F47600;
+    --color-ferrari: #ED1131;
+    --color-mercedes: #00D7B6;
+    --color-redbull: #4781D7;
+    --color-williams: #1868DB;
+    --color-racingbulls: #6C98FF;
+    --color-astonmartin: #229971;
+    --color-haas: #9C9FA2;
+    --color-sauber: #01C00E;
+    --color-alpine: #00A1E8;
+
+    /*Borders*/
+    --radius-default: 12px;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    font-family: var(--font-primary), sans-serif;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-white);
+    background-color: var(--color-background);
+    line-height: var(--line-height-normal);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-primary), sans-serif;
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+    color: var(--color-white);
+    line-height: var(--line-height-tight);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+p {
+    font-size: var(--font-size-body);
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    background-color: var(--color-light-grey);
+    color: var(--color-white);
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+    background-color: var(--color-primary-red);
+    cursor: pointer;
+}
+
+.label {
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+}
+
+.number {
+    font-size: var(--font-size-number);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
 }
