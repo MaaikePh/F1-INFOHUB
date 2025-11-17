@@ -11,6 +11,12 @@
     gap: 1rem;
 }
 
+.driver-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .driver-card.mclaren {
     color: var(--color-mclaren);
     border-color: var(--color-mclaren);
