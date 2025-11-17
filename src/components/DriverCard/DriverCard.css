@@ -1,0 +1,116 @@
+.driver-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: var(--color-white);
+    border-radius: var(--radius-default);
+    border: 5px solid;
+    width: 18rem;
+    height: 15rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.driver-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.driver-card.mclaren {
+    color: var(--color-mclaren);
+    border-color: var(--color-mclaren);
+}
+
+.driver-card.ferrari {
+    color: var(--color-ferrari);
+    border-color: var(--color-ferrari);
+}
+
+.driver-card.mercedes {
+    color: var(--color-mercedes);
+    border-color: var(--color-mercedes);
+}
+
+.driver-card.redbull {
+    color: var(--color-redbull);
+    border-color: var(--color-redbull);
+}
+
+.driver-card.williams {
+    color: var(--color-williams);
+    border-color: var(--color-williams);
+}
+
+.driver-card.racingbulls {
+    color: var(--color-racingbulls);
+    border-color: var(--color-racingbulls);
+}
+
+.driver-card.astonmartin {
+    color: var(--color-astonmartin);
+    border-color: var(--color-astonmartin);
+}
+
+.driver-card.haas {
+    color: var(--color-haas);
+    border-color: var(--color-haas);
+}
+
+.driver-card.sauber {
+    color: var(--color-sauber);
+    border-color: var(--color-sauber);
+}
+
+.driver-card.alpine {
+    color: var(--color-alpine);
+    border-color: var(--color-alpine);
+}
+
+.driver-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    max-width: 9rem;
+
+}
+
+.driver-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+}
+
+.driver-number {
+    font-size: var(--font-size-number);
+    font-weight: var(--font-weight-bold);
+    padding: 0 1.5rem;
+}
+
+.flag-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background-color: var(--color-white);
+}
+
+.driver-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 12rem;
+    overflow: hidden;
+    border-radius: var(--radius-default);
+}
+
+.driver-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}

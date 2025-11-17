@@ -1,0 +1,51 @@
+.team-card {
+    color: var(--color-white);
+    border-radius: var(--radius-default);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+    border: 1px solid var(--color-white);
+    text-align: center;
+    padding: 1rem 1.5rem;
+    width: 13.5rem;
+}
+
+.team-card.mclaren {
+    background: var(--color-mclaren);
+}
+
+.team-card.ferrari {
+    background: var(--color-ferrari);
+}
+
+.team-card.mercedes {
+    background: var(--color-mercedes);
+}
+
+.team-card.redbull {
+    background: var(--color-redbull);
+}
+
+.team-card.williams {
+    background: var(--color-williams);
+}
+
+.team-card.racingbulls {
+    background: var(--color-racingbulls);
+}
+
+.team-card.astonmartin {
+    background: var(--color-astonmartin);
+}
+
+.team-card.haas {
+    background: var(--color-haas);
+}
+
+.team-card.sauber {
+    background: var(--color-sauber);
+}
+
+.team-card.alpine {
+    background: var(--color-alpine);
+}
