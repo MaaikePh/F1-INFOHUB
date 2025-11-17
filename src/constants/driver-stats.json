@@ -6,8 +6,8 @@
     "wins": 11,
     "poles": 15,
     "podiums": 43,
-    "imageMain": "../assets/drivers/main-pictures/Lando-Norris.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Lando-detail.png"
+    "imageMain": "/drivers/main-pictures/Lando-Norris.png",
+    "imageDetail": "/drivers/detail-pictures/Lando-detail.png"
   },
   {
     "id": 2,
@@ -16,8 +16,8 @@
     "wins": 9,
     "poles": 5,
     "podiums": 24,
-    "imageMain": "../assets/drivers/main-pictures/Oscar-Piastri.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Oscar-detail.png"
+    "imageMain": "/drivers/main-pictures/Oscar-Piastri.png",
+    "imageDetail": "/drivers/detail-pictures/Oscar-detail.png"
   },
   {
     "id": 3,
@@ -26,8 +26,8 @@
     "wins": 68,
     "poles": 47,
     "podiums": 124,
-    "imageMain": "../assets/drivers/main-pictures/Max-Verstappen.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Max-detail.png"
+    "imageMain": "/drivers/main-pictures/Max-Verstappen.png",
+    "imageDetail": "/drivers/detail-pictures/Max-detail.png"
   },
   {
     "id": 4,
@@ -36,8 +36,8 @@
     "wins": 5,
     "poles": 7,
     "podiums": 23,
-    "imageMain": "../assets/drivers/main-pictures/George-Russell.png",
-    "imageDetail": "../assets/drivers/detail-pictures/George-detail.png"
+    "imageMain": "/drivers/main-pictures/George-Russell.png",
+    "imageDetail": "/drivers/detail-pictures/George-detail.png"
   },
   {
     "id": 5,
@@ -46,8 +46,8 @@
     "wins": 8,
     "poles": 27,
     "podiums": 50,
-    "imageMain": "../assets/drivers/main-pictures/Charles-Leclerc.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Charles-detail.png"
+    "imageMain": "/drivers/main-pictures/Charles-Leclerc.png",
+    "imageDetail": "/drivers/detail-pictures/Charles-detail.png"
   },
   {
     "id": 6,
@@ -56,8 +56,8 @@
     "wins": 105,
     "poles": 104,
     "podiums": 202,
-    "imageMain": "../assets/drivers/main-pictures/Lewis-Hamilton.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Lewis-detail.png"
+    "imageMain": "/drivers/main-pictures/Lewis-Hamilton.png",
+    "imageDetail": "/drivers/detail-pictures/Lewis-detail.png"
   },
   {
     "id": 7,
@@ -66,8 +66,8 @@
     "wins": 11,
     "poles": 15,
     "podiums": 43,
-    "imageMain": "../assets/drivers/main-pictures/Kimi-Antonelli.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Kimi-detail.png"
+    "imageMain": "/drivers/main-pictures/Kimi-Antonelli.png",
+    "imageDetail": "/drivers/detail-pictures/Kimi-detail.png"
   },
   {
     "id": 8,
@@ -76,8 +76,8 @@
     "wins": 0,
     "poles": 0,
     "podiums": 2,
-    "imageMain": "../assets/drivers/main-pictures/Alex-Albon.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Alex-detail.png"
+    "imageMain": "/drivers/main-pictures/Alex-Albon.png",
+    "imageDetail": "/drivers/detail-pictures/Alex-detail.png"
   },
   {
     "id": 9,
@@ -86,8 +86,8 @@
     "wins": 0,
     "poles": 1,
     "podiums": 1,
-    "imageMain": "../assets/drivers/main-pictures/Nico-Hulkenberg.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Nico-detail.png"
+    "imageMain": "/drivers/main-pictures/Nico-Hulkenberg.png",
+    "imageDetail": "/drivers/detail-pictures/Nico-detail.png"
   },
   {
     "id": 10,
@@ -96,8 +96,8 @@
     "wins": 0,
     "poles": 0,
     "podiums": 1,
-    "imageMain": "../assets/drivers/main-pictures/Isack-Hadjar.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Isack-detail.png"
+    "imageMain": "/drivers/main-pictures/Isack-Hadjar.png",
+    "imageDetail": "/drivers/detail-pictures/Isack-detail.png"
   },
   {
     "id": 11,
@@ -106,8 +106,8 @@
     "wins": 0,
     "poles": 0,
     "podiums": 0,
-    "imageMain": "../assets/drivers/main-pictures/Oliver-Bearman.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Oliver-detail.png"
+    "imageMain": "/drivers/main-pictures/Oliver-Bearman.png",
+    "imageDetail": "/drivers/detail-pictures/Oliver-detail.png"
   },
   {
     "id": 12,
@@ -116,8 +116,8 @@
     "wins": 32,
     "poles": 22,
     "podiums": 106,
-    "imageMain": "../assets/drivers/main-pictures/Fernando-Alonso.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Fernando-detail.png"
+    "imageMain": "/drivers/main-pictures/Fernando-Alonso.png",
+    "imageDetail": "/drivers/detail-pictures/Fernando-detail.png"
   },
   {
     "id": 13,
@@ -126,8 +126,8 @@
     "wins": 4,
     "poles": 6,
     "podiums": 28,
-    "imageMain": "../assets/drivers/main-pictures/Carlos-Sainz.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Carlos-detail.png"
+    "imageMain": "/drivers/main-pictures/Carlos-Sainz.png",
+    "imageDetail": "/drivers/detail-pictures/Carlos-detail.png"
   },
   {
     "id": 14,
@@ -136,8 +136,8 @@
     "wins": 11,
     "poles": 15,
     "podiums": 43,
-    "imageMain": "../assets/drivers/main-pictures/Liam-Lawson.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Liam-detail.png"
+    "imageMain": "/drivers/main-pictures/Liam-Lawson.png",
+    "imageDetail": "/drivers/detail-pictures/Liam-detail.png"
   },
   {
     "id": 15,
@@ -146,8 +146,8 @@
     "wins": 0,
     "poles": 0,
     "podiums": 0,
-    "imageMain": "../assets/drivers/main-pictures/Lance-Stroll.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Lance-detail.png"
+    "imageMain": "/drivers/main-pictures/Lance-Stroll.png",
+    "imageDetail": "/drivers/detail-pictures/Lance-detail.png"
   },
   {
     "id": 16,
@@ -156,8 +156,8 @@
     "wins": 1,
     "poles": 0,
     "podiums": 4,
-    "imageMain": "../assets/drivers/main-pictures/Esteban-Ocon.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Esteban-detail.png"
+    "imageMain": "/drivers/main-pictures/Esteban-Ocon.png",
+    "imageDetail": "/drivers/detail-pictures/Esteban-detail.png"
   },
   {
     "id": 17,
@@ -166,8 +166,8 @@
     "wins": 0,
     "poles": 0,
     "podiums": 0,
-    "imageMain": "../assets/drivers/main-pictures/Yuki-Tsunoda.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Yuki-detail.png"
+    "imageMain": "/drivers/main-pictures/Yuki-Tsunoda.png",
+    "imageDetail": "/drivers/detail-pictures/Yuki-detail.png"
   },
   {
     "id": 18,
@@ -176,8 +176,8 @@
     "wins": 1,
     "poles": 0,
     "podiums": 5,
-    "imageMain": "../assets/drivers/main-pictures/Pierre-Gasly.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Pierre-detail.png"
+    "imageMain": "/drivers/main-pictures/Pierre-Gasly.png",
+    "imageDetail": "/drivers/detail-pictures/Pierre-detail.png"
   },
   {
     "id": 19,
@@ -186,8 +186,8 @@
     "wins": 0,
     "poles": 0,
     "podiums": 0,
-    "imageMain": "../assets/drivers/main-pictures/Gabriel-Bortoleto.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Gabriel-detail.png"
+    "imageMain": "/drivers/main-pictures/Gabriel-Bortoleto.png",
+    "imageDetail": "/drivers/detail-pictures/Gabriel-detail.png"
   },
   {
     "id": 20,
@@ -196,7 +196,7 @@
     "wins": 0,
     "poles": 0,
     "podiums": 0,
-    "imageMain": "../assets/drivers/main-pictures/Franco-Colapinto.png",
-    "imageDetail": "../assets/drivers/detail-pictures/Franco-detail.png"
+    "imageMain": "/drivers/main-pictures/Franco-Colapinto.png",
+    "imageDetail": "/drivers/detail-pictures/Franco-detail.png"
   }
 ]
