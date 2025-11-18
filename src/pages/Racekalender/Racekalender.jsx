@@ -28,6 +28,7 @@ function Racekalender() {
                     countryFlag={race.countryCode}
                     startDate={race.beginDate}
                     endDate={race.endDate}
+                    label={race.status}
                     />
                 ))}
             </section>

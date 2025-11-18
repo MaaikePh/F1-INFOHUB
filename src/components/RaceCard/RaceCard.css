@@ -1,4 +1,5 @@
 .race-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,4 +14,27 @@
 
 .race-card-name {
     text-align: center;
+}
+
+.race-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--color-background);
+    color: var(--color-white);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-bottom-left-radius: var(--radius-default);
+    border-top-right-radius: 9px;
+    letter-spacing: 0.5px;
+}
+
+.race-label.ongoing {
+    background: var(--color-primary-red);
+}
+
+.race-label.upcoming {
+    background: var(--color-light-grey);
 }
