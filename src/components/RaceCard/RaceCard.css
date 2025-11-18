@@ -1,0 +1,86 @@
+.race-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.race-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    color: var(--color-background);
+    width: 15rem;
+    height: 8rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-default);
+    border: 3px solid var(--color-primary-red);
+}
+
+.race-card.open {
+    height: 8rem;
+}
+
+.race-card-name {
+    text-align: center;
+}
+
+.race-toggle-icon {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0.4rem;
+    width: 1rem;
+    height: auto;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
+.race-toggle-icon:hover {
+    cursor: pointer;
+}
+
+.race-card.open .race-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.race-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--color-background);
+    color: var(--color-white);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-bottom-left-radius: var(--radius-default);
+    border-top-right-radius: 9px;
+    letter-spacing: 0.5px;
+}
+
+.race-label.ongoing {
+    background: var(--color-primary-red);
+}
+
+.race-label.upcoming {
+    background: var(--color-light-grey);
+}
+
+.results-panel {
+    width: 100%;
+    background-color: var(--color-light-grey);
+    border: 3px solid var(--color-white);
+    border-radius: var(--radius-default);
+    color: var(--color-white);
+    padding: 1rem;
+}
+
+.positions-list {
+    padding-left: 1rem;
+}
+
+.no-result {
+    text-align: center;
+    padding-bottom: 0.5rem;
+}

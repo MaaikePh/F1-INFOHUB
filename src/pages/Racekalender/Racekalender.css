@@ -1,0 +1,19 @@
+.racekalender {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.race-filter-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.5rem 2rem 1rem 1rem;
+}
+
+.all-races-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding: 0 0.7rem 1.5rem 0.7rem;
+}

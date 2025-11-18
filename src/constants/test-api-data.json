@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "lastUpdated": "2025-11-17",
+  "lastUpdated": "2025-11-18",
   "drivers": [
     {
       "id": 1,
@@ -186,11 +186,12 @@
   "races": [
     {
       "id": 1,
-      "name": "Bahrain GP",
-      "circuit": "Bahrain International Circuit",
-      "country": "Bahrain",
-      "countryCode": "bh",
-      "date": "2025-03-02",
+      "name": "Australian GP",
+      "circuit": "Albert Park Circuit",
+      "country": "Australia",
+      "countryCode": "au",
+      "beginDate": "2025-03-14",
+      "endDate": "2025-03-16",
       "status": "completed",
       "results": {
         "race": [
@@ -205,16 +206,7 @@
           { "position": 9, "driver": "Yuki Tsunoda" },
           { "position": 10, "driver": "Pierre Gasly" }
         ],
-        "sprint": [
-          { "position": 1, "driver": "Oscar Piastri" },
-          { "position": 2, "driver": "Carlos Sainz" },
-          { "position": 3, "driver": "George Russell" },
-          { "position": 4, "driver": "Lewis Hamilton" },
-          { "position": 5, "driver": "Fernando Alonso" },
-          { "position": 6, "driver": "Yuki Tsunoda" },
-          { "position": 7, "driver": "Pierre Gasly" },
-          { "position": 8, "driver": "Max Verstappen" }
-        ],
+        "sprint": [],
         "qualifying": [
           { "position": 1, "driver": "Charles Leclerc" },
           { "position": 2, "driver": "Max Verstappen" },
@@ -231,11 +223,12 @@
     },
     {
       "id": 2,
-      "name": "Saudi Arabian GP",
-      "circuit": "Jeddah Corniche Circuit",
-      "country": "Saudi Arabia",
-      "countryCode": "sa",
-      "date": "2025-03-09",
+      "name": "Chinese GP",
+      "circuit": "Shanghai International Circuit",
+      "country": "China",
+      "countryCode": "cn",
+      "beginDate": "2025-03-21",
+      "endDate": "2025-03-23",
       "status": "completed",
       "results": {
         "race": [
@@ -243,7 +236,11 @@
           { "position": 2, "driver": "Max Verstappen" },
           { "position": 3, "driver": "Charles Leclerc" }
         ],
-        "sprint": [],
+        "sprint": [
+          { "position": 1, "driver": "Oscar Piastri" },
+          { "position": 2, "driver": "Carlos Sainz" },
+          { "position": 3, "driver": "George Russell" }
+        ],
         "qualifying": [
           { "position": 1, "driver": "Max Verstappen" },
           { "position": 2, "driver": "Charles Leclerc" },
@@ -253,11 +250,12 @@
     },
     {
       "id": 3,
-      "name": "Australian GP",
-      "circuit": "Albert Park Circuit",
-      "country": "Australia",
-      "countryCode": "au",
-      "date": "2025-03-23",
+      "name": "Japanese GP",
+      "circuit": "Suzuka International Racing Course",
+      "country": "Japan",
+      "countryCode": "jp",
+      "beginDate": "2025-04-04",
+      "endDate": "2025-04-06",
       "status": "completed",
       "results": {
         "race": [
@@ -275,11 +273,12 @@
     },
     {
       "id": 4,
-      "name": "Japanese GP",
-      "circuit": "Suzuka International Racing Course",
-      "country": "Japan",
-      "countryCode": "jp",
-      "date": "2025-04-06",
+      "name": "Bahrain GP",
+      "circuit": "Bahrain International Circuit",
+      "country": "Bahrain",
+      "countryCode": "bh",
+      "beginDate": "2025-04-11",
+      "endDate": "2025-04-13",
       "status": "completed",
       "results": {
         "race": [
@@ -287,11 +286,7 @@
           { "position": 2, "driver": "Carlos Sainz" },
           { "position": 3, "driver": "Charles Leclerc" }
         ],
-        "sprint": [
-          { "position": 1, "driver": "Oscar Piastri" },
-          { "position": 2, "driver": "Max Verstappen" },
-          { "position": 3, "driver": "Lando Norris" }
-        ],
+        "sprint": [],
         "qualifying": [
           { "position": 1, "driver": "Charles Leclerc" },
           { "position": 2, "driver": "Max Verstappen" },
@@ -301,11 +296,12 @@
     },
     {
       "id": 5,
-      "name": "Chinese GP",
-      "circuit": "Shanghai International Circuit",
-      "country": "China",
-      "countryCode": "cn",
-      "date": "2025-04-20",
+      "name": "Saudi Arabian GP",
+      "circuit": "Jeddah Corniche Circuit",
+      "country": "Saudi Arabia",
+      "countryCode": "sa",
+      "beginDate": "2025-04-18",
+      "endDate": "2025-04-20",
       "status": "completed",
       "results": {
         "race": [
@@ -327,7 +323,8 @@
       "circuit": "Miami International Autodrome",
       "country": "United States",
       "countryCode": "us",
-      "date": "2025-05-04",
+      "beginDate": "2025-05-02",
+      "endDate": "2025-05-04",
       "status": "completed",
       "results": {
         "race": [
@@ -353,7 +350,8 @@
       "circuit": "Imola Circuit",
       "country": "Italy",
       "countryCode": "it",
-      "date": "2025-05-18",
+      "beginDate": "2025-05-16",
+      "endDate": "2025-05-18",
       "status": "completed",
       "results": {
         "race": [
@@ -375,7 +373,8 @@
       "circuit": "Circuit de Monaco",
       "country": "Monaco",
       "countryCode": "mc",
-      "date": "2025-05-25",
+      "beginDate": "2025-05-23",
+      "endDate": "2025-05-25",
       "status": "completed",
       "results": {
         "race": [
@@ -393,11 +392,12 @@
     },
     {
       "id": 9,
-      "name": "Canadian GP",
-      "circuit": "Circuit Gilles Villeneuve",
-      "country": "Canada",
-      "countryCode": "ca",
-      "date": "2025-06-08",
+      "name": "Spanish GP",
+      "circuit": "Circuit de Barcelona-Catalunya",
+      "country": "Spain",
+      "countryCode": "es",
+      "beginDate": "2025-05-30",
+      "endDate": "2025-06-01",
       "status": "completed",
       "results": {
         "race": [
@@ -405,11 +405,7 @@
           { "position": 2, "driver": "Lando Norris" },
           { "position": 3, "driver": "George Russell" }
         ],
-        "sprint": [
-          { "position": 1, "driver": "Lando Norris" },
-          { "position": 2, "driver": "Max Verstappen" },
-          { "position": 3, "driver": "Charles Leclerc" }
-        ],
+        "sprint": [],
         "qualifying": [
           { "position": 1, "driver": "George Russell" },
           { "position": 2, "driver": "Lando Norris" },
@@ -419,11 +415,12 @@
     },
     {
       "id": 10,
-      "name": "Spanish GP",
-      "circuit": "Circuit de Barcelona-Catalunya",
-      "country": "Spain",
-      "countryCode": "es",
-      "date": "2025-06-22",
+      "name": "Canadian GP",
+      "circuit": "Circuit Gilles Villeneuve",
+      "country": "Canada",
+      "countryCode": "ca",
+      "beginDate": "2025-06-13",
+      "endDate": "2025-06-15",
       "status": "completed",
       "results": {
         "race": [
@@ -445,7 +442,8 @@
       "circuit": "Red Bull Ring",
       "country": "Austria",
       "countryCode": "at",
-      "date": "2025-06-29",
+      "beginDate": "2025-06-27",
+      "endDate": "2025-06-29",
       "status": "completed",
       "results": {
         "race": [
@@ -467,7 +465,8 @@
       "circuit": "Silverstone Circuit",
       "country": "United Kingdom",
       "countryCode": "gb",
-      "date": "2025-07-06",
+      "beginDate": "2025-07-04",
+      "endDate": "2025-07-06",
       "status": "completed",
       "results": {
         "race": [
@@ -485,11 +484,12 @@
     },
     {
       "id": 13,
-      "name": "Hungarian GP",
-      "circuit": "Hungaroring",
-      "country": "Hungary",
-      "countryCode": "hu",
-      "date": "2025-07-20",
+      "name": "Belgian GP",
+      "circuit": "Spa-Francorchamps",
+      "country": "Belgium",
+      "countryCode": "be",
+      "beginDate": "2025-07-25",
+      "endDate": "2025-07-27",
       "status": "completed",
       "results": {
         "race": [
@@ -497,7 +497,11 @@
           { "position": 2, "driver": "Max Verstappen" },
           { "position": 3, "driver": "Oscar Piastri" }
         ],
-        "sprint": [],
+        "sprint": [
+          { "position": 1, "driver": "Oscar Piastri" },
+          { "position": 2, "driver": "Max Verstappen" },
+          { "position": 3, "driver": "Lando Norris" }
+        ],
         "qualifying": [
           { "position": 1, "driver": "Charles Leclerc" },
           { "position": 2, "driver": "Max Verstappen" },
@@ -507,11 +511,12 @@
     },
     {
       "id": 14,
-      "name": "Belgian GP",
-      "circuit": "Spa-Francorchamps",
-      "country": "Belgium",
-      "countryCode": "be",
-      "date": "2025-08-03",
+      "name": "Hungarian GP",
+      "circuit": "Hungaroring",
+      "country": "Hungary",
+      "countryCode": "hu",
+      "beginDate": "2025-08-01",
+      "endDate": "2025-08-03",
       "status": "completed",
       "results": {
         "race": [
@@ -533,7 +538,8 @@
       "circuit": "Circuit Zandvoort",
       "country": "Netherlands",
       "countryCode": "nl",
-      "date": "2025-08-31",
+      "beginDate": "2025-08-29",
+      "endDate": "2025-08-31",
       "status": "completed",
       "results": {
         "race": [
@@ -555,7 +561,8 @@
       "circuit": "Monza Circuit",
       "country": "Italy",
       "countryCode": "it",
-      "date": "2025-09-07",
+      "beginDate": "2025-09-05",
+      "endDate": "2025-09-07",
       "status": "completed",
       "results": {
         "race": [
@@ -577,7 +584,8 @@
       "circuit": "Baku City Circuit",
       "country": "Azerbaijan",
       "countryCode": "az",
-      "date": "2025-09-21",
+      "beginDate": "2025-09-19",
+      "endDate": "2025-09-21",
       "status": "completed",
       "results": {
         "race": [
@@ -599,7 +607,8 @@
       "circuit": "Marina Bay Street Circuit",
       "country": "Singapore",
       "countryCode": "sg",
-      "date": "2025-10-05",
+      "beginDate": "2025-10-03",
+      "endDate": "2025-10-05",
       "status": "completed",
       "results": {
         "race": [
@@ -621,7 +630,8 @@
       "circuit": "Circuit of the Americas",
       "country": "United States",
       "countryCode": "us",
-      "date": "2025-10-19",
+      "beginDate": "2025-10-17",
+      "endDate": "2025-10-19",
       "status": "completed",
       "results": {
         "race": [
@@ -647,7 +657,8 @@
       "circuit": "Autódromo Hermanos Rodríguez",
       "country": "Mexico",
       "countryCode": "mx",
-      "date": "2025-10-26",
+      "beginDate": "2025-10-24",
+      "endDate": "2025-10-26",
       "status": "completed",
       "results": {
         "race": [
@@ -669,7 +680,8 @@
       "circuit": "Interlagos Circuit",
       "country": "Brazil",
       "countryCode": "br",
-      "date": "2025-11-09",
+      "beginDate": "2025-11-07",
+      "endDate": "2025-11-09",
       "status": "completed",
       "results": {
         "race": [
@@ -677,7 +689,11 @@
           { "position": 2, "driver": "Max Verstappen" },
           { "position": 3, "driver": "Lando Norris" }
         ],
-        "sprint": [],
+        "sprint": [
+          { "position": 1, "driver": "Lando Norris" },
+          { "position": 2, "driver": "Max Verstappen" },
+          { "position": 3, "driver": "Charles Leclerc" }
+        ],
         "qualifying": [
           { "position": 1, "driver": "Max Verstappen" },
           { "position": 2, "driver": "Charles Leclerc" },
@@ -691,7 +707,8 @@
       "circuit": "Las Vegas Strip Circuit",
       "country": "United States",
       "countryCode": "us",
-      "date": "2025-11-22",
+      "beginDate": "2025-11-20",
+      "endDate": "2025-11-22",
       "status": "upcoming",
       "results": { "race": [], "sprint": [], "qualifying": [] }
     },
@@ -701,7 +718,8 @@
       "circuit": "Losail International Circuit",
       "country": "Qatar",
       "countryCode": "qa",
-      "date": "2025-12-01",
+      "beginDate": "2025-11-28",
+      "endDate": "2025-11-30",
       "status": "upcoming",
       "results": { "race": [], "sprint": [], "qualifying": [] }
     },
@@ -711,7 +729,8 @@
       "circuit": "Yas Marina Circuit",
       "country": "United Arab Emirates",
       "countryCode": "ae",
-      "date": "2025-12-08",
+      "beginDate": "2025-12-05",
+      "endDate": "2025-12-07",
       "status": "upcoming",
       "results": { "race": [], "sprint": [], "qualifying": [] }
     }

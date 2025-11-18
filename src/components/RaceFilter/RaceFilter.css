@@ -1,0 +1,35 @@
+.race-filter-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.race-filter-label {
+    text-transform: uppercase;
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.race-filter-select {
+    width: 11rem;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    border: 3px solid var(--color-light-grey);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semi-bold);
+    background-color: var(--color-white);
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    background-image: url('/icons/Uitklappijl.svg');
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 0.8rem;
+}
+
+.race-filter-select:focus,
+.race-filter-select:hover {
+    outline: none;
+    border-color: var(--color-primary-red);
+}
