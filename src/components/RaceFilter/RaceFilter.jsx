@@ -1,5 +1,6 @@
 import './RaceFilter.css';
 import {useForm} from 'react-hook-form';
+import {useEffect} from 'react';
 
 function RaceFilter({onFilterChange}) {
     const {register, watch} = useForm({
@@ -10,9 +11,9 @@ function RaceFilter({onFilterChange}) {
 
     const selectedMonth = watch('month');
 
-    function handleMonthChange() {
+    useEffect(() => {
         onFilterChange(selectedMonth);
-    }
+    }, [selectedMonth, onFilterChange]);
 
     return (
         <form className='race-filter-form'>
@@ -21,7 +22,6 @@ function RaceFilter({onFilterChange}) {
             </label>
 
                 <select
-                    onChange={handleMonthChange}
                     id='month-filter'
                     {...register('month')}
                     className='race-filter-select'

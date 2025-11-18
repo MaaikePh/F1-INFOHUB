@@ -1,0 +1,16 @@
+.race-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    color: var(--color-background);
+    width: 14rem;
+    height: 7rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-default);
+    border: 3px solid var(--color-primary-red);
+}
+
+.race-card-name {
+    text-align: center;
+}

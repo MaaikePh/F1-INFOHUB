@@ -2,7 +2,7 @@ import './Homepage.css';
 import testdata from '/src/constants/test-api-data.json';
 import driverstats from '/src/constants/driver-stats.json';
 import teams from '../../constants/teams.js';
-import TeamCard from '../../components/TeamCard/TeamCard.jsx';
+    import TeamCard from '../../components/TeamCard/TeamCard.jsx';
 import DriverCard from '../../components/DriverCard/DriverCard.jsx';
 
 function Homepage() {
