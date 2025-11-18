@@ -29,6 +29,9 @@ function Racekalender() {
                     startDate={race.beginDate}
                     endDate={race.endDate}
                     label={race.status}
+                    positionOne={race.results?.race?.[0]?.driver}
+                    positionTwo={race.results?.race?.[1]?.driver}
+                    positionThree={race.results?.race?.[2]?.driver}
                     />
                 ))}
             </section>
