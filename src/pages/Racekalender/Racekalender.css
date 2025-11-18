@@ -1,0 +1,5 @@
+.race-filter-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.3rem 2rem 1rem 1rem;
+}
