@@ -12,8 +12,7 @@ function RaceCard({raceName, countryFlag, startDate, endDate, positionOne, posit
 
     return (
         <div className='race-card-wrapper'>
-            <article className={`race-card ${isOpen ? 'open' : ''}`}
-                     onClick={() => setOpen(prev => !prev)}>
+            <article className={`race-card ${isOpen ? 'open' : ''}`}>
 
             <span className={`race-label ${status}`}>
                 {status === 'completed' ? 'Voltooid' :
@@ -23,6 +22,16 @@ function RaceCard({raceName, countryFlag, startDate, endDate, positionOne, posit
                 <i className={`fi fi-${countryFlag} flag-icon`}></i>
                 <h2 className='race-card-name'>{raceName}</h2>
                 <p>{start} - {end}</p>
+
+                <img
+                    src='/icons/Uitklappijl.svg'
+                    alt=''
+                    className='race-toggle-icon'
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setOpen(prev => !prev);
+                    }}
+                />
 
             </article>
 

@@ -11,7 +11,7 @@
     justify-content: space-between;
     background-color: var(--color-white);
     color: var(--color-background);
-    width: 14rem;
+    width: 15rem;
     height: 8rem;
     padding: 0.5rem;
     border-radius: var(--radius-default);
@@ -24,6 +24,24 @@
 
 .race-card-name {
     text-align: center;
+}
+
+.race-toggle-icon {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0.4rem;
+    width: 1rem;
+    height: auto;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
+.race-toggle-icon:hover {
+    cursor: pointer;
+}
+
+.race-card.open .race-toggle-icon {
+    transform: rotate(180deg);
 }
 
 .race-label {
