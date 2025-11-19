@@ -1,11 +1,19 @@
 import './RaceResults.css';
+import {useState} from 'react';
+import ResultsFilter from '../../filters-and-sorting/ResultsFilter/ResultsFilter.jsx';
 
 function RaceResults({raceYear, allResults}) {
+    const [filteredType, setFilteredType] = useState('all');
+    const visibleResults = allResults.filter(result => {
+        if (filteredType === 'all') return true;
+        return result.type === filteredType;
+    })
+
     return (
         <div className='race-results-section'>
             <header className='race-results-header'>
                 {/*    hier komt straks de filterfunctie en de sorteerfunctie */}
-                <p>Filteren op:</p>
+                <ResultsFilter onFilterChange={setFilteredType} />
                 <p>Sorteren op:</p>
             </header>
 
@@ -18,7 +26,7 @@ function RaceResults({raceYear, allResults}) {
                 <p>Datum</p>
             </div>
 
-            {allResults.map((result, index) => (
+            {visibleResults.map((result, index) => (
                 <div className='race-results-row' key={index}>
                     <p>{result.grandPrix}</p>
                     <p>{result.type}</p>
