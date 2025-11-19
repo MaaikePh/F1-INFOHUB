@@ -6,6 +6,8 @@ import teams from '../../constants/teams.js';
 import RaceResults from '../../components/coureurdetailpage/RaceResults/RaceResults.jsx';
 import PersonalInfo from '../../components/coureurdetailpage/PersonalInfo/PersonalInfo.jsx';
 import TeamInfo from '../../components/coureurdetailpage/TeamInfo/TeamInfo.jsx';
+import calculateAge from '../../helpers/calculateAge.js';
+import {formatBirthDate} from '../../helpers/dateFormatter.js';
 
 function CoureurDetail() {
     const driver = driverStats[0];
@@ -95,7 +97,12 @@ function CoureurDetail() {
             </section>
 
             <section className='personal-panel'>
-                <PersonalInfo />
+                <PersonalInfo
+                    country={data.country}
+                    birthdate={formatBirthDate(data.birthdate)}
+                    age={calculateAge(data.birthdate)}
+                    firstSeason={data.firstSeason}
+                />
             </section>
 
             <section className='team-panel'>

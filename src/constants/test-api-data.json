@@ -9,7 +9,10 @@
       "name": "Lando Norris",
       "raceNumber": 4,
       "team": "McLaren",
-      "countryCode": "gb"
+      "countryCode": "gb",
+      "country": "Verenigd Koninkrijk",
+      "birthdate": "1999-11-13",
+      "firstSeason": 2019
     },
     {
       "id": 2,
@@ -18,7 +21,10 @@
       "name": "Oscar Piastri",
       "raceNumber": 81,
       "team": "McLaren",
-      "countryCode": "au"
+      "countryCode": "au",
+      "country": "Australië",
+      "birthdate": "2001-04-06",
+      "firstSeason": 2023
     },
     {
       "id": 3,
@@ -27,7 +33,10 @@
       "name": "Max Verstappen",
       "raceNumber": 1,
       "team": "Red Bull Racing",
-      "countryCode": "nl"
+      "countryCode": "nl",
+      "country": "Nederland",
+      "birthdate": "1997-09-30",
+      "firstSeason": 2015
     },
     {
       "id": 4,
@@ -36,7 +45,10 @@
       "name": "George Russell",
       "raceNumber": 63,
       "team": "Mercedes",
-      "countryCode": "gb"
+      "countryCode": "gb",
+      "country": "Verenigd Koninkrijk",
+      "birthdate": "1998-02-15",
+      "firstSeason": 2019
     },
     {
       "id": 5,
@@ -45,7 +57,10 @@
       "name": "Charles Leclerc",
       "raceNumber": 16,
       "team": "Ferrari",
-      "countryCode": "mc"
+      "countryCode": "mc",
+      "country": "Monaco",
+      "birthdate": "1997-10-16",
+      "firstSeason": 2018
     },
     {
       "id": 6,
@@ -54,7 +69,10 @@
       "name": "Lewis Hamilton",
       "raceNumber": 44,
       "team": "Ferrari",
-      "countryCode": "gb"
+      "countryCode": "gb",
+      "country": "Verenigd Koninkrijk",
+      "birthdate": "1985-01-07",
+      "firstSeason": 2007
     },
     {
       "id": 7,
@@ -63,7 +81,10 @@
       "name": "Kimi Antonelli",
       "raceNumber": 12,
       "team": "Mercedes",
-      "countryCode": "it"
+      "countryCode": "it",
+      "country": "Italië",
+      "birthdate": "2006-08-25",
+      "firstSeason": 2025
     },
     {
       "id": 8,
@@ -72,7 +93,10 @@
       "name": "Alexander Albon",
       "raceNumber": 23,
       "team": "Williams",
-      "countryCode": "th"
+      "countryCode": "th",
+      "country": "Thailand",
+      "birthdate": "1996-03-23",
+      "firstSeason": 2019
     },
     {
       "id": 9,
@@ -81,7 +105,10 @@
       "name": "Nico Hulkenberg",
       "raceNumber": 27,
       "team": "Kick Sauber",
-      "countryCode": "de"
+      "countryCode": "de",
+      "country": "Duitsland",
+      "birthdate": "1987-08-19",
+      "firstSeason": 2010
     },
     {
       "id": 10,
@@ -90,7 +117,10 @@
       "name": "Isack Hadjar",
       "raceNumber": 6,
       "team": "Racing Bulls",
-      "countryCode": "fr"
+      "countryCode": "fr",
+      "country": "Frankrijk",
+      "birthdate": "2004-09-28",
+      "firstSeason": 2024
     },
     {
       "id": 11,
@@ -99,7 +129,10 @@
       "name": "Oliver Bearman",
       "raceNumber": 87,
       "team": "Haas",
-      "countryCode": "gb"
+      "countryCode": "gb",
+      "country": "Verenigd Koninkrijk",
+      "birthdate": "2005-05-08",
+      "firstSeason": 2025
     },
     {
       "id": 12,
@@ -108,7 +141,10 @@
       "name": "Fernando Alonso",
       "raceNumber": 14,
       "team": "Aston Martin",
-      "countryCode": "es"
+      "countryCode": "es",
+      "country": "Spanje",
+      "birthdate": "1981-07-29",
+      "firstSeason": 2001
     },
     {
       "id": 13,
@@ -117,7 +153,10 @@
       "name": "Carlos Sainz",
       "raceNumber": 55,
       "team": "Williams",
-      "countryCode": "es"
+      "countryCode": "es",
+      "country": "Spanje",
+      "birthdate": "1994-09-01",
+      "firstSeason": 2015
     },
     {
       "id": 14,
@@ -126,7 +165,10 @@
       "name": "Liam Lawson",
       "raceNumber": 30,
       "team": "Racing Bulls",
-      "countryCode": "nz"
+      "countryCode": "nz",
+      "country": "Nieuw-Zeeland",
+      "birthdate": "2002-02-11",
+      "firstSeason": 2023
     },
     {
       "id": 15,
@@ -135,7 +177,10 @@
       "name": "Lance Stroll",
       "raceNumber": 18,
       "team": "Aston Martin",
-      "countryCode": "ca"
+      "countryCode": "ca",
+      "country": "Canada",
+      "birthdate": "1998-10-29",
+      "firstSeason": 2017
     },
     {
       "id": 16,
@@ -144,7 +189,10 @@
       "name": "Esteban Ocon",
       "raceNumber": 31,
       "team": "Haas",
-      "countryCode": "fr"
+      "countryCode": "fr",
+      "country": "Frankrijk",
+      "birthdate": "1996-09-17",
+      "firstSeason": 2016
     },
     {
       "id": 17,
@@ -153,7 +201,10 @@
       "name": "Yuki Tsunoda",
       "raceNumber": 22,
       "team": "Red Bull Racing",
-      "countryCode": "jp"
+      "countryCode": "jp",
+      "country": "Japan",
+      "birthdate": "2000-05-11",
+      "firstSeason": 2021
     },
     {
       "id": 18,
@@ -162,7 +213,10 @@
       "name": "Pierre Gasly",
       "raceNumber": 10,
       "team": "Alpine",
-      "countryCode": "fr"
+      "countryCode": "fr",
+      "country": "Frankrijk",
+      "birthdate": "1996-02-07",
+      "firstSeason": 2017
     },
     {
       "id": 19,
@@ -171,7 +225,10 @@
       "name": "Gabriel Bortoleto",
       "raceNumber": 5,
       "team": "Kick Sauber",
-      "countryCode": "br"
+      "countryCode": "br",
+      "country": "Brazilië",
+      "birthdate": "2004-10-14",
+      "firstSeason": 2025
     },
     {
       "id": 20,
@@ -180,7 +237,10 @@
       "name": "Franco Colapinto",
       "raceNumber": 43,
       "team": "Alpine",
-      "countryCode": "ar"
+      "countryCode": "ar",
+      "country": "Argentinië",
+      "birthdate": "2003-05-27",
+      "firstSeason": 2024
     }
   ],
   "races": [

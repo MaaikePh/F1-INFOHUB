@@ -1,5 +1,6 @@
 .driver-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-light-grey);
@@ -57,5 +58,5 @@
 .race-results-panel,
 .personal-panel,
 .team-panel {
-    padding: 2rem 3rem;
+    padding: 0.5rem 2rem;
 }
