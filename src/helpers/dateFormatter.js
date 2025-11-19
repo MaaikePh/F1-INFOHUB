@@ -9,12 +9,6 @@ const longOptions = {
     year: 'numeric',
 }
 
-export function formatDutchDate(dateString) {
-    const date = new Date(dateString);
-
-    return date.toLocaleDateString('nl-NL', shortOptions);
-}
-
 export function formatDutchRange(start, end) {
     const startDate = new Date(start);
     const endDate = new Date(end);
@@ -25,7 +19,7 @@ export function formatDutchRange(start, end) {
     };
 }
 
-export function formatBirthDate(dateString) {
+export function formatDutchDate(dateString) {
     const date = new Date(dateString);
 
     return date.toLocaleDateString('nl-NL', longOptions);

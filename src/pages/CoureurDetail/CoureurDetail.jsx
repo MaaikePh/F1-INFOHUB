@@ -7,7 +7,7 @@ import RaceResults from '../../components/coureurdetailpage/RaceResults/RaceResu
 import PersonalInfo from '../../components/coureurdetailpage/PersonalInfo/PersonalInfo.jsx';
 import TeamInfo from '../../components/coureurdetailpage/TeamInfo/TeamInfo.jsx';
 import calculateAge from '../../helpers/calculateAge.js';
-import {formatBirthDate} from '../../helpers/dateFormatter.js';
+import {formatDutchDate} from '../../helpers/dateFormatter.js';
 import {useParams} from 'react-router-dom';
 
 function CoureurDetail() {
@@ -56,8 +56,6 @@ function CoureurDetail() {
 
         return results;
     })
-
-    raceResultsForDriver.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     return (
         <main className='driver-detail-container'>
@@ -114,7 +112,7 @@ function CoureurDetail() {
                 <PersonalInfo
                     country={data.country}
                     countryCode={data.countryCode}
-                    birthdate={formatBirthDate(data.birthdate)}
+                    birthdate={formatDutchDate(data.birthdate)}
                     age={calculateAge(data.birthdate)}
                     firstSeason={data.firstSeason}
                 />

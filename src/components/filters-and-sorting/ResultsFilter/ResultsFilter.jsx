@@ -18,7 +18,7 @@ function ResultsFilter({onFilterChange}) {
     return (
         <form className="results-filter-form">
             <label htmlFor='type-filter' className='results-filter-label'>
-                Filteren op:
+                Filteren op
             </label>
 
             <select
