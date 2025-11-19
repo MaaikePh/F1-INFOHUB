@@ -3,6 +3,9 @@ import TeamCard from '../../components/TeamCard/TeamCard.jsx';
 import driverStats from '../../constants/driver-stats.json';
 import testdata from '/src/constants/test-api-data.json';
 import teams from '../../constants/teams.js';
+import RaceResults from '../../components/coureurdetailpage/RaceResults/RaceResults.jsx';
+import PersonalInfo from '../../components/coureurdetailpage/PersonalInfo/PersonalInfo.jsx';
+import TeamInfo from '../../components/coureurdetailpage/TeamInfo/TeamInfo.jsx';
 
 function CoureurDetail() {
     const driver = driverStats[0];
@@ -54,15 +57,15 @@ function CoureurDetail() {
             </header>
 
             <section className='race-results-panel'>
-
+                <RaceResults />
             </section>
 
             <section className='personal-panel'>
-
+                <PersonalInfo />
             </section>
 
             <section className='team-panel'>
-
+                <TeamInfo />
             </section>
         </main>
     )
