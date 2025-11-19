@@ -8,40 +8,56 @@ import PersonalInfo from '../../components/coureurdetailpage/PersonalInfo/Person
 import TeamInfo from '../../components/coureurdetailpage/TeamInfo/TeamInfo.jsx';
 import calculateAge from '../../helpers/calculateAge.js';
 import {formatBirthDate} from '../../helpers/dateFormatter.js';
+import {useParams} from 'react-router-dom';
 
 function CoureurDetail() {
-    const driver = driverStats[0];
-    const data = testdata.drivers[0];
-    const team = teams[0];
+    const {id} = useParams();
 
-    const driverName = data.name;
-    const race = testdata.races[0];
-    const raceResult = race.results.race.find(r => r.driver === driverName);
-    const qualiResult = race.results.qualifying.find(r => r.driver === driverName);
-    const sprintResult = race.results.sprint.find(r => r.driver === driverName);
+    const driver = driverStats.find(s => s.id === Number(id));
+    const data = testdata.drivers.find(d => d.id === Number(id));
+    const team = teams.find(t => t.name === data.team);
+    const races = testdata.races;
 
-    const results = [];
+    const raceResultsForDriver = races.flatMap(race => {
+        const driverName = data.name;
 
-    if (raceResult) {
-        results.push({
-            type: "Race",
-            position: raceResult.position,
-        });
-    }
+        const raceResult = race.results.race.find(r => r.driver === driverName);
+        const qualiResult = race.results.qualifying.find(r => r.driver === driverName);
+        const sprintResult = race.results.sprint.find(r => r.driver === driverName);
 
-    if (qualiResult) {
-        results.push({
-            type: "Qualificatie",
-            position: qualiResult.position,
-        });
-    }
+        const results = [];
 
-    if (sprintResult) {
-        results.push({
-            type: "Sprint",
-            position: sprintResult.position,
-        });
-    }
+        if (raceResult) {
+            results.push({
+                grandPrix: race.name,
+                type: "Race",
+                position: raceResult.position,
+                date: race.endDate
+            });
+        }
+
+        if (qualiResult) {
+            results.push({
+                grandPrix: race.name,
+                type: "Qualificatie",
+                position: qualiResult.position,
+                date: race.endDate
+            });
+        }
+
+        if (sprintResult) {
+            results.push({
+                grandPrix: race.name,
+                type: "Sprint",
+                position: sprintResult.position,
+                date: race.endDate
+            });
+        }
+
+        return results;
+    })
+
+    raceResultsForDriver.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     return (
         <main className='driver-detail-container'>
@@ -90,9 +106,7 @@ function CoureurDetail() {
             <section className='race-results-panel'>
                 <RaceResults
                     raceYear={testdata.season}
-                    raceName={testdata.races[0].name}
-                    results={results}
-                    raceDate={testdata.races[0].endDate}
+                    allResults={raceResultsForDriver}
                 />
             </section>
 

@@ -1,6 +1,6 @@
 import './RaceResults.css';
 
-function RaceResults({raceYear, raceName, results, raceDate}) {
+function RaceResults({raceYear, allResults}) {
     return (
         <div className='race-results-section'>
             <header className='race-results-header'>
@@ -18,12 +18,12 @@ function RaceResults({raceYear, raceName, results, raceDate}) {
                 <p>Datum</p>
             </div>
 
-            {results.map((race, index) => (
+            {allResults.map((result, index) => (
                 <div className='race-results-row' key={index}>
-                    <p>{raceName}</p>
-                    <p>{race.type}</p>
-                    <p>{race.position}</p>
-                    <p>{raceDate}</p>
+                    <p>{result.grandPrix}</p>
+                    <p>{result.type}</p>
+                    <p>{result.position}</p>
+                    <p>{result.date}</p>
                 </div>
             ))}
 
