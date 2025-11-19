@@ -48,8 +48,14 @@
     font-size: var(--font-size-number);
 }
 
-.team-card {
+.team-card-detail {
     position: absolute;
     top: 1rem;
     left: -10rem;
+}
+
+.race-results-panel,
+.personal-panel,
+.team-panel {
+    padding: 2rem 3rem;
 }

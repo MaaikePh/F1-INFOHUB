@@ -12,6 +12,35 @@ function CoureurDetail() {
     const data = testdata.drivers[0];
     const team = teams[0];
 
+    const driverName = data.name;
+    const race = testdata.races[0];
+    const raceResult = race.results.race.find(r => r.driver === driverName);
+    const qualiResult = race.results.qualifying.find(r => r.driver === driverName);
+    const sprintResult = race.results.sprint.find(r => r.driver === driverName);
+
+    const results = [];
+
+    if (raceResult) {
+        results.push({
+            type: "Race",
+            position: raceResult.position,
+        });
+    }
+
+    if (qualiResult) {
+        results.push({
+            type: "Qualificatie",
+            position: qualiResult.position,
+        });
+    }
+
+    if (sprintResult) {
+        results.push({
+            type: "Sprint",
+            position: sprintResult.position,
+        });
+    }
+
     return (
         <main className='driver-detail-container'>
 
@@ -50,14 +79,19 @@ function CoureurDetail() {
                     <TeamCard
                         teamName={team.name}
                         teamKey={team.key}
-                        className='team-card'
+                        className='team-card-detail'
                     />
                 </div>
 
             </header>
 
             <section className='race-results-panel'>
-                <RaceResults />
+                <RaceResults
+                    raceYear={testdata.season}
+                    raceName={testdata.races[0].name}
+                    results={results}
+                    raceDate={testdata.races[0].endDate}
+                />
             </section>
 
             <section className='personal-panel'>

@@ -1,0 +1,45 @@
+.race-results-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--color-white);
+    color: var(--color-background);
+    border: 3px solid var(--color-primary-red);
+}
+
+.race-results-header {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    border-bottom: 3px solid var(--color-primary-red);
+    text-transform: uppercase;
+}
+
+.race-results-header-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid var(--color-primary-red);
+}
+
+.race-results-header-row p {
+    font-weight: var(--font-weight-bold);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.race-results-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+    gap: 2rem;
+    padding: 0.5rem 0;
+}
