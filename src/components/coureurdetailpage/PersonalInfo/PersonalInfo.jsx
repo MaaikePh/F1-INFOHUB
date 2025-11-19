@@ -1,13 +1,18 @@
 import './PersonalInfo.css';
 
-function PersonalInfo({country, birthdate, age, firstSeason}) {
+function PersonalInfo({country, birthdate, age, firstSeason, countryCode}) {
     return (
         <div className='personal-info-section'>
             <h3 className='title'>Persoonlijke informatie</h3>
 
             <div className='info-row'>
                 <p className='info-label'>Land:</p>
-                <p className='info-value'>{country}</p>
+                <p className='info-value'>
+                    {countryCode && (
+                        <i className={`fi fi-${countryCode} flag-icon`}></i>
+                    )}
+                    {country}
+                </p>
             </div>
 
             <div className='info-row'>

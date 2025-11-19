@@ -5,16 +5,11 @@
     background-color: var(--color-white);
     color: var(--color-background);
     border: 3px solid var(--color-primary-red);
-
-}
-
-.personal-info-section h3 {
-    margin-top: 0;
 }
 
 .info-row {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 180px auto;
     padding: 0.5rem 1rem;
 }
 
@@ -24,5 +19,7 @@
 }
 
 .info-value {
-    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }

@@ -99,6 +99,7 @@ function CoureurDetail() {
             <section className='personal-panel'>
                 <PersonalInfo
                     country={data.country}
+                    countryCode={data.countryCode}
                     birthdate={formatBirthDate(data.birthdate)}
                     age={calculateAge(data.birthdate)}
                     firstSeason={data.firstSeason}
@@ -106,7 +107,11 @@ function CoureurDetail() {
             </section>
 
             <section className='team-panel'>
-                <TeamInfo />
+                <TeamInfo
+                    teamName={team.name}
+                    teamCountry={team.country}
+                    countryCode={team.countryCode}
+                />
             </section>
         </main>
     )
