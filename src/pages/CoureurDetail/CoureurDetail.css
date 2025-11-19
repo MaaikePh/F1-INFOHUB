@@ -1,0 +1,62 @@
+.driver-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-light-grey);
+    padding: 1rem 4rem;
+}
+
+.driver-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stats {
+    display: flex;
+    gap: 8rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.stat-label {
+    text-transform: uppercase;
+}
+
+.driver-header-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.driver-detail-img {
+    width: 16rem;
+    height: 11rem;
+    border-radius: var(--radius-default);
+    object-fit: cover;
+}
+
+.number-detail {
+    position: absolute;
+    bottom: -0.5rem;
+    left: -1rem;
+    font-size: var(--font-size-number);
+}
+
+.team-card-detail {
+    position: absolute;
+    top: 1rem;
+    left: -10rem;
+}
+
+.race-results-panel,
+.personal-panel,
+.team-panel {
+    padding: 0.5rem 2rem;
+}

@@ -3,10 +3,10 @@ const shortOptions = {
     day: 'numeric',
 };
 
-export function formatDuchDate(dateString) {
-    const date = new Date(dateString);
-
-    return date.toLocaleDateString('nl-NL', shortOptions);
+const longOptions = {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
 }
 
 export function formatDutchRange(start, end) {
@@ -17,4 +17,10 @@ export function formatDutchRange(start, end) {
         start: startDate.toLocaleDateString('nl-NL', shortOptions),
         end: endDate.toLocaleDateString('nl-NL', shortOptions)
     };
+}
+
+export function formatDutchDate(dateString) {
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString('nl-NL', longOptions);
 }

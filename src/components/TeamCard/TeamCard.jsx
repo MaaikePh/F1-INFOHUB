@@ -1,8 +1,8 @@
 import './TeamCard.css';
 
-function TeamCard({teamName, teamKey}) {
+function TeamCard({teamName, teamKey, className}) {
     return (
-        <article className={`team-card ${teamKey}`}>
+        <article className={`team-card ${teamKey} ${className || ''}`}>
             {teamName}
         </article>
     )

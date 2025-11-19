@@ -1,6 +1,6 @@
 import './Racekalender.css';
 import testdata from '/src/constants/test-api-data.json';
-import RaceFilter from '../../components/RaceFilter/RaceFilter.jsx';
+import RaceFilter from '../../components/filters-and-sorting/RaceFilter/RaceFilter.jsx';
 import RaceCard from '../../components/RaceCard/RaceCard.jsx';
 import {useState} from 'react';
 import {getMonthKey} from '../../helpers/getMonthKey.js';
