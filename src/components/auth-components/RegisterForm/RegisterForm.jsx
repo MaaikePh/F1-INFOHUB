@@ -5,12 +5,33 @@ import Select from '../Select/Select.jsx';
 import teams from '../../../constants/teams.js'
 import testdata from '../../../constants/test-api-data.json'
 import Button from '../../general/Button/Button.jsx';
+import {registerUser} from '../../../helpers/api.js';
 
 function RegisterForm() {
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors, reset}} = useForm();
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
         console.log('Formulier verstuurd!', data);
+
+        const payload = {
+            email: data.email,
+            password: data.password,
+            favoriteTeam: data.favoriteTeam,
+            favoriteDriver: data.favoriteDriver,
+        }
+
+        try {
+            const result = await registerUser(payload);
+            console.log('Succesvol geregistreerd:', result);
+
+            localStorage.setItem('favoriteTeam', data.favoriteTeam);
+            localStorage.setItem('favoriteDriver', data.favoriteDriver);
+
+            reset();
+
+        } catch (error) {
+            console.error('Registreren mislukt:', error);
+        }
     }
 
     return (
