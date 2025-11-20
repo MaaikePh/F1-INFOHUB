@@ -1,6 +1,6 @@
 import './Select.css';
 
-function Select({selectId, selectName, selectLabel, validationRules, selectOptions, register, errors}) {
+function Select({selectId, selectName, selectLabel, validationRules, selectOptions, register, errors, onChange, disabled}) {
     return (
         <div className='select-container'>
             <label htmlFor={selectId} className='select-label'>
@@ -9,7 +9,9 @@ function Select({selectId, selectName, selectLabel, validationRules, selectOptio
 
             <select
                 id={selectId}
+                disabled={disabled}
                 {...register(selectName, validationRules)}
+                onChange={onChange}
                 className='select-field'>
                 <option value=''>Maak een keuze</option>
                 {selectOptions.map((opt) => (

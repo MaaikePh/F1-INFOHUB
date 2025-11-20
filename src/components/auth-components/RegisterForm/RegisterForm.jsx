@@ -12,6 +12,7 @@ function RegisterForm() {
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [selectedTeam, setSelectedTeam] = useState('');
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
@@ -45,6 +46,7 @@ function RegisterForm() {
             localStorage.setItem('favoriteDriver', data.favoriteDriver);
 
             reset();
+            setSelectedTeam('');
 
         } catch (error) {
             console.error('Registreren mislukt:', error);
@@ -120,6 +122,7 @@ function RegisterForm() {
                     }))}
                     register={register}
                     errors={errors.favoriteTeam?.message}
+                    onChange={(e) => setSelectedTeam(e.target.value)}
                 />
 
                 <Select
@@ -132,12 +135,15 @@ function RegisterForm() {
                             message: 'Selecteer een coureur.'
                         },
                     }}
-                    selectOptions={testdata.drivers.map(driver => ({
+                    selectOptions={testdata.drivers
+                        .filter(driver => driver.team.toLowerCase() === selectedTeam)
+                        .map(driver => ({
                         value: driver.id,
                         label: driver.name,
                     }))}
                     register={register}
                     errors={errors.favoriteDriver?.message}
+                    disabled={!selectedTeam}
                 />
 
                 <Button
