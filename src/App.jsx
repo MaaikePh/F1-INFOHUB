@@ -5,8 +5,8 @@ import Racekalender from './pages/Racekalender/Racekalender.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import Inloggen from './pages/Authenticatie/Authenticatie.jsx';
 import Detailpage from './pages/CoureurDetail/CoureurDetail.jsx';
-import Navigation from './components/Navigation/Navigation.jsx';
-import Footer from './components/Footer/Footer.jsx';
+import Navigation from './components/general/Navigation/Navigation.jsx';
+import Footer from './components/general/Footer/Footer.jsx';
 
 function App() {
 

@@ -1,6 +1,6 @@
 import './RaceCard.css';
-import {formatDutchRange} from '../../helpers/dateFormatter.js';
-import {getRaceStatus} from '../../helpers/raceStatus.js';
+import {formatDutchRange} from '../../../helpers/dateFormatter.js';
+import {getRaceStatus} from '../../../helpers/raceStatus.js';
 import {useState} from 'react';
 
 

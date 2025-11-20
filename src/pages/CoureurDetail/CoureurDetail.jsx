@@ -1,5 +1,5 @@
 import './CoureurDetail.css';
-import TeamCard from '../../components/TeamCard/TeamCard.jsx';
+import TeamCard from '../../components/cards/TeamCard/TeamCard.jsx';
 import driverStats from '../../constants/driver-stats.json';
 import testdata from '/src/constants/test-api-data.json';
 import teams from '../../constants/teams.js';
