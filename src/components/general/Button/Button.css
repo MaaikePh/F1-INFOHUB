@@ -1,0 +1,32 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-light-grey);
+    color: var(--color-white);
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    border-radius: var(--radius-default);
+    border: none;
+    padding: 0.8rem 7rem;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-red);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-light-grey);
+}
+
+.btn-secondary {
+    background-color: var(--color-primary-red);
+}
+
+.btn-arrow {
+    width: 0.5rem;
+    height: auto;
+    display: block;
+}

@@ -84,19 +84,6 @@ p {
     font-size: var(--font-size-body);
 }
 
-button {
-    background-color: var(--color-light-grey);
-    color: var(--color-white);
-    font-size: var(--font-size-button);
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-}
-
-button:hover {
-    background-color: var(--color-primary-red);
-    cursor: pointer;
-}
-
 .label {
     font-size: var(--font-size-label);
     font-weight: var(--font-weight-semi-bold);

@@ -4,14 +4,17 @@ import Input from '../Input/Input.jsx';
 import Select from '../Select/Select.jsx';
 import teams from '../../../constants/teams.js'
 import testdata from '../../../constants/test-api-data.json'
+import Button from '../../general/Button/Button.jsx';
 
 function RegisterForm() {
     const {register, handleSubmit, formState: {errors}} = useForm();
 
-
+    function onSubmit(data) {
+        console.log('Formulier verstuurd!', data);
+    }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
 
             <Input
                 inputId='email-field'
@@ -66,6 +69,14 @@ function RegisterForm() {
                 register={register}
                 errors={errors.favoriteDriver?.message}
             />
+
+            <Button
+                type="submit"
+                buttonStyle='primary'
+                showArrow={true}
+            >
+                Registreren
+            </Button>
 
         </form>
     )

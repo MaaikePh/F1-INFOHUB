@@ -1,9 +1,9 @@
 import './Select.css';
 
-function Select({selectId, selectName, selectLabel, selectOptions, register, error}) {
+function Select({selectId, selectName, selectLabel, selectOptions, register, errors}) {
     return (
         <>
-            <label htmlFor={selectId}>
+            <label htmlFor={selectId} className='label'>
                 {selectLabel}
                 
                 <select
@@ -17,7 +17,7 @@ function Select({selectId, selectName, selectLabel, selectOptions, register, err
                     ))}
                 </select>
 
-                {error && <p>{error}</p>}
+                {errors && <p>{errors}</p>}
                 
             </label>
         </>
