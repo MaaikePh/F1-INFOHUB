@@ -14,71 +14,78 @@ function RegisterForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='register-form-container'>
+            <h2 className='title'>Maak hier je account aan</h2>
 
-            <Input
-                inputId='email-field'
-                inputName='email'
-                inputType='email'
-                inputLabel='E-mailadres'
-                validationRules={{
-                    required: {
-                        value: true,
-                        message: 'E-mailadres is verplicht.'
-                    },
-                }}
-                register={register}
-                errors={errors}
-            />
-
-            <Input
-                inputId='password-field'
-                inputName='password'
-                inputType='password'
-                inputLabel='Wachtwoord'
-                validationRules={{
-                    required: {
-                        value: true,
-                        message: 'Wachtwoord is verplicht.'
-                    },
-                }}
-                register={register}
-                errors={errors}
-            />
-
-            <Select
-                selectId='favorite-team'
-                selectName='favoriteTeam'
-                selectLabel='Favoriet Formule 1 team'
-                selectOptions={teams.map(t => ({
-                    value: t.key,
-                    label: t.name,
-                }))}
-                register={register}
-                errors={errors.favoriteTeam?.message}
-            />
-
-            <Select
-                selectId='favorite-driver'
-                selectName='favoriteDriver'
-                selectLabel='Favoriete coureur'
-                selectOptions={testdata.drivers.map(driver => ({
-                    value: driver.id,
-                    label: driver.name,
-                }))}
-                register={register}
-                errors={errors.favoriteDriver?.message}
-            />
-
-            <Button
-                type="submit"
-                buttonStyle='primary'
-                showArrow={true}
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className='register-form'
             >
-                Registreren
-            </Button>
 
-        </form>
+                <Input
+                    inputId='email-field'
+                    inputName='email'
+                    inputType='email'
+                    inputLabel='E-mailadres'
+                    validationRules={{
+                        required: {
+                            value: true,
+                            message: 'E-mailadres is verplicht.'
+                        },
+                    }}
+                    register={register}
+                    errors={errors}
+                />
+
+                <Input
+                    inputId='password-field'
+                    inputName='password'
+                    inputType='password'
+                    inputLabel='Wachtwoord'
+                    validationRules={{
+                        required: {
+                            value: true,
+                            message: 'Wachtwoord is verplicht.'
+                        },
+                    }}
+                    register={register}
+                    errors={errors}
+                />
+
+                <Select
+                    selectId='favorite-team'
+                    selectName='favoriteTeam'
+                    selectLabel='Favoriet Formule 1 team'
+                    selectOptions={teams.map(t => ({
+                        value: t.key,
+                        label: t.name,
+                    }))}
+                    register={register}
+                    errors={errors.favoriteTeam?.message}
+                />
+
+                <Select
+                    selectId='favorite-driver'
+                    selectName='favoriteDriver'
+                    selectLabel='Favoriete coureur'
+                    selectOptions={testdata.drivers.map(driver => ({
+                        value: driver.id,
+                        label: driver.name,
+                    }))}
+                    register={register}
+                    errors={errors.favoriteDriver?.message}
+                />
+
+                <Button
+                    type='submit'
+                    buttonStyle='primary'
+                    showArrow={true}
+                >
+                    Registreren
+                </Button>
+
+            </form>
+        </div>
     )
 }
 
