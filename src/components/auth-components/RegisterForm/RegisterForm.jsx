@@ -1,6 +1,9 @@
 import './RegisterForm.css';
 import {useForm} from 'react-hook-form';
 import Input from '../Input/Input.jsx';
+import Select from '../Select/Select.jsx';
+import teams from '../../../constants/teams.js'
+import testdata from '../../../constants/test-api-data.json'
 
 function RegisterForm() {
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -38,6 +41,30 @@ function RegisterForm() {
                 }}
                 register={register}
                 errors={errors}
+            />
+
+            <Select
+                selectId='favorite-team'
+                selectName='favoriteTeam'
+                selectLabel='Favoriet Formule 1 team'
+                selectOptions={teams.map(t => ({
+                    value: t.key,
+                    label: t.name,
+                }))}
+                register={register}
+                errors={errors.favoriteTeam?.message}
+            />
+
+            <Select
+                selectId='favorite-driver'
+                selectName='favoriteDriver'
+                selectLabel='Favoriete coureur'
+                selectOptions={testdata.drivers.map(driver => ({
+                    value: driver.id,
+                    label: driver.name,
+                }))}
+                register={register}
+                errors={errors.favoriteDriver?.message}
             />
 
         </form>
