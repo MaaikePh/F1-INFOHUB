@@ -18,4 +18,14 @@ export async function registerUser(formData) {
     }
 }
 
+export async function emailExists(email) {
+    try {
+        const response = await api.get('/users');
+        return response.data.some(user => user.email === email);
+    } catch (error) {
+        console.error('Email check mislukt:', error);
+        throw error;
+    }
+}
+
 export default api;

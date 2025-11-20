@@ -13,3 +13,25 @@
     align-items: center;
     gap: 25px;
 }
+
+.error-message {
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    border-top: 2px solid var(--color-primary-red);
+    padding-top: 0.5rem;
+    margin-top: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+.success-message {
+    color: #4cd964;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    border-top: 2px solid #4cd964;
+    padding-top: 0.5rem;
+    margin-top: 0.3rem;
+    letter-spacing: 0.5px;
+}

@@ -5,23 +5,40 @@ import Select from '../Select/Select.jsx';
 import teams from '../../../constants/teams.js'
 import testdata from '../../../constants/test-api-data.json'
 import Button from '../../general/Button/Button.jsx';
-import {registerUser} from '../../../helpers/api.js';
+import {registerUser, emailExists} from '../../../helpers/api.js';
+import {useState} from 'react';
 
 function RegisterForm() {
-    const {register, handleSubmit, formState: {errors, reset}} = useForm();
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+
+    const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
     async function onSubmit(data) {
-        console.log('Formulier verstuurd!', data);
-
-        const payload = {
-            email: data.email,
-            password: data.password,
-            favoriteTeam: data.favoriteTeam,
-            favoriteDriver: data.favoriteDriver,
-        }
+        setLoading(true);
+        setErrorMessage('');
+        setSuccessMessage('');
 
         try {
+            const exists = await emailExists(data.email);
+
+            if (exists) {
+                setErrorMessage('Dit e-mailadres is al in gebruik.');
+                setLoading(false);
+                return;
+            }
+
+            const payload = {
+                email: data.email,
+                password: data.password,
+                favoriteTeam: data.favoriteTeam,
+                favoriteDriver: data.favoriteDriver,
+            }
+
             const result = await registerUser(payload);
+
+            setSuccessMessage('Je account is succesvol aangemaakt!');
             console.log('Succesvol geregistreerd:', result);
 
             localStorage.setItem('favoriteTeam', data.favoriteTeam);
@@ -31,6 +48,12 @@ function RegisterForm() {
 
         } catch (error) {
             console.error('Registreren mislukt:', error);
+
+            setErrorMessage(
+                error.response?.data?.message || 'Registreren is mislukt. Probeer het opnieuw.'
+            );
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -53,6 +76,10 @@ function RegisterForm() {
                             value: true,
                             message: 'E-mailadres is verplicht.'
                         },
+                        pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: 'Voer een geldig e-mailadres in.',
+                        }
                     }}
                     register={register}
                     errors={errors}
@@ -68,6 +95,10 @@ function RegisterForm() {
                             value: true,
                             message: 'Wachtwoord is verplicht.'
                         },
+                        minLength: {
+                            value: 6,
+                            message: 'Wachtwoord moet minimaal 6 tekens bevatten.',
+                        }
                     }}
                     register={register}
                     errors={errors}
@@ -77,6 +108,12 @@ function RegisterForm() {
                     selectId='favorite-team'
                     selectName='favoriteTeam'
                     selectLabel='Favoriet Formule 1 team'
+                    validationRules={{
+                        required: {
+                            value: true,
+                            message: 'Selecteer een team.'
+                        },
+                    }}
                     selectOptions={teams.map(t => ({
                         value: t.key,
                         label: t.name,
@@ -89,6 +126,12 @@ function RegisterForm() {
                     selectId='favorite-driver'
                     selectName='favoriteDriver'
                     selectLabel='Favoriete coureur'
+                    validationRules={{
+                        required: {
+                            value: true,
+                            message: 'Selecteer een coureur.'
+                        },
+                    }}
                     selectOptions={testdata.drivers.map(driver => ({
                         value: driver.id,
                         label: driver.name,
@@ -100,10 +143,14 @@ function RegisterForm() {
                 <Button
                     type='submit'
                     buttonStyle='primary'
-                    showArrow={true}
+                    showArrow={!loading}
+                    disabled={loading}
                 >
-                    Registreren
+                    {loading ? 'Bezig...' : 'Registreren'}
                 </Button>
+
+                {errorMessage && <p className='error-message'>{errorMessage}</p>}
+                {successMessage && <p className='success-message'>{successMessage}</p>}
 
             </form>
         </div>
