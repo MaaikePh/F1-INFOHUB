@@ -28,4 +28,14 @@ export async function emailExists(email) {
     }
 }
 
+export async function loginUser(credentials) {
+    try {
+        const response = await api.post('/login', credentials);
+        return response.data;
+    } catch (error) {
+        console.error('Login mislukt: ', error);
+        throw error;
+    }
+}
+
 export default api;
