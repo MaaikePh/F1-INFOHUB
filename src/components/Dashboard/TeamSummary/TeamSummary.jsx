@@ -11,6 +11,11 @@ function TeamSummary() {
     const teamDrivers = testdata.drivers.filter(
         (driver) => favoriteTeam && driver.team.toLowerCase() === favoriteTeam.toLowerCase()
     );
+    const teamColor = teamData
+        ? getComputedStyle(document.documentElement)
+            .getPropertyValue(teamData.colorVar)
+            .trim()
+        : '#ccc';
 
     return (
         <article className='team-summary'>
@@ -24,7 +29,7 @@ function TeamSummary() {
 
             <div className='constructor-position'>
                 <p>Constructeurskampioenschap positie:</p>
-                {/*<StatsCircle number={5}/>*/}
+                <StatsCircle number={teamData.standingsPosition} color={teamColor}/>
             </div>
 
             <div className='team-drivers'>
