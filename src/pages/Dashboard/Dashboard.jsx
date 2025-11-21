@@ -7,6 +7,7 @@ function Dashboard() {
     return (
         <main className='dashboard-page'>
             <h1 className='title'>Persoonlijk Dashboard</h1>
+            <div className='dashboard'>
             <section className='dashboard-team-section'>
                 <TeamSummary />
                 <EditFavoriteButton/>
@@ -16,6 +17,7 @@ function Dashboard() {
                 <DriverSummary />
                 <EditFavoriteButton/>
             </section>
+            </div>
         </main>
     )
 }
