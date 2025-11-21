@@ -37,7 +37,7 @@ function LoginForm() {
             >
 
                 <Input
-                    inputId='email-field'
+                    inputId='login-email-field'
                     inputName='email'
                     inputType='email'
                     inputLabel='E-mailadres'
@@ -56,7 +56,7 @@ function LoginForm() {
                 />
 
                 <Input
-                    inputId='password-field'
+                    inputId='login-password-field'
                     inputName='password'
                     inputType='password'
                     inputLabel='Wachtwoord'

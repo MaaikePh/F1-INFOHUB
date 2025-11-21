@@ -69,7 +69,7 @@ function RegisterForm() {
             >
 
                 <Input
-                    inputId='email-field'
+                    inputId='register-email-field'
                     inputName='email'
                     inputType='email'
                     inputLabel='E-mailadres'
@@ -88,7 +88,7 @@ function RegisterForm() {
                 />
 
                 <Input
-                    inputId='password-field'
+                    inputId='register-password-field'
                     inputName='password'
                     inputType='password'
                     inputLabel='Wachtwoord'

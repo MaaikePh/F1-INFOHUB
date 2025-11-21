@@ -10,6 +10,7 @@
     border-radius: var(--radius-default);
     border: none;
     padding: 0.8rem 7rem;
+    width: 22rem;
 }
 
 .btn:hover {
