@@ -17,7 +17,7 @@ const teams = [
     },
     {
         name: "Red Bull Racing",
-        key: "redbull",
+        key: "redbullracing",
         country: "Oostenrijk",
         countryCode: "at",
         colorVar: "--color-redbull",
@@ -65,7 +65,7 @@ const teams = [
     },
     {
         name: "Kick Sauber",
-        key: "sauber",
+        key: "kicksauber",
         country: "Zwitserland",
         countryCode: "ch",
         colorVar: "--color-sauber",

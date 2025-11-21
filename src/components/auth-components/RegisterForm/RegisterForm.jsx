@@ -16,6 +16,8 @@ function RegisterForm() {
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
+    const selectedTeamKey = teams.find((team) => team.key === selectedTeam)?.name.toLowerCase();
+
     async function onSubmit(data) {
         setLoading(true);
         setErrorMessage('');
@@ -136,7 +138,7 @@ function RegisterForm() {
                         },
                     }}
                     selectOptions={testdata.drivers
-                        .filter(driver => driver.team.toLowerCase() === selectedTeam)
+                        .filter(driver => driver.team.toLowerCase() === selectedTeamKey)
                         .map(driver => ({
                         value: driver.id,
                         label: driver.name,

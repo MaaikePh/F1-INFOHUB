@@ -3,8 +3,8 @@ import TeamCard from '../../cards/TeamCard/TeamCard.jsx';
 import teams from '../../../constants/teams.js';
 import testdata from '../../../constants/test-api-data.json';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
-import EditFavoriteButton from '../EditFavoriteButton/EditFavoriteButton.jsx';
 import DriverBadge from '../DriverBadge/DriverBadge.jsx';
+import {normalize} from '../../../helpers/normalizer.js';
 
 function TeamSummary() {
     const favoriteTeam = localStorage.getItem('favoriteTeam');
@@ -14,14 +14,18 @@ function TeamSummary() {
         return (
             <article className='team-summary'>
                 <h2 className='title-card'>Favoriet team</h2>
-                <p>Geen team gekozen.</p>
+                <p className='favorite-label'>Geen team gekozen.</p>
             </article>
         );
     }
 
-    const teamDrivers = testdata.drivers.filter(
-        (driver) => favoriteTeam && driver.team.toLowerCase() === favoriteTeam.toLowerCase()
-    );
+    const teamDrivers = testdata.drivers.filter((driver) => {
+        const driverKey = normalize(driver.team);
+        const favKey = normalize(favoriteTeam);
+        return driverKey === favKey;
+    });
+
+
     const teamColor = teamData
         ? getComputedStyle(document.documentElement)
             .getPropertyValue(teamData.colorVar)

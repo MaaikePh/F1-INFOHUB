@@ -22,7 +22,7 @@
     background: var(--color-mercedes);
 }
 
-.team-card.redbull {
+.team-card.redbullracing {
     background: var(--color-redbull);
 }
 
@@ -42,7 +42,7 @@
     background: var(--color-haas);
 }
 
-.team-card.sauber {
+.team-card.kicksauber {
     background: var(--color-sauber);
 }
 
