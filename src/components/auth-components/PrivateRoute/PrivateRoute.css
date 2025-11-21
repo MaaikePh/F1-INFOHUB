@@ -1,0 +1,14 @@
+.loading-message {
+    text-align: center;
+    color: var(--color-primary-red);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-label);
+    margin-top: 2rem;
+}
+
+.private-route-message {
+    text-align: center;
+    color: var(--color-white);
+    padding: 2rem;
+    font-size: 1.25rem;
+}

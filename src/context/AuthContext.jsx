@@ -6,17 +6,24 @@ export const AuthContext = createContext();
 function AuthContextProvider({ children }) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem('token') || null);
-    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
-    const [loading, setLoading] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
 
     useEffect(() => {
-        if (token) {
-            setIsAuthenticated(true);
-        } else {
-            setIsAuthenticated(false);
-        }
-    }, [token]);
+        const timer = setTimeout(() => {
+            if (token) {
+                setIsAuthenticated(true);
+            } else {
+                setIsAuthenticated(false);
+            }
+
+            setLoading(false);
+        }, 600);
+
+        return () => clearTimeout(timer);
+
+    }, []);
 
     async function login(email, password) {
         setLoading(true);
