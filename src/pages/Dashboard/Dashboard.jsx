@@ -6,6 +6,7 @@ import EditFavoriteButton from '../../components/Dashboard/EditFavoriteButton/Ed
 function Dashboard() {
     return (
         <main className='dashboard-page'>
+            <h1 className='title'>Persoonlijk Dashboard</h1>
             <section className='dashboard-team-section'>
                 <TeamSummary />
                 <EditFavoriteButton/>
