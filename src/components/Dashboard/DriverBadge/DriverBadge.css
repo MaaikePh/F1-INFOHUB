@@ -1,7 +1,9 @@
 .driver-badge {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    min-width: 8rem;
     background-color: var(--team-color);
     border-radius: var(--radius-default);
 
@@ -12,4 +14,5 @@
     text-transform: uppercase;
     font-size: var(--font-size-label);
     font-weight: var(--font-weight-semi-bold);
+    margin-top: 0.3rem;
 }
