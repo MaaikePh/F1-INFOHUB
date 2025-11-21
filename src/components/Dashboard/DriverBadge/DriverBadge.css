@@ -1,0 +1,15 @@
+.driver-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--team-color);
+    border-radius: var(--radius-default);
+
+}
+
+.driver-name {
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semi-bold);
+}

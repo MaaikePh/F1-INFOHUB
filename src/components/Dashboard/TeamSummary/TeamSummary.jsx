@@ -4,10 +4,21 @@ import teams from '../../../constants/teams.js';
 import testdata from '../../../constants/test-api-data.json';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 import EditFavoriteButton from '../EditFavoriteButton/EditFavoriteButton.jsx';
+import DriverBadge from '../DriverBadge/DriverBadge.jsx';
 
 function TeamSummary() {
     const favoriteTeam = localStorage.getItem('favoriteTeam');
     const teamData = teams.find((t) => t.key === favoriteTeam);
+
+    if (!teamData) {
+        return (
+            <article className='team-summary'>
+                <h2 className='title'>Favoriet team</h2>
+                <p>Geen team gekozen.</p>
+            </article>
+        );
+    }
+
     const teamDrivers = testdata.drivers.filter(
         (driver) => favoriteTeam && driver.team.toLowerCase() === favoriteTeam.toLowerCase()
     );
@@ -34,10 +45,12 @@ function TeamSummary() {
 
             <div className='team-drivers'>
                 {teamDrivers.map((driver) => (
-                    <div className='driver-box' key={driver.id}>
-                        <span className='driver-number'>{driver.raceNumber}</span>
-                        <span>{driver.name}</span>
-                    </div>
+                    <DriverBadge
+                        key={driver.id}
+                        number={driver.raceNumber}
+                        color={teamColor}
+                        name={driver.name}
+                    />
                 ))}
             </div>
 
