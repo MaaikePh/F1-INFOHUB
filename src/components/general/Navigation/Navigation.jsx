@@ -1,7 +1,17 @@
 import './Navigation.css';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
+import {useContext} from 'react';
+import {AuthContext} from '../../../context/AuthContext.jsx';
 
 function Navigation() {
+    const {isAuthenticated, logout} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        logout();
+        navigate('/inloggen');
+    }
+
     return (
         <header className='navigation-bar'>
             <h2 className='logo'>F1INFOHUB</h2>
@@ -28,13 +38,26 @@ function Navigation() {
                             Dashboard
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink
-                            className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                            to='/inloggen'>
-                            Inloggen
-                        </NavLink>
-                    </li>
+                    {!isAuthenticated && (
+                        <li>
+                            <NavLink
+                                className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                                to='/inloggen'>
+                                Inloggen
+                            </NavLink>
+                        </li>
+                    )}
+                    {isAuthenticated && (
+                        <li>
+                            <span
+                                className='logout-button'
+                                onClick={handleLogout}
+                            >
+                                Uitloggen
+                            </span>
+                        </li>
+                    )}
+
                 </ul>
             </nav>
         </header>

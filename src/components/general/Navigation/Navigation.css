@@ -37,6 +37,25 @@
     border-bottom: 2px solid var(--color-primary-red);
 }
 
+.logout-button {
+    background: none;
+    border: none;
+    margin: 0;
+    color: var(--color-white);
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 0 2px 0;
+    line-height: 1.2;
+    border-bottom: 2px solid transparent;
+}
+
+.logout-button:hover {
+    border-bottom: 2px solid var(--color-light-grey);
+}
+
 @media (max-width: 768px) {
     .navigation-bar {
         flex-direction: column;
