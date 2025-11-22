@@ -12,8 +12,7 @@ import {AuthContext} from '../../../context/AuthContext.jsx';
 
 
 function DriverSummary() {
-    const {loading} = useContext(AuthContext);
-    const favoriteDriver = localStorage.getItem('favoriteDriver');
+    const {loading, favoriteDriver} = useContext(AuthContext);
     const driverData = testdata.drivers.find((d) => String(d.id) === favoriteDriver);
 
     if (!driverData) {

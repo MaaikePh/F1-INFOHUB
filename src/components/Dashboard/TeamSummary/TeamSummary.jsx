@@ -5,10 +5,12 @@ import testdata from '../../../constants/test-api-data.json';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 import DriverBadge from '../DriverBadge/DriverBadge.jsx';
 import {normalize} from '../../../helpers/normalizer.js';
+import {useContext} from 'react';
+import {AuthContext} from '../../../context/AuthContext.jsx';
 
 function TeamSummary() {
-    const favoriteTeam = localStorage.getItem('favoriteTeam');
-    const teamData = teams.find((t) => t.key === favoriteTeam);
+    const {favoriteTeam} = useContext(AuthContext);
+    const teamData = teams.find((t) => normalize(t.key) === normalize(favoriteTeam));
 
     if (!teamData) {
         return (

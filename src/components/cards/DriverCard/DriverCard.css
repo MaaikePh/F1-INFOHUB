@@ -32,7 +32,7 @@
     border-color: var(--color-mercedes);
 }
 
-.driver-card.redbull {
+.driver-card.redbullracing {
     color: var(--color-redbull);
     border-color: var(--color-redbull);
 }
@@ -57,7 +57,7 @@
     border-color: var(--color-haas);
 }
 
-.driver-card.sauber {
+.driver-card.kicksauber {
     color: var(--color-sauber);
     border-color: var(--color-sauber);
 }
