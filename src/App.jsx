@@ -8,12 +8,14 @@ import Detailpage from './pages/CoureurDetail/CoureurDetail.jsx';
 import Navigation from './components/general/Navigation/Navigation.jsx';
 import Footer from './components/general/Footer/Footer.jsx';
 import PrivateRoute from './components/auth-components/PrivateRoute/PrivateRoute.jsx';
+import ScrollToTop from './components/general/ScrollToTop/ScrollToTop.jsx';
 
 function App() {
 
     return (
         <>
             <Navigation/>
+            <ScrollToTop/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/racekalender' element={<Racekalender/>}/>

@@ -10,6 +10,7 @@ import Button from '../../general/Button/Button.jsx';
 import {useContext} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
 import {getLastRaceForDriver} from '../../../helpers/getLastRaceForDriver.js';
+import {Link} from 'react-router-dom';
 
 function DriverSummary() {
     const {loading, favoriteDriver} = useContext(AuthContext);
@@ -67,7 +68,7 @@ function DriverSummary() {
                 </div>
             </div>
 
-            <div>
+            <Link to={`/coureur/${driverData.id}`}>
                 <Button
                     type='button'
                     buttonStyle='primary'
@@ -76,7 +77,7 @@ function DriverSummary() {
                 >
                     {loading ? 'Bezig...' : 'Coureurdetails'}
                 </Button>
-            </div>
+            </Link>
 
         </article>
     )

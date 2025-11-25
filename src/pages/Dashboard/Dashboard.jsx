@@ -8,10 +8,10 @@ function Dashboard() {
         <main className='dashboard-page'>
             <h1 className='title'>Persoonlijk Dashboard</h1>
             <div className='dashboard'>
-            <section className='dashboard-team-section'>
-                <TeamSummary />
-                <EditFavoriteButton/>
-            </section>
+                <section className='dashboard-team-section'>
+                    <TeamSummary/>
+                    <EditFavoriteButton/>
+                </section>
 
                 <img
                     src='/icons/lijn-inlogpagina.svg'
@@ -19,10 +19,10 @@ function Dashboard() {
                     className='dashboard-divider'
                 />
 
-            <section className='dashboard-driver-section'>
-                <DriverSummary />
-                <EditFavoriteButton/>
-            </section>
+                <section className='dashboard-driver-section'>
+                    <DriverSummary/>
+                    <EditFavoriteButton/>
+                </section>
             </div>
         </main>
     )
