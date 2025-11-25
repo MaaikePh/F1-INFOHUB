@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 3rem;
     padding: 0 2rem 2rem 2rem;
     background-color: var(--color-white);
     border-radius: var(--radius-default);
     border: 5px solid var(--team-color);
     width: 30rem;
-    margin: 1rem;
+    margin: 0 auto;
 }
 
 .title-card {

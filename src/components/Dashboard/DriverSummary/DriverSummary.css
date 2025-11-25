@@ -9,7 +9,7 @@
     border-radius: var(--radius-default);
     border: 5px solid var(--team-color);
     width: 30rem;
-    margin: 1rem;
+    margin: 0 auto;
 }
 
 .driver-card-outer-container {

@@ -13,6 +13,12 @@ function Dashboard() {
                 <EditFavoriteButton/>
             </section>
 
+                <img
+                    src='/icons/lijn-inlogpagina.svg'
+                    alt=''
+                    className='dashboard-divider'
+                />
+
             <section className='dashboard-driver-section'>
                 <DriverSummary />
                 <EditFavoriteButton/>
