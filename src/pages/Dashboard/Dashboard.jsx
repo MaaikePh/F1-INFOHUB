@@ -10,7 +10,9 @@ function Dashboard() {
             <div className='dashboard'>
                 <section className='dashboard-team-section'>
                     <TeamSummary/>
-                    <EditFavoriteButton/>
+                    <EditFavoriteButton
+                        label='Favoriet team aanpassen'
+                    />
                 </section>
 
                 <img
@@ -21,7 +23,9 @@ function Dashboard() {
 
                 <section className='dashboard-driver-section'>
                     <DriverSummary/>
-                    <EditFavoriteButton/>
+                    <EditFavoriteButton
+                        label='Favoriete coureur aanpassen'
+                    />
                 </section>
             </div>
         </main>
