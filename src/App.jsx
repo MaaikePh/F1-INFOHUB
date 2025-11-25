@@ -9,6 +9,7 @@ import Navigation from './components/general/Navigation/Navigation.jsx';
 import Footer from './components/general/Footer/Footer.jsx';
 import PrivateRoute from './components/auth-components/PrivateRoute/PrivateRoute.jsx';
 import ScrollToTop from './components/general/ScrollToTop/ScrollToTop.jsx';
+import EditFavorites from './pages/EditFavorites/EditFavorites.jsx';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/racekalender' element={<Racekalender/>}/>
                 <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+                <Route path='/voorkeuren' element={<PrivateRoute><EditFavorites/></PrivateRoute>}/>
                 <Route path='/inloggen' element={<Inloggen/>}/>
                 <Route path='/coureur/:id' element={<Detailpage/>}/>
             </Routes>

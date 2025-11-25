@@ -14,7 +14,9 @@ import {Link} from 'react-router-dom';
 
 function DriverSummary() {
     const {loading, favoriteDriver} = useContext(AuthContext);
-    const driverData = testdata.drivers.find((d) => String(d.id) === favoriteDriver);
+    const driverData = testdata.drivers.find(
+        (d) => normalize(d.name) === normalize(favoriteDriver)
+    );
 
     if (!driverData) {
         return (
@@ -34,7 +36,9 @@ function DriverSummary() {
 
     const lastRace = getLastRaceForDriver(driverData.name);
 
-    const driverPhoto = driverStats.find(s => String(s.id) === favoriteDriver);
+    const driverPhoto = driverStats.find(
+        (s) => normalize(s.name) === normalize(favoriteDriver)
+    );
 
     return (
         <article className='driver-summary' style={{'--team-color': teamColor}}>

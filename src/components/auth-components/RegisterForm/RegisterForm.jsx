@@ -157,7 +157,7 @@ function RegisterForm() {
                     selectOptions={testdata.drivers
                         .filter(driver => normalize(driver.team) === normalize(selectedTeam))
                         .map(driver => ({
-                        value: driver.id,
+                        value: driver.name,
                         label: driver.name,
                     }))}
                     register={register}

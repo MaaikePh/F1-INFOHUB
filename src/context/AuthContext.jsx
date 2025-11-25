@@ -1,5 +1,7 @@
 import {createContext, useEffect, useState} from 'react';
-import {getUserByEmail, loginUser, getPreferenceByUserId} from '../helpers/api.js';
+import teams from '../constants/teams.js';
+import api, {getUserByEmail, loginUser, getPreferenceByUserId, createPreferences} from '../helpers/api.js';
+import {normalize} from '../helpers/normalizer.js';
 
 export const AuthContext = createContext();
 
@@ -39,16 +41,18 @@ function AuthContextProvider({ children }) {
             const profile = await getUserByEmail(email);
             const prefs = await getPreferenceByUserId(profile.id);
 
-            const favTeam = prefs?.favoriteTeam || '';
             const favDriver = prefs?.favoriteDriver || '';
 
+            const favTeamKey =
+                teams.find(t => normalize(t.name) === normalize(prefs?.favoriteTeam))?.key
+                || '';
 
             localStorage.setItem('token', result.token);
-            localStorage.setItem('favoriteTeam', favTeam);
+            localStorage.setItem('favoriteTeam', favTeamKey);
             localStorage.setItem('favoriteDriver', favDriver);
 
             setToken(result.token);
-            setFavoriteTeam(favTeam);
+            setFavoriteTeam(favTeamKey);
             setFavoriteDriver(favDriver);
             setUser(profile);
 
@@ -77,6 +81,44 @@ function AuthContextProvider({ children }) {
         setIsAuthenticated(false);
     }
 
+    async function updateFavorites({favoriteTeam, favoriteDriver}) {
+        if (!user) return;
+
+        setLoading(true);
+
+        try {
+            const existing = await getPreferenceByUserId(user.id);
+            let prefs;
+
+            if (existing) {
+                const response = await api.patch(`/userPreferences/${existing.id}`, {
+                    favoriteTeam,
+                    favoriteDriver
+                })
+                prefs = response.data;
+            } else {
+                prefs = await createPreferences({
+                    userId: user.id,
+                    favoriteTeam,
+                    favoriteDriver
+                });
+            }
+
+            setFavoriteTeam(prefs.favoriteTeam);
+            setFavoriteDriver(prefs.favoriteDriver);
+
+            localStorage.setItem('favoriteTeam', prefs.favoriteTeam);
+            localStorage.setItem('favoriteDriver', prefs.favoriteDriver);
+
+            return true;
+        } catch (error) {
+            console.error('Update van voorkeuren mislukt', error);
+            return false;
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const value = {
         user,
         token,
@@ -89,6 +131,7 @@ function AuthContextProvider({ children }) {
         logout,
         setFavoriteTeam,
         setFavoriteDriver,
+        updateFavorites
     };
 
     return (

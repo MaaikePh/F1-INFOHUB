@@ -2,8 +2,11 @@ import './Dashboard.css';
 import TeamSummary from '../../components/Dashboard/TeamSummary/TeamSummary.jsx';
 import DriverSummary from '../../components/Dashboard/DriverSummary/DriverSummary.jsx';
 import EditFavoriteButton from '../../components/Dashboard/EditFavoriteButton/EditFavoriteButton.jsx';
+import {useNavigate} from 'react-router-dom';
 
 function Dashboard() {
+    const navigate = useNavigate();
+
     return (
         <main className='dashboard-page'>
             <h1 className='title'>Persoonlijk Dashboard</h1>
@@ -12,6 +15,7 @@ function Dashboard() {
                     <TeamSummary/>
                     <EditFavoriteButton
                         label='Favoriet team aanpassen'
+                        onClick={() => navigate('/voorkeuren')}
                     />
                 </section>
 
@@ -25,6 +29,7 @@ function Dashboard() {
                     <DriverSummary/>
                     <EditFavoriteButton
                         label='Favoriete coureur aanpassen'
+                        onClick={() => navigate('/voorkeuren')}
                     />
                 </section>
             </div>
