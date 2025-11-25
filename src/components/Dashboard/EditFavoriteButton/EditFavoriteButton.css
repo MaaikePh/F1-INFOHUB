@@ -1,0 +1,31 @@
+.edit-favorite-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0;
+    margin-top: 1.5rem;
+}
+
+.edit-favorite-button-text {
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    border-bottom: 2px solid var(--color-primary-red);
+    padding-left: 2rem;
+}
+
+.edit-favorite-button-text:hover {
+    color: var(--color-primary-red);
+    border-bottom: 2px solid var(--color-light-grey);
+}
+
+.edit-favorite-button-arrow {
+    width: 10px;
+    height: 10px;
+    transform: rotate(-90deg) translateY(1px);
+    margin: 0 2rem 0 0.5rem;
+}

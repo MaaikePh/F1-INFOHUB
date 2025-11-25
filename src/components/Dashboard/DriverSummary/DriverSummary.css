@@ -1,0 +1,33 @@
+.driver-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 2rem 2rem 2rem;
+    background-color: var(--color-white);
+    border-radius: var(--radius-default);
+    border: 5px solid var(--team-color);
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.driver-card-outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.driver-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.driver-position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

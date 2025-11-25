@@ -1,0 +1,61 @@
+.dashboard-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 5rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto;
+}
+
+.dashboard-team-section,
+.dashboard-driver-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+.dashboard-team-section > .team-summary,
+.dashboard-driver-section > .driver-summary {
+    flex: 1;
+}
+
+.dashboard-team-section > button,
+.dashboard-driver-section > button {
+    margin-top: 1rem;
+}
+
+.dashboard-divider {
+    background-color: var(--color-primary-red);
+    width: 2px;
+}
+
+@media (max-width: 1100px) {
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    .dashboard-team-section,
+    .dashboard-driver-section {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .dashboard-divider {
+        width: 80%;
+        height: 2px;
+    }
+}

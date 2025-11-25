@@ -5,10 +5,13 @@ import Select from '../Select/Select.jsx';
 import teams from '../../../constants/teams.js'
 import testdata from '../../../constants/test-api-data.json'
 import Button from '../../general/Button/Button.jsx';
-import {registerUser, emailExists} from '../../../helpers/api.js';
-import {useState} from 'react';
+import {registerUser, emailExists, createPreferences, loginUser} from '../../../helpers/api.js';
+import {useContext, useState} from 'react';
+import {AuthContext} from '../../../context/AuthContext.jsx';
+import { normalize } from '../../../helpers/normalizer.js';
 
 function RegisterForm() {
+    const {setFavoriteTeam, setFavoriteDriver} = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
@@ -30,20 +33,36 @@ function RegisterForm() {
                 return;
             }
 
-            const payload = {
+            const newUser = await registerUser({
                 email: data.email,
                 password: data.password,
-                favoriteTeam: data.favoriteTeam,
-                favoriteDriver: data.favoriteDriver,
-            }
+                roles: ['member']
+            });
 
-            const result = await registerUser(payload);
+            const userId = newUser.id;
+
+            const loginResult = await loginUser({
+                email: data.email,
+                password: data.password,
+                roles: ['member']
+            });
+
+            localStorage.setItem('token', loginResult.token);
+            console.log("Token uit login:", loginResult.token);
+
+            const prefs = await createPreferences({
+                userId,
+                favoriteTeam: data.favoriteTeam,
+                favoriteDriver: data.favoriteDriver
+            });
+
+            setFavoriteTeam(prefs.favoriteTeam);
+            setFavoriteDriver(prefs.favoriteDriver);
+            localStorage.setItem('favoriteTeam', prefs.favoriteTeam);
+            localStorage.setItem('favoriteDriver', prefs.favoriteDriver);
 
             setSuccessMessage('Je account is succesvol aangemaakt!');
-            console.log('Succesvol geregistreerd:', result);
-
-            localStorage.setItem('favoriteTeam', data.favoriteTeam);
-            localStorage.setItem('favoriteDriver', data.favoriteDriver);
+            console.log('Succesvol geregistreerd:', prefs);
 
             reset();
             setSelectedTeam('');
@@ -136,9 +155,9 @@ function RegisterForm() {
                         },
                     }}
                     selectOptions={testdata.drivers
-                        .filter(driver => driver.team.toLowerCase() === selectedTeam)
+                        .filter(driver => normalize(driver.team) === normalize(selectedTeam))
                         .map(driver => ({
-                        value: driver.id,
+                        value: driver.name,
                         label: driver.name,
                     }))}
                     register={register}
