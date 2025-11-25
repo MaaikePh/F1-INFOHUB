@@ -9,7 +9,7 @@ import DriverPhotoCard from '../DriverPhotoCard/DriverPhotoCard.jsx';
 import Button from '../../general/Button/Button.jsx';
 import {useContext} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
-
+import {getLastRaceForDriver} from '../../../helpers/getLastRaceForDriver.js';
 
 function DriverSummary() {
     const {loading, favoriteDriver} = useContext(AuthContext);
@@ -31,6 +31,8 @@ function DriverSummary() {
             .trim()
         : '#ccc';
 
+    const lastRace = getLastRaceForDriver(driverData.name);
+
     const driverPhoto = driverStats.find(s => String(s.id) === favoriteDriver);
 
     return (
@@ -41,11 +43,18 @@ function DriverSummary() {
                 <div className='driver-stats'>
                     <div className='driver-position'>
                         <p className='favorite-label'>kampioenschapspositie:</p>
-                        <StatsCircle number={driverData.id} color={teamColor} size={100}/>
+                        <StatsCircle
+                            number={driverData.id}
+                            color={teamColor}
+                            size={100}
+                        />
                     </div>
 
                     <div className='driver-last-race-box'>
-                        <LastRaceBox/>
+                        <LastRaceBox
+                            race={lastRace}
+                            color={teamColor}
+                        />
                     </div>
                 </div>
 
