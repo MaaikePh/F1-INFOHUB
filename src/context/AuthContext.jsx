@@ -38,20 +38,21 @@ function AuthContextProvider({ children }) {
 
         try {
             const result = await loginUser({email, password});
+
+            localStorage.setItem('token', result.token);
+            setToken(result.token);
+
             const profile = await getUserByEmail(email);
             const prefs = await getPreferenceByUserId(profile.id);
 
             const favDriver = prefs?.favoriteDriver || '';
-
             const favTeamKey =
                 teams.find(t => normalize(t.name) === normalize(prefs?.favoriteTeam))?.key
                 || '';
 
-            localStorage.setItem('token', result.token);
             localStorage.setItem('favoriteTeam', favTeamKey);
             localStorage.setItem('favoriteDriver', favDriver);
 
-            setToken(result.token);
             setFavoriteTeam(favTeamKey);
             setFavoriteDriver(favDriver);
             setUser(profile);
