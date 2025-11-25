@@ -62,7 +62,7 @@ function DriverSummary() {
                     <DriverPhotoCard
                         photoUrl={driverPhoto.imageMain}
                         number={driverData.raceNumber}
-                        color={teamColor}
+                        teamColor={teamColor}
                     />
                 </div>
             </div>

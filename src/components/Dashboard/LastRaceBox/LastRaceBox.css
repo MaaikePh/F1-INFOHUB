@@ -1,0 +1,36 @@
+.last-race-box {
+    border-radius: var(--radius-default);
+    border: 3px solid var(--team-color);
+}
+
+.title-race {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary-red);
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.2em;
+    padding: 1rem;
+    color: var(--color-background);
+}
+
+.positions {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.position-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.position-label {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-background);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-semi-bold);
+}

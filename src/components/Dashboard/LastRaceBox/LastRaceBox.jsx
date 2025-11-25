@@ -1,22 +1,24 @@
-import './LastRaceBox.jsx.css';
+import './LastRaceBox.css';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 
-function LastRaceBox({race, color}) {
+function LastRaceBox({race, teamColor}) {
     if (!race) return null;
 
     return (
-        <div className='last-race-box'>
-            <h3 className='title'>Laatste Grand Prix</h3>
+        <div className='last-race-box' style={{
+            '--team-color': teamColor
+        }}>
+            <h3 className='title-race'>Laatste Grand Prix</h3>
 
-            <div>
-                <div>
-                    <span>Start positie</span>
-                    <StatsCircle number={race.start} color={color} size={70}/>
+            <div className='positions'>
+                <div className='position-block'>
+                    <span className='position-label'>Start positie</span>
+                    <StatsCircle number={race.start} color={teamColor} size={70}/>
                 </div>
 
-                <div>
-                    <span>Eind positie</span>
-                    <StatsCircle number={race.finish} color={color} size={70}/>
+                <div className='position-block'>
+                    <span className='position-label'>Eind positie</span>
+                    <StatsCircle number={race.finish} color={teamColor} size={70}/>
                 </div>
 
             </div>
