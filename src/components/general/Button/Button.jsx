@@ -12,7 +12,7 @@ function Button({type = "button", buttonStyle = 'primary', children, onClick, di
 
             {showArrow && (
                 <img
-                    src='/icons/Uitklappijl-button.png'
+                    src='/icons/arrow-button.svg'
                     alt=''
                     className='btn-arrow'
                 />
