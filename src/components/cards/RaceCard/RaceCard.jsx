@@ -24,7 +24,7 @@ function RaceCard({raceName, countryFlag, startDate, endDate, positionOne, posit
                 <p>{start} - {end}</p>
 
                 <img
-                    src='/icons/Uitklappijl.svg'
+                    src='/icons/arrow.svg'
                     alt=''
                     className='race-toggle-icon'
                     onClick={(e) => {

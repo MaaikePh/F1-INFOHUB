@@ -1,5 +1,5 @@
 import './Navigation.css';
-import {NavLink, useNavigate} from 'react-router-dom';
+import {Link, NavLink, useNavigate} from 'react-router-dom';
 import {useContext} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
 
@@ -14,7 +14,11 @@ function Navigation() {
 
     return (
         <header className='navigation-bar'>
-            <h2 className='logo'>F1INFOHUB</h2>
+
+            <Link to={'/'}  className='logo'>
+                <h2>F1INFOHUB</h2>
+            </Link>
+
             <nav>
                 <ul className='navbar'>
                     <li>

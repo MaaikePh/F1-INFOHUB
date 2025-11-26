@@ -11,7 +11,7 @@ function EditFavoriteButton({label, onClick}) {
                 {label}
 
                 <img
-                    src='/icons/Uitklappijl.svg'
+                    src='/icons/arrow.svg'
                     alt=''
                     className='edit-favorite-button-arrow'
                 />

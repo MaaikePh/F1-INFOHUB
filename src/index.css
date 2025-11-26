@@ -52,6 +52,19 @@
     --radius-default: 12px;
 }
 
+html, body, #root {
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 body {
     font-family: var(--font-primary), sans-serif;
     font-size: var(--font-size-body);

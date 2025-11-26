@@ -64,7 +64,7 @@ function EditFavorites() {
     }
 
     return (
-        <main className='edit-favorites-container'>
+        <div className='edit-favorites-container'>
             <h1 className='title'>Favorieten aanpassen</h1>
 
             <form
@@ -115,7 +115,7 @@ function EditFavorites() {
 
             </form>
 
-        </main>
+        </div>
     )
 }
 

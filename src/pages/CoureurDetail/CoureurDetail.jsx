@@ -58,7 +58,7 @@ function CoureurDetail() {
     })
 
     return (
-        <main className='driver-detail-container'>
+        <div className='driver-detail-container'>
 
             <header className='driver-header'>
 
@@ -125,7 +125,7 @@ function CoureurDetail() {
                     countryCode={team.countryCode}
                 />
             </section>
-        </main>
+        </div>
     )
 }
 
