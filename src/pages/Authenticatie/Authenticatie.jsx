@@ -17,7 +17,7 @@ function Authenticatie() {
 
 
     return (
-        <main className='authentication-page'>
+        <div className='authentication-page'>
             <LoginForm />
 
             <img
@@ -27,7 +27,7 @@ function Authenticatie() {
             />
 
             <RegisterForm/>
-        </main>
+        </div>
     )
 }
 

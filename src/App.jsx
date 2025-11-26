@@ -17,14 +17,19 @@ function App() {
         <>
             <Navigation/>
             <ScrollToTop/>
-            <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='/racekalender' element={<Racekalender/>}/>
-                <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-                <Route path='/voorkeuren' element={<PrivateRoute><EditFavorites/></PrivateRoute>}/>
-                <Route path='/inloggen' element={<Inloggen/>}/>
-                <Route path='/coureur/:id' element={<Detailpage/>}/>
-            </Routes>
+
+            <main>
+                <Routes>
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='/racekalender' element={<Racekalender/>}/>
+                    <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+                    <Route path='/voorkeuren' element={<PrivateRoute><EditFavorites/></PrivateRoute>}/>
+                    <Route path='/inloggen' element={<Inloggen/>}/>
+                    <Route path='/coureur/:id' element={<Detailpage/>}/>
+                </Routes>
+            </main>
+
+
             <Footer/>
         </>
     )

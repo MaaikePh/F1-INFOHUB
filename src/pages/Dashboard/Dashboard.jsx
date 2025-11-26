@@ -8,7 +8,7 @@ function Dashboard() {
     const navigate = useNavigate();
 
     return (
-        <main className='dashboard-page'>
+        <div className='dashboard-page'>
             <h1 className='title'>Persoonlijk Dashboard</h1>
             <div className='dashboard'>
                 <section className='dashboard-team-section'>
@@ -33,7 +33,7 @@ function Dashboard() {
                     />
                 </section>
             </div>
-        </main>
+        </div>
     )
 }
 

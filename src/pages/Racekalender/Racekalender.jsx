@@ -9,7 +9,7 @@ function Racekalender() {
     const [monthFilter, setMonthFilter] = useState('all');
 
     return (
-        <main className="Racekalender">
+        <div className="Racekalender">
             <h1 className='title'>Racekalender {testdata.season}</h1>
 
             <section className='race-filter-container'>
@@ -35,7 +35,7 @@ function Racekalender() {
                     />
                 ))}
             </section>
-        </main>
+        </div>
     )
 }
 

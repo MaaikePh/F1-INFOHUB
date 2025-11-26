@@ -7,7 +7,7 @@ import DriverCard from '../../components/cards/DriverCard/DriverCard.jsx';
 
 function Homepage() {
     return (
-        <main>
+        <>
             <section className='all-teams-container'>
                 {teams.map(team => (
                     <TeamCard
@@ -47,7 +47,7 @@ function Homepage() {
                     );
                 })}
             </section>
-        </main>
+        </>
     )
 }
 
