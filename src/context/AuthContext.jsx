@@ -1,7 +1,7 @@
 import {createContext, useEffect, useState} from 'react';
-import teams from '../constants/teams.js';
 import api, {getUserByEmail, loginUser, getPreferenceByUserId, createPreferences} from '../helpers/api.js';
 import {normalize} from '../helpers/normalizer.js';
+import driverstats from '../constants/driver-stats.json';
 
 export const AuthContext = createContext();
 
@@ -13,6 +13,10 @@ function AuthContextProvider({ children }) {
     const [authError, setAuthError] = useState('');
     const [favoriteTeam, setFavoriteTeam] = useState(localStorage.getItem('favoriteTeam') || '');
     const [favoriteDriver, setFavoriteDriver] = useState(localStorage.getItem('favoriteDriver') || '');
+
+    const teams = [
+        ...new Map(driverstats.map((d) => [d.team.key, d.team]))
+    ].map(([, team]) => team);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -47,8 +51,7 @@ function AuthContextProvider({ children }) {
 
             const favDriver = prefs?.favoriteDriver || '';
             const favTeamKey =
-                teams.find(t => normalize(t.name) === normalize(prefs?.favoriteTeam))?.key
-                || '';
+                teams.find((t) => normalize(t.name) === normalize(prefs?.favoriteTeam))?.key || '';
 
             localStorage.setItem('favoriteTeam', favTeamKey);
             localStorage.setItem('favoriteDriver', favDriver);

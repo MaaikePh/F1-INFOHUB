@@ -1,15 +1,19 @@
 import './TeamSummary.css';
 import TeamCard from '../../cards/TeamCard/TeamCard.jsx';
-import teams from '../../../constants/teams.js';
-import testdata from '../../../constants/test-api-data.json';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 import DriverBadge from '../DriverBadge/DriverBadge.jsx';
 import {normalize} from '../../../helpers/normalizer.js';
 import {useContext} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
+import driverstats from '../../../constants/driver-stats.json'
 
 function TeamSummary() {
     const {favoriteTeam} = useContext(AuthContext);
+
+    const teams = [
+        ...new Map(driverstats.map((d) => [d.team.key, d.team]))
+    ].map(([, team]) => team);
+
     const teamData = teams.find((t) => normalize(t.key) === normalize(favoriteTeam));
 
     if (!teamData) {
@@ -21,18 +25,14 @@ function TeamSummary() {
         );
     }
 
-    const teamDrivers = testdata.drivers.filter((driver) => {
-        const driverKey = normalize(driver.team);
-        const favKey = normalize(favoriteTeam);
-        return driverKey === favKey;
-    });
+    const teamDrivers = driverstats.filter(
+        (d) => normalize(d.team.key) === normalize(favoriteTeam)
+    );
 
 
-    const teamColor = teamData
-        ? getComputedStyle(document.documentElement)
+    const teamColor = getComputedStyle(document.documentElement)
             .getPropertyValue(teamData.colorVar)
-            .trim()
-        : '#ccc';
+            .trim();
 
     return (
         <article className='team-summary' style={{ '--team-color': teamColor }}>

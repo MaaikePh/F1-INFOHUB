@@ -325,12 +325,12 @@
     "raceNumber": 22,
     "tla": "TSU",
     "team": {
-      "name": "Racing Bulls",
-      "key": "racingbulls",
-      "country": "Italië",
-      "countryCode": "it",
-      "colorVar": "--color-racingbulls",
-      "standingsPosition": 6
+      "name": "Red Bull Racing",
+      "key": "redbullracing",
+      "country": "Oostenrijk",
+      "countryCode": "at",
+      "colorVar": "--color-redbull",
+      "standingsPosition": 3
     },
     "countryCode": "jp",
     "wins": 0,

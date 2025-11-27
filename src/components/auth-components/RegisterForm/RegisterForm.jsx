@@ -2,13 +2,12 @@ import './RegisterForm.css';
 import {useForm} from 'react-hook-form';
 import Input from '../Input/Input.jsx';
 import Select from '../Select/Select.jsx';
-import teams from '../../../constants/teams.js'
-import testdata from '../../../constants/test-api-data.json'
 import Button from '../../general/Button/Button.jsx';
 import {registerUser, emailExists, createPreferences, loginUser} from '../../../helpers/api.js';
 import {useContext, useState} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
 import { normalize } from '../../../helpers/normalizer.js';
+import driverstats from '../../../constants/driver-stats.json';
 
 function RegisterForm() {
     const {setFavoriteTeam, setFavoriteDriver} = useContext(AuthContext);
@@ -18,6 +17,10 @@ function RegisterForm() {
     const [selectedTeam, setSelectedTeam] = useState('');
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm();
+
+    const teams = [
+        ...new Map(driverstats.map(d => [d.team.key, d.team]))
+    ].map(([, team]) => team);
 
     async function onSubmit(data) {
         setLoading(true);
@@ -154,8 +157,8 @@ function RegisterForm() {
                             message: 'Selecteer een coureur.'
                         },
                     }}
-                    selectOptions={testdata.drivers
-                        .filter(driver => normalize(driver.team) === normalize(selectedTeam))
+                    selectOptions={driverstats
+                        .filter(driver => normalize(driver.team.key) === normalize(selectedTeam))
                         .map(driver => ({
                         value: driver.name,
                         label: driver.name,
