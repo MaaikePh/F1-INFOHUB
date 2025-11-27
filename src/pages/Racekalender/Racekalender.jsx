@@ -1,42 +1,86 @@
 import './Racekalender.css';
-import testdata from '/src/constants/test-api-data.json';
-import RaceFilter from '../../components/filters-and-sorting/RaceFilter/RaceFilter.jsx';
 import RaceCard from '../../components/cards/RaceCard/RaceCard.jsx';
-import {useState} from 'react';
-import {getMonthKey} from '../../helpers/getMonthKey.js';
+import RaceFilter from '../../components/filters-and-sorting/RaceFilter/RaceFilter.jsx';
+import { useEffect, useState } from 'react';
+import { hyperaceGet } from '../../helpers/hyperace.js';
 
 function Racekalender() {
-    const [monthFilter, setMonthFilter] = useState('all');
+    const [allRaces, setAllRaces] = useState([]);
+    const [filteredMonth, setFilteredMonth] = useState('all');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        async function loadRaces() {
+            setLoading(true);
+            setError('');
+
+            try {
+                const data = await hyperaceGet(
+                    `/v2/grands-prix?seasonYear=2025&pageSize=25`,
+                    controller.signal
+                );
+
+                const sorted = data.items.sort(
+                    (a, b) => new Date(a.startDate) - new Date(b.startDate)
+                );
+
+                setAllRaces(sorted);
+
+            } catch (err) {
+                if (err.name !== 'CanceledError') {
+                    console.error(err);
+                    setError('Kon racekalender niet laden.');
+                }
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        loadRaces();
+        return () => controller.abort();
+
+    }, []);
+
+    const visibleRaces = allRaces.filter(gp => {
+        if (filteredMonth === 'all') return true;
+
+        const month = new Date(gp.startDate).toLocaleString('en-US', { month: 'long' }).toLowerCase();
+        return month === filteredMonth;
+    });
+
+    if (loading) {
+        return <p className="racekalender-status">Kalender wordt geladen...</p>;
+    }
+
+    if (error) {
+        return <p className="racekalender-status">{error}</p>;
+    }
 
     return (
-        <div className="Racekalender">
-            <h1 className='title'>Racekalender {testdata.season}</h1>
+        <div className="racekalender-container">
+            <h1 className="title">Racekalender 2025</h1>
 
-            <section className='race-filter-container'>
-                    <RaceFilter onFilterChange={setMonthFilter} />
-            </section>
+            <RaceFilter onFilterChange={setFilteredMonth} />
 
-            <section className='all-races-container'>
-                {testdata.races
-                    .filter(race =>
-                        monthFilter === 'all' ||
-                        getMonthKey(race.beginDate) === monthFilter)
-                    .map(race => (
+            <div className="race-list">
+                {visibleRaces.map(gp => (
                     <RaceCard
-                    key={race.id}
-                    raceName={race.name}
-                    countryFlag={race.countryCode}
-                    startDate={race.beginDate}
-                    endDate={race.endDate}
-                    label={race.status}
-                    positionOne={race.results?.race?.[0]?.driver}
-                    positionTwo={race.results?.race?.[1]?.driver}
-                    positionThree={race.results?.race?.[2]?.driver}
+                        key={gp.id}
+                        raceName={gp.name}
+                        countryFlag={gp.countryCode?.toLowerCase()}
+                        startDate={gp.startDate}
+                        endDate={gp.endDate}
+                        positionOne={gp.podium?.[0]?.driverName}
+                        positionTwo={gp.podium?.[1]?.driverName}
+                        positionThree={gp.podium?.[2]?.driverName}
                     />
                 ))}
-            </section>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Racekalender;
