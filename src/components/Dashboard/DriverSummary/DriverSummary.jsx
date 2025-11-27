@@ -1,22 +1,50 @@
 import './DriverSummary.css';
-import teams from '../../../constants/teams.js';
-import testdata from '../../../constants/test-api-data.json';
-import driverStats from '/src/constants/driver-stats.json';
-import {normalize} from '../../../helpers/normalizer.js';
+import driverStats from '../../../constants/driver-stats.json';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 import LastRaceBox from '../LastRaceBox/LastRaceBox.jsx';
 import DriverPhotoCard from '../DriverPhotoCard/DriverPhotoCard.jsx';
 import Button from '../../general/Button/Button.jsx';
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
-import {getLastRaceForDriver} from '../../../helpers/getLastRaceForDriver.js';
+import {normalize} from '../../../helpers/normalizer.js';
 import {Link} from 'react-router-dom';
+import {getLastRaceForDriver} from '../../../helpers/getLastRaceForDriver.js';
 
 function DriverSummary() {
+    const [lastRace, setLastRace] = useState(null);
+    const [raceLoading, setRaceLoading] = useState(true);
+    const [raceError, setRaceError] = useState('');
     const {loading, favoriteDriver} = useContext(AuthContext);
-    const driverData = testdata.drivers.find(
-        (d) => normalize(d.name) === normalize(favoriteDriver)
+    const driverData = driverStats.find(
+        d => normalize(d.name) === normalize(favoriteDriver)
     );
+
+    useEffect(() => {
+        if (!driverData?.id) return;
+
+        const controller = new AbortController();
+
+        async function loadLastRace() {
+            setRaceLoading(true);
+            setRaceError('');
+
+            try {
+                const result = await getLastRaceForDriver(driverData.id, controller.signal);
+                setLastRace(result);
+            } catch (error) {
+                if (error.name !== 'CanceledError') {
+                    console.error(error);
+                    setRaceError('Kan laatste race niet ophalen.');
+                }
+            } finally {
+                setRaceLoading(false);
+            }
+        }
+
+        loadLastRace();
+
+        return () => controller.abort();
+    }, [driverData?.id]);
 
     if (!driverData) {
         return (
@@ -27,18 +55,10 @@ function DriverSummary() {
         )
     }
 
-    const teamData = teams.find(t => normalize(t.key) === normalize(driverData.team));
-    const teamColor = teamData ?
-        getComputedStyle(document.documentElement)
+    const teamData = driverData.team;
+    const teamColor = getComputedStyle(document.documentElement)
             .getPropertyValue(teamData.colorVar)
-            .trim()
-        : '#ccc';
-
-    const lastRace = getLastRaceForDriver(driverData.name);
-
-    const driverPhoto = driverStats.find(
-        (s) => normalize(s.name) === normalize(favoriteDriver)
-    );
+            .trim();
 
     return (
         <article className='driver-summary' style={{'--team-color': teamColor}}>
@@ -58,6 +78,8 @@ function DriverSummary() {
                     <div className='driver-last-race-box'>
                         <LastRaceBox
                             race={lastRace}
+                            loading={raceLoading}
+                            error={raceError}
                             color={teamColor}
                         />
                     </div>
@@ -65,7 +87,7 @@ function DriverSummary() {
 
                 <div className='driver-photo-container'>
                     <DriverPhotoCard
-                        photoUrl={driverPhoto.imageMain}
+                        photoUrl={driverData.imageMain}
                         number={driverData.raceNumber}
                         teamColor={teamColor}
                     />
