@@ -2,6 +2,9 @@ import axios from 'axios';
 
 export async function hyperaceGet(endpoint, signal) {
     const url = `${import.meta.env.VITE_HYPERACE_BASE_URL}${endpoint}`;
+    console.warn("⚠️ API CALL WOULD BE MADE HERE:", url);
+// return mockData;  // tijdelijk uitschakelen
+    throw new Error("API temporarily disabled during development");
 
     try {
         const response = await axios.get(url, {
