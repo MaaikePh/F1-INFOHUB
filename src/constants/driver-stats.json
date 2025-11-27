@@ -13,6 +13,9 @@
       "standingsPosition": 1
     },
     "countryCode": "gb",
+    "country": "Verenigd Koninkrijk",
+    "birthdate": "1999-11-13",
+    "firstSeason": 2019,
     "wins": 11,
     "poles": 15,
     "podiums": 43,
@@ -33,6 +36,9 @@
       "standingsPosition": 1
     },
     "countryCode": "au",
+    "country": "Australië",
+    "birthdate": "2001-04-06",
+    "firstSeason": 2023,
     "wins": 9,
     "poles": 5,
     "podiums": 24,
@@ -53,6 +59,9 @@
       "standingsPosition": 3
     },
     "countryCode": "nl",
+    "country": "Nederland",
+    "birthdate": "1997-09-30",
+    "firstSeason": 2015,
     "wins": 68,
     "poles": 47,
     "podiums": 124,
@@ -73,6 +82,9 @@
       "standingsPosition": 2
     },
     "countryCode": "gb",
+    "country": "Verenigd Koninkrijk",
+    "birthdate": "1998-02-15",
+    "firstSeason": 2019,
     "wins": 5,
     "poles": 7,
     "podiums": 23,
@@ -93,6 +105,9 @@
       "standingsPosition": 4
     },
     "countryCode": "mc",
+    "country": "Monaco",
+    "birthdate": "1997-10-16",
+    "firstSeason": 2018,
     "wins": 8,
     "poles": 27,
     "podiums": 50,
@@ -113,6 +128,9 @@
       "standingsPosition": 4
     },
     "countryCode": "gb",
+    "country": "Verenigd Koninkrijk",
+    "birthdate": "1985-01-07",
+    "firstSeason": 2007,
     "wins": 105,
     "poles": 104,
     "podiums": 202,
@@ -133,6 +151,9 @@
       "standingsPosition": 2
     },
     "countryCode": "it",
+    "country": "Italië",
+    "birthdate": "2006-08-25",
+    "firstSeason": 2025,
     "wins": 11,
     "poles": 15,
     "podiums": 43,
@@ -153,6 +174,9 @@
       "standingsPosition": 5
     },
     "countryCode": "th",
+    "country": "Thailand",
+    "birthdate": "1996-03-23",
+    "firstSeason": 2019,
     "wins": 0,
     "poles": 0,
     "podiums": 2,
@@ -173,6 +197,9 @@
       "standingsPosition": 8
     },
     "countryCode": "de",
+    "country": "Duitsland",
+    "birthdate": "1987-08-19",
+    "firstSeason": 2010,
     "wins": 0,
     "poles": 1,
     "podiums": 1,
@@ -193,6 +220,9 @@
       "standingsPosition": 6
     },
     "countryCode": "fr",
+    "country": "Frankrijk",
+    "birthdate": "2004-09-28",
+    "firstSeason": 2025,
     "wins": 0,
     "poles": 0,
     "podiums": 1,
@@ -213,6 +243,9 @@
       "standingsPosition": 8
     },
     "countryCode": "gb",
+    "country": "Verenigd Koninkrijk",
+    "birthdate": "2005-05-08",
+    "firstSeason": 2025,
     "wins": 0,
     "poles": 0,
     "podiums": 0,
@@ -233,6 +266,9 @@
       "standingsPosition": 7
     },
     "countryCode": "es",
+    "country": "Spanje",
+    "birthdate": "1981-07-29",
+    "firstSeason": 2001,
     "wins": 32,
     "poles": 22,
     "podiums": 106,
@@ -253,6 +289,9 @@
       "standingsPosition": 5
     },
     "countryCode": "es",
+    "country": "Spanje",
+    "birthdate": "1994-09-01",
+    "firstSeason": 2015,
     "wins": 4,
     "poles": 6,
     "podiums": 28,
@@ -273,6 +312,9 @@
       "standingsPosition": 6
     },
     "countryCode": "nz",
+    "country": "Nieuw-Zeeland",
+    "birthdate": "2002-02-11",
+    "firstSeason": 2023,
     "wins": 11,
     "poles": 15,
     "podiums": 43,
@@ -293,6 +335,9 @@
       "standingsPosition": 7
     },
     "countryCode": "ca",
+    "country": "Canada",
+    "birthdate": "1998-10-29",
+    "firstSeason": 2017,
     "wins": 0,
     "poles": 0,
     "podiums": 0,
@@ -313,6 +358,9 @@
       "standingsPosition": 10
     },
     "countryCode": "fr",
+    "country": "Frankrijk",
+    "birthdate": "1996-09-17",
+    "firstSeason": 2016,
     "wins": 1,
     "poles": 0,
     "podiums": 4,
@@ -333,6 +381,9 @@
       "standingsPosition": 3
     },
     "countryCode": "jp",
+    "country": "Japan",
+    "birthdate": "2000-05-11",
+    "firstSeason": 2021,
     "wins": 0,
     "poles": 0,
     "podiums": 0,
@@ -353,6 +404,9 @@
       "standingsPosition": 10
     },
     "countryCode": "fr",
+    "country": "Frankrijk",
+    "birthdate": "1996-02-07",
+    "firstSeason": 2017,
     "wins": 1,
     "poles": 0,
     "podiums": 5,
@@ -373,6 +427,9 @@
       "standingsPosition": 9
     },
     "countryCode": "br",
+    "country": "Brazilië",
+    "birthdate": "2004-10-14",
+    "firstSeason": 2025,
     "wins": 0,
     "poles": 0,
     "podiums": 0,
@@ -393,6 +450,9 @@
       "standingsPosition": 9
     },
     "countryCode": "ar",
+    "country": "Argentinië",
+    "birthdate": "2003-05-27",
+    "firstSeason": 2024,
     "wins": 0,
     "poles": 0,
     "podiums": 0,
