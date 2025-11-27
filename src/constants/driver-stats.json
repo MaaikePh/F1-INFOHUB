@@ -2,6 +2,16 @@
   {
     "id": 1,
     "name": "Lando Norris",
+    "raceNumber": 4,
+    "tla": "NOR",
+    "team": {
+      "name": "McLaren",
+      "key": "mclaren",
+      "country": "Verenigd Koninkrijk",
+      "countryCode": "gb",
+      "colorVar": "--color-mclaren",
+      "standingsPosition": 1
+    },
     "countryCode": "gb",
     "wins": 11,
     "poles": 15,
@@ -12,6 +22,16 @@
   {
     "id": 2,
     "name": "Oscar Piastri",
+    "raceNumber": 81,
+    "tla": "PIA",
+    "team": {
+      "name": "McLaren",
+      "key": "mclaren",
+      "country": "Verenigd Koninkrijk",
+      "countryCode": "gb",
+      "colorVar": "--color-mclaren",
+      "standingsPosition": 1
+    },
     "countryCode": "au",
     "wins": 9,
     "poles": 5,
@@ -22,6 +42,16 @@
   {
     "id": 3,
     "name": "Max Verstappen",
+    "raceNumber": 1,
+    "tla": "VER",
+    "team": {
+      "name": "Red Bull Racing",
+      "key": "redbullracing",
+      "country": "Oostenrijk",
+      "countryCode": "at",
+      "colorVar": "--color-redbull",
+      "standingsPosition": 3
+    },
     "countryCode": "nl",
     "wins": 68,
     "poles": 47,
@@ -32,6 +62,16 @@
   {
     "id": 4,
     "name": "George Russell",
+    "raceNumber": 63,
+    "tla": "RUS",
+    "team": {
+      "name": "Mercedes",
+      "key": "mercedes",
+      "country": "Duitsland",
+      "countryCode": "de",
+      "colorVar": "--color-mercedes",
+      "standingsPosition": 2
+    },
     "countryCode": "gb",
     "wins": 5,
     "poles": 7,
@@ -42,6 +82,16 @@
   {
     "id": 5,
     "name": "Charles Leclerc",
+    "raceNumber": 16,
+    "tla": "LEC",
+    "team": {
+      "name": "Ferrari",
+      "key": "ferrari",
+      "country": "Italië",
+      "countryCode": "it",
+      "colorVar": "--color-ferrari",
+      "standingsPosition": 4
+    },
     "countryCode": "mc",
     "wins": 8,
     "poles": 27,
@@ -52,6 +102,16 @@
   {
     "id": 6,
     "name": "Lewis Hamilton",
+    "raceNumber": 44,
+    "tla": "HAM",
+    "team": {
+      "name": "Ferrari",
+      "key": "ferrari",
+      "country": "Italië",
+      "countryCode": "it",
+      "colorVar": "--color-ferrari",
+      "standingsPosition": 4
+    },
     "countryCode": "gb",
     "wins": 105,
     "poles": 104,
@@ -62,6 +122,16 @@
   {
     "id": 7,
     "name": "Kimi Antonelli",
+    "raceNumber": 12,
+    "tla": "ANT",
+    "team": {
+      "name": "Mercedes",
+      "key": "mercedes",
+      "country": "Duitsland",
+      "countryCode": "de",
+      "colorVar": "--color-mercedes",
+      "standingsPosition": 2
+    },
     "countryCode": "it",
     "wins": 11,
     "poles": 15,
@@ -72,6 +142,16 @@
   {
     "id": 8,
     "name": "Alexander Albon",
+    "raceNumber": 23,
+    "tla": "ALB",
+    "team": {
+      "name": "Williams",
+      "key": "williams",
+      "country": "Verenigd Koninkrijk",
+      "countryCode": "gb",
+      "colorVar": "--color-williams",
+      "standingsPosition": 5
+    },
     "countryCode": "th",
     "wins": 0,
     "poles": 0,
@@ -82,6 +162,16 @@
   {
     "id": 9,
     "name": "Nico Hulkenberg",
+    "raceNumber": 27,
+    "tla": "HUL",
+    "team": {
+      "name": "Haas",
+      "key": "haas",
+      "country": "Verenigde Staten",
+      "countryCode": "us",
+      "colorVar": "--color-haas",
+      "standingsPosition": 8
+    },
     "countryCode": "de",
     "wins": 0,
     "poles": 1,
@@ -92,6 +182,16 @@
   {
     "id": 10,
     "name": "Isack Hadjar",
+    "raceNumber": 6,
+    "tla": "HAD",
+    "team": {
+      "name": "Racing Bulls",
+      "key": "racingbulls",
+      "country": "Italië",
+      "countryCode": "it",
+      "colorVar": "--color-racingbulls",
+      "standingsPosition": 6
+    },
     "countryCode": "fr",
     "wins": 0,
     "poles": 0,
@@ -102,6 +202,16 @@
   {
     "id": 11,
     "name": "Oliver Bearman",
+    "raceNumber": 87,
+    "tla": "BEA",
+    "team": {
+      "name": "Haas",
+      "key": "haas",
+      "country": "Verenigde Staten",
+      "countryCode": "us",
+      "colorVar": "--color-haas",
+      "standingsPosition": 8
+    },
     "countryCode": "gb",
     "wins": 0,
     "poles": 0,
@@ -112,6 +222,16 @@
   {
     "id": 12,
     "name": "Fernando Alonso",
+    "raceNumber": 14,
+    "tla": "ALO",
+    "team": {
+      "name": "Aston Martin",
+      "key": "astonmartin",
+      "country": "Verenigd Koninkrijk",
+      "countryCode": "gb",
+      "colorVar": "--color-astonmartin",
+      "standingsPosition": 7
+    },
     "countryCode": "es",
     "wins": 32,
     "poles": 22,
@@ -122,6 +242,16 @@
   {
     "id": 13,
     "name": "Carlos Sainz",
+    "raceNumber": 55,
+    "tla": "SAI",
+    "team": {
+      "name": "Williams",
+      "key": "williams",
+      "country": "Verenigd Koninkrijk",
+      "countryCode": "gb",
+      "colorVar": "--color-williams",
+      "standingsPosition": 5
+    },
     "countryCode": "es",
     "wins": 4,
     "poles": 6,
@@ -132,6 +262,16 @@
   {
     "id": 14,
     "name": "Liam Lawson",
+    "raceNumber": 30,
+    "tla": "LAW",
+    "team": {
+      "name": "Racing Bulls",
+      "key": "racingbulls",
+      "country": "Italië",
+      "countryCode": "it",
+      "colorVar": "--color-racingbulls",
+      "standingsPosition": 6
+    },
     "countryCode": "nz",
     "wins": 11,
     "poles": 15,
@@ -142,6 +282,16 @@
   {
     "id": 15,
     "name": "Lance Stroll",
+    "raceNumber": 18,
+    "tla": "STR",
+    "team": {
+      "name": "Aston Martin",
+      "key": "astonmartin",
+      "country": "Verenigd Koninkrijk",
+      "countryCode": "gb",
+      "colorVar": "--color-astonmartin",
+      "standingsPosition": 7
+    },
     "countryCode": "ca",
     "wins": 0,
     "poles": 0,
@@ -152,6 +302,16 @@
   {
     "id": 16,
     "name": "Esteban Ocon",
+    "raceNumber": 31,
+    "tla": "OCO",
+    "team": {
+      "name": "Alpine",
+      "key": "alpine",
+      "country": "Frankrijk",
+      "countryCode": "fr",
+      "colorVar": "--color-alpine",
+      "standingsPosition": 10
+    },
     "countryCode": "fr",
     "wins": 1,
     "poles": 0,
@@ -162,6 +322,16 @@
   {
     "id": 17,
     "name": "Yuki Tsunoda",
+    "raceNumber": 22,
+    "tla": "TSU",
+    "team": {
+      "name": "Racing Bulls",
+      "key": "racingbulls",
+      "country": "Italië",
+      "countryCode": "it",
+      "colorVar": "--color-racingbulls",
+      "standingsPosition": 6
+    },
     "countryCode": "jp",
     "wins": 0,
     "poles": 0,
@@ -172,6 +342,16 @@
   {
     "id": 18,
     "name": "Pierre Gasly",
+    "raceNumber": 10,
+    "tla": "GAS",
+    "team": {
+      "name": "Alpine",
+      "key": "alpine",
+      "country": "Frankrijk",
+      "countryCode": "fr",
+      "colorVar": "--color-alpine",
+      "standingsPosition": 10
+    },
     "countryCode": "fr",
     "wins": 1,
     "poles": 0,
@@ -182,6 +362,16 @@
   {
     "id": 19,
     "name": "Gabriel Bortoleto",
+    "raceNumber": 5,
+    "tla": "BOR",
+    "team": {
+      "name": "Kick Sauber",
+      "key": "kicksauber",
+      "country": "Zwitserland",
+      "countryCode": "ch",
+      "colorVar": "--color-sauber",
+      "standingsPosition": 9
+    },
     "countryCode": "br",
     "wins": 0,
     "poles": 0,
@@ -192,6 +382,16 @@
   {
     "id": 20,
     "name": "Franco Colapinto",
+    "raceNumber": 43,
+    "tla": "COL",
+    "team": {
+      "name": "Kick Sauber",
+      "key": "kicksauber",
+      "country": "Zwitserland",
+      "countryCode": "ch",
+      "colorVar": "--color-sauber",
+      "standingsPosition": 9
+    },
     "countryCode": "ar",
     "wins": 0,
     "poles": 0,

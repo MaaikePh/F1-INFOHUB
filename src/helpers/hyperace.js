@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function hyperaceGet(endpoint) {
+export async function hyperaceGet(endpoint, signal) {
     const url = `${import.meta.env.VITE_HYPERACE_BASE_URL}${endpoint}`;
 
     try {
@@ -8,7 +8,8 @@ export async function hyperaceGet(endpoint) {
             headers: {
                 'x-rapidapi-key': import.meta.env.VITE_HYPERACE_API_KEY,
                 'x-rapidapi-host': import.meta.env.VITE_HYPERACE_HOST,
-            }
+            },
+            signal: signal,
         });
 
         return response.data;
