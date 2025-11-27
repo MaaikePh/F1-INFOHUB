@@ -84,19 +84,22 @@ function CoureurDetail() {
                 </div>
 
                 <div className='driver-header-photo'>
-                    <img
-                        src={driver.imageDetail}
-                        alt={driver.name}
-                        className='driver-detail-img'
-                    />
+                    <div className='driver-photo-wrapper'>
+                        <img
+                            src={driver.imageDetail}
+                            alt={driver.name}
+                            className='driver-detail-img'
+                        />
 
-                    <p className='driver-number number-detail'>{data.raceNumber}</p>
+                        <p className='driver-number number-detail'>{data.raceNumber}</p>
+                    </div>
 
                     <TeamCard
                         teamName={team.name}
                         teamKey={team.key}
                         className='team-card-detail'
                     />
+
                 </div>
 
             </header>

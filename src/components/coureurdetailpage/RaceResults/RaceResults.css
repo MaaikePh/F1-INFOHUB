@@ -43,3 +43,15 @@
     gap: 2rem;
     padding: 0.5rem 0;
 }
+
+@media (max-width: 600px) {
+    .race-results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .results-sort-select,
+    .results-filter-select {
+        width: 100%;
+    }
+}

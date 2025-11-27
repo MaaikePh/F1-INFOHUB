@@ -28,6 +28,13 @@
     text-transform: uppercase;
 }
 
+.driver-photo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .driver-header-photo {
     position: relative;
     display: flex;
@@ -59,4 +66,39 @@
 .personal-panel,
 .team-panel {
     padding: 0.5rem 2rem;
+}
+
+@media (max-width: 960px) {
+    .driver-header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stats {
+        gap: 2rem;
+    }
+
+    .driver-detail-img {
+        width: 12rem;
+        height: auto;
+    }
+
+    .driver-header-photo {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .team-card-detail {
+        position: static;
+        margin-top: 1rem;
+        align-self: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .driver-header {
+        padding: 1rem 2rem;
+    }
 }
