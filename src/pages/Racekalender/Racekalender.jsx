@@ -1,8 +1,10 @@
 import './Racekalender.css';
 import RaceCard from '../../components/cards/RaceCard/RaceCard.jsx';
 import RaceFilter from '../../components/filters-and-sorting/RaceFilter/RaceFilter.jsx';
-import { useEffect, useState } from 'react';
-import { hyperaceGet } from '../../helpers/hyperace.js';
+import {useEffect, useState} from 'react';
+import {hyperaceGet} from '../../helpers/hyperace.js';
+import {getDriverNameById} from '../../helpers/driverNameById.js';
+import {getFlagCodeForGrandPrix} from '../../helpers/grandPrixFlags.js';
 
 function Racekalender() {
     const [allRaces, setAllRaces] = useState([]);
@@ -47,37 +49,42 @@ function Racekalender() {
     const visibleRaces = allRaces.filter(gp => {
         if (filteredMonth === 'all') return true;
 
-        const month = new Date(gp.startDate).toLocaleString('en-US', { month: 'long' }).toLowerCase();
+        const month = new Date(gp.startDate).toLocaleString('en-US', {month: 'long'}).toLowerCase();
         return month === filteredMonth;
     });
 
     if (loading) {
-        return <p className="racekalender-status">Kalender wordt geladen...</p>;
+        return <p className='racekalender-status'>Kalender wordt geladen...</p>;
     }
 
     if (error) {
-        return <p className="racekalender-status">{error}</p>;
+        return <p className='racekalender-status'>{error}</p>;
     }
 
     return (
-        <div className="racekalender-container">
-            <h1 className="title">Racekalender {new Date().getFullYear()}</h1>
+        <div className='racekalender'>
+            <h1 className='title'>Racekalender {new Date().getFullYear()}</h1>
 
-            <RaceFilter onFilterChange={setFilteredMonth} />
+            <RaceFilter onFilterChange={setFilteredMonth} className='race-filter-container'/>
 
-            <div className="race-list">
-                {visibleRaces.map(gp => (
-                    <RaceCard
-                        key={gp.id}
-                        raceName={gp.name}
-                        countryFlag={gp.countryCode?.toLowerCase()}
-                        startDate={gp.startDate}
-                        endDate={gp.endDate}
-                        positionOne={gp.podium?.[0]?.driverName}
-                        positionTwo={gp.podium?.[1]?.driverName}
-                        positionThree={gp.podium?.[2]?.driverName}
-                    />
-                ))}
+            <div className='all-races-container'>
+                {visibleRaces.map(gp => {
+                    const flag = getFlagCodeForGrandPrix(gp.name);
+
+                    return (
+                        <RaceCard
+                            key={gp.id}
+                            raceName={gp.name}
+                            countryFlag={flag}
+                            startDate={gp.startDate}
+                            endDate={gp.endDate}
+                            hasPodium={gp.podium?.length === 3}
+                            positionOne={getDriverNameById(gp.podium?.[0]?.driverId)}
+                            positionTwo={getDriverNameById(gp.podium?.[1]?.driverId)}
+                            positionThree={getDriverNameById(gp.podium?.[2]?.driverId)}
+                        />
+                    )
+                })}
             </div>
         </div>
     );

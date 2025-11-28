@@ -2,7 +2,7 @@ import './RaceFilter.css';
 import {useForm} from 'react-hook-form';
 import {useEffect} from 'react';
 
-function RaceFilter({onFilterChange}) {
+function RaceFilter({onFilterChange, className}) {
     const {register, watch} = useForm({
         defaultValues: {
         month: 'all'
@@ -16,7 +16,7 @@ function RaceFilter({onFilterChange}) {
     }, [selectedMonth, onFilterChange]);
 
     return (
-        <div className='race-filter-form'>
+        <div className={`race-filter-form ${className}`}>
             <label htmlFor='month-filter' className='race-filter-label'>
                 Filter op maand
             </label>

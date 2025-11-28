@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // SAFE MODE CONFIG
 let apiCallCounter = 0;
-const API_CALL_LIMIT = 5;
+const API_CALL_LIMIT = 10;
 
 const hyperaceMock = {
     "/v2/grands-prix?seasonYear=2025&pageSize=25": {
