@@ -61,6 +61,18 @@ function Racekalender() {
         return <p className='racekalender-status'>{error}</p>;
     }
 
+    if (!loading && !error && visibleRaces.length === 0) {
+        return (
+            <div className='racekalender-empty'>
+                <h1 className='title'>Geen races gevonden</h1>
+                <p className='racekalender-status'>
+                    De racekalender kon op dit moment niet worden geladen.
+                    Probeer het later opnieuw.
+                </p>
+            </div>
+        );
+    }
+
     return (
         <div className='racekalender'>
             <h1 className='title'>Racekalender {new Date().getFullYear()}</h1>

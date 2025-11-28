@@ -24,3 +24,9 @@
     font-size: var(--font-size-h2);
     font-weight: var(--font-weight-bold);
 }
+
+.racekalender-empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-white);
+}

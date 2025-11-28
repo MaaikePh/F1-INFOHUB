@@ -16,7 +16,9 @@ function CoureurDetail() {
     const [error, setError] = useState('');
     const {id} = useParams();
 
-    const driver = driverStats.find(s => s.hyperaceId === id);
+    const driver = driverStats.find(s =>
+        s.hyperaceId === id || String(s.id) === id
+    );
     const team = driver?.team;
 
     useEffect(() => {

@@ -2,6 +2,7 @@ import {createContext, useEffect, useState} from 'react';
 import api, {getUserByEmail, loginUser, getPreferenceByUserId, createPreferences} from '../helpers/api.js';
 import {normalize} from '../helpers/normalizer.js';
 import driverstats from '../constants/driver-stats.json';
+import {isTokenValid} from '../helpers/isTokenValid.js';
 
 export const AuthContext = createContext();
 
@@ -22,10 +23,12 @@ function AuthContextProvider({ children }) {
         const timer = setTimeout(() => {
             const storedToken = localStorage.getItem('token');
 
-            if (storedToken) {
+            if (storedToken && isTokenValid(storedToken)) {
                 setToken(storedToken);
                 setIsAuthenticated(true);
             } else {
+                localStorage.removeItem('token');
+                setToken(null);
                 setIsAuthenticated(false);
             }
 
