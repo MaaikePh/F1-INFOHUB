@@ -4,7 +4,7 @@ import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 import LastRaceBox from '../LastRaceBox/LastRaceBox.jsx';
 import DriverPhotoCard from '../DriverPhotoCard/DriverPhotoCard.jsx';
 import Button from '../../general/Button/Button.jsx';
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useEffect, useMemo, useState} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
 import {normalize} from '../../../helpers/normalizer.js';
 import {Link} from 'react-router-dom';
@@ -15,9 +15,18 @@ function DriverSummary() {
     const [raceLoading, setRaceLoading] = useState(true);
     const [raceError, setRaceError] = useState('');
     const {loading, favoriteDriver} = useContext(AuthContext);
+
     const driverData = driverStats.find(
         d => normalize(d.name) === normalize(favoriteDriver)
     );
+
+    const teamColor = useMemo(() => {
+        if (!driverData?.team?.colorVar) return '#888';
+
+        return getComputedStyle(document.documentElement)
+            .getPropertyValue(driverData.team.colorVar)
+            .trim();
+    }, [driverData?.team?.colorVar]);
 
     useEffect(() => {
         if (!driverData?.id) return;
@@ -29,7 +38,7 @@ function DriverSummary() {
             setRaceError('');
 
             try {
-                const result = await getLastRaceForDriver(driverData.id, controller.signal);
+                const result = await getLastRaceForDriver(driverData.hyperaceId, controller.signal);
                 setLastRace(result);
             } catch (error) {
                 if (error.name !== 'CanceledError') {
@@ -54,11 +63,6 @@ function DriverSummary() {
             </article>
         )
     }
-
-    const teamData = driverData.team;
-    const teamColor = getComputedStyle(document.documentElement)
-            .getPropertyValue(teamData.colorVar)
-            .trim();
 
     return (
         <article className='driver-summary' style={{'--team-color': teamColor}}>

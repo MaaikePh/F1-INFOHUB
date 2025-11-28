@@ -3,7 +3,7 @@ import TeamCard from '../../cards/TeamCard/TeamCard.jsx';
 import StatsCircle from '../StatsCircle/StatsCircle.jsx';
 import DriverBadge from '../DriverBadge/DriverBadge.jsx';
 import {normalize} from '../../../helpers/normalizer.js';
-import {useContext} from 'react';
+import {useContext, useMemo} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
 import driverstats from '../../../constants/driver-stats.json'
 
@@ -15,6 +15,14 @@ function TeamSummary() {
     ].map(([, team]) => team);
 
     const teamData = teams.find((t) => normalize(t.key) === normalize(favoriteTeam));
+
+    const teamColor = useMemo(() => {
+        if (!teamData?.colorVar) return '#888';
+
+        return getComputedStyle(document.documentElement)
+            .getPropertyValue(teamData.colorVar)
+            .trim();
+    }, [teamData?.colorVar]);
 
     if (!teamData) {
         return (
@@ -28,11 +36,6 @@ function TeamSummary() {
     const teamDrivers = driverstats.filter(
         (d) => normalize(d.team.key) === normalize(favoriteTeam)
     );
-
-
-    const teamColor = getComputedStyle(document.documentElement)
-            .getPropertyValue(teamData.colorVar)
-            .trim();
 
     return (
         <article className='team-summary' style={{ '--team-color': teamColor }}>

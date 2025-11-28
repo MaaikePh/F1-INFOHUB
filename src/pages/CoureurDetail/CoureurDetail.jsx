@@ -16,7 +16,7 @@ function CoureurDetail() {
     const [error, setError] = useState('');
     const {id} = useParams();
 
-    const driver = driverStats.find(s => s.id === Number(id));
+    const driver = driverStats.find(s => s.hyperaceId === id);
     const team = driver?.team;
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function CoureurDetail() {
             setError('');
 
             try {
-                const results = await getAllResultsForDriver(driver.id, controller.signal);
+                const results = await getAllResultsForDriver(driver.hyperaceId, controller.signal);
                 setRaceResultsForDriver(results);
             } catch (err) {
                 if (err.name !== 'CanceledError') {
@@ -44,7 +44,7 @@ function CoureurDetail() {
         loadResults();
         return () => controller.abort();
 
-    }, [driver?.id]);
+    }, [driver?.hyperaceId]);
 
     if (!driver) {
         return (
