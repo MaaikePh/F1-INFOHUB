@@ -61,7 +61,7 @@ function Racekalender() {
 
     return (
         <div className="racekalender-container">
-            <h1 className="title">Racekalender 2025</h1>
+            <h1 className="title">Racekalender {new Date().getFullYear()}</h1>
 
             <RaceFilter onFilterChange={setFilteredMonth} />
 

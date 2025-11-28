@@ -1,10 +1,32 @@
 import axios from 'axios';
 
+// SAFE MODE CONFIG
+let apiCallCounter = 0;
+const API_CALL_LIMIT = 5;
+
+const hyperaceMock = {
+    "/v2/grands-prix?seasonYear=2025&pageSize=25": {
+        items: []
+    }
+};
+
+
 export async function hyperaceGet(endpoint, signal) {
+    if (apiCallCounter >= API_CALL_LIMIT) {
+        console.warn(`🔒 Hyperace SAFE MODE active — using mock for: ${endpoint}`);
+
+        if (hyperaceMock[endpoint]) {
+            return hyperaceMock[endpoint];
+        }
+
+        return { items: [] };
+    }
+
+
     const url = `${import.meta.env.VITE_HYPERACE_BASE_URL}${endpoint}`;
-    console.warn("⚠️ API CALL WOULD BE MADE HERE:", url);
-// return mockData;  // tijdelijk uitschakelen
-    throw new Error("API temporarily disabled during development");
+
+    apiCallCounter++;
+    console.log(`📡 Hyperace API-call #${apiCallCounter}: ${url}`);
 
     try {
         const response = await axios.get(url, {
@@ -18,6 +40,7 @@ export async function hyperaceGet(endpoint, signal) {
         return response.data;
     } catch (error) {
         console.error(`HyperAce GET ging fout (${endpoint})`, error);
-        throw error;
+
+        return { items: [] };
     }
 }

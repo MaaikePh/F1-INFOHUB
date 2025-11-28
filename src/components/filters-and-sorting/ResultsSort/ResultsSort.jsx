@@ -16,7 +16,7 @@ function ResultsSort({onSortChange}) {
     }, [selectedSort, onSortChange]);
 
     return (
-        <form className='results-sort-form'>
+        <div className='results-sort-form'>
             <label htmlFor='sort-filter' className='results-sort-label'>
                 Sorteren op
             </label>
@@ -31,7 +31,7 @@ function ResultsSort({onSortChange}) {
 
             </select>
 
-        </form>
+        </div>
     )
 }
 

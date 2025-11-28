@@ -3,7 +3,7 @@ import './TeamCard.css';
 function TeamCard({teamName, teamKey, className}) {
     return (
         <article className={`team-card ${teamKey} ${className || ''}`}>
-            {teamName}
+            <h3>{teamName}</h3>
         </article>
     )
 }

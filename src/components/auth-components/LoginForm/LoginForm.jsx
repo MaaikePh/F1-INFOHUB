@@ -83,8 +83,8 @@ function LoginForm() {
                     {loading ? 'Bezig...' : 'Inloggen'}
                 </Button>
 
-                {authError && <p className='error-message'>{authError}</p>}
-                {successMessage && <p className='success-message'>{successMessage}</p>}
+                {authError && <p className='error-message' role='alert'>{authError}</p>}
+                {successMessage && <p className='success-message' role='alert'>{successMessage}</p>}
 
             </form>
         </div>

@@ -16,7 +16,7 @@ function RaceFilter({onFilterChange}) {
     }, [selectedMonth, onFilterChange]);
 
     return (
-        <form className='race-filter-form'>
+        <div className='race-filter-form'>
             <label htmlFor='month-filter' className='race-filter-label'>
                 Filter op maand
             </label>
@@ -39,7 +39,7 @@ function RaceFilter({onFilterChange}) {
                     <option value="november">November</option>
                     <option value="december">December</option>
                 </select>
-        </form>
+        </div>
     )
 }
 
