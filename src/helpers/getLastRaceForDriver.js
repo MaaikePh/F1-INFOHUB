@@ -1,71 +1,54 @@
 import {hyperaceGet} from './hyperace.js';
-import {getRaceStatus} from './raceStatus.js';
 
 export async function getLastRaceForDriver(driverId, signal) {
+
     if (!driverId) return null;
 
-    const data = await hyperaceGet(`/v2/grands-prix?seasonYear=2025&pageSize=25`, signal)
-    const allGrandsPrix = data.items;
+    const gpData = await hyperaceGet(`/v2/grands-prix?seasonYear=2025&pageSize=25`, signal);
 
-    const completed = allGrandsPrix.filter(
-        gp => getRaceStatus(gp.startDate, gp.endDate) === 'completed'
+    const allGPs = gpData.items || [];
+
+    if (allGPs.length === 0) return null;
+
+    const finishedGPs = allGPs.filter(gp => gp.status === 'Finished');
+
+    if (finishedGPs.length === 0) return null;
+
+    const sorted = finishedGPs.sort((a, b) => {
+        const endA = a.schedule?.find(s => s.type === 'MainRace')?.endDate;
+        const endB = b.schedule?.find(s => s.type === 'MainRace')?.endDate;
+        return new Date(endB) - new Date(endA);
+    });
+
+    const lastGP = sorted[0];
+
+    const grandPrixId = lastGP.id;
+
+    const raceList = await hyperaceGet(`/v2/grands-prix/${grandPrixId}/races`, signal);
+
+    const races = raceList.items || [];
+
+    const mainRace = races.find(r => r.type === 'MainRace');
+
+    if (!mainRace) return null;
+
+    const raceId = mainRace.id;
+
+    const resultData = await hyperaceGet(
+        `/v2/grands-prix/${grandPrixId}/races/${raceId}/results`,
+        signal
     );
 
-    if (completed.length === 0) return null;
+    const results = resultData.participations || [];
 
-    const results = [];
+    const resultEntry = results.find(
+        r => r.driverId === driverId
+    );
 
-    for (const gp of completed) {
-
-        const raceList = await hyperaceGet(
-            `/v2/grands-prix/${gp.id}/races?pageSize=40`,
-            signal
-        );
-
-        if (!raceList.items?.length) continue;
-
-        const mainRace = raceList.items.find(r => r.type === 'MainRace');
-        if (!mainRace) continue;
-
-        const qualiRace =
-            raceList.items.find(r => r.type === 'StandardQualifying');
-
-        const fullResults = await hyperaceGet(
-            `/v2/grands-prix/${gp.id}/races/${mainRace.id}/results`,
-            signal
-        );
-
-        const mainList = fullResults.items || [];
-        const raceResult = mainList.find(r => r.driverId === driverId);
-        if (!raceResult) continue;
-
-        let startPos = '?';
-
-        if (qualiRace) {
-            const qualiResults = await hyperaceGet(
-                `/v2/grands-prix/${gp.id}/races/${qualiRace.id}/results`,
-                signal
-            );
-
-            const qualiList = qualiResults.items || [];
-            const qualiResult = qualiList.find(q => q.driverId === driverId);
-
-            if (qualiResult) {
-                startPos = qualiResult.position;
-            }
-        }
-
-        results.push({
-            grandPrix: gp.name,
-            date: gp.endDate,
-            start: startPos,
-            finish: raceResult.position
-        });
-    }
-
-    if (results.length === 0) return null;
-
-    results.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    return results[0];
+    return {
+        grandPrix: lastGP.name,
+        date: mainRace.endDate || mainRace.date,
+        start: resultEntry?.result?.grid ?? null,
+        finish: resultEntry?.result?.position ?? null,
+    };
 }

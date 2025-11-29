@@ -21,7 +21,9 @@ function Select({selectId, selectName, selectLabel, validationRules, selectOptio
                 ))}
             </select>
 
-            {errors && <p className='error-message'>{errors}</p>}
+            {errors && errors[selectName] && (
+                <p className='error-message'>{errors[selectName].message}</p>
+            )}
 
         </div>
     )

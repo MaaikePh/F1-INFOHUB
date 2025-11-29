@@ -3,7 +3,7 @@ import axios from 'axios';
 // SAFE MODE CONFIG
 let errorCounter = 0;
 const ERROR_LIMIT = 10;
-const FORCE_NO_API = true;
+const FORCE_NO_API = false;
 
 const hyperaceMock = {
     "/v2/grands-prix?seasonYear=2025&pageSize=25": {

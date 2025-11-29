@@ -121,11 +121,11 @@ function RegisterForm() {
                         },
                         minLength: {
                             value: 8,
-                            message: 'Te weinig karakters ingevoerd. Gebruik minimaal 8 karakters.',
+                            message: 'Gebruik minimaal 8 karakters.',
                         },
                         pattern: {
                             value: /[^A-Za-z0-9]/,
-                            message: 'Wachtwoord moet minimaal 1 speciaal teken bevatten.'
+                            message: 'Moet minimaal 1 speciaal teken bevatten.'
                         }
                     }}
                     register={register}
