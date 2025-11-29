@@ -16,7 +16,7 @@ function RegisterForm() {
     const [successMessage, setSuccessMessage] = useState('');
     const [selectedTeam, setSelectedTeam] = useState('');
 
-    const {register, handleSubmit, formState: {errors}, reset} = useForm();
+    const {register, handleSubmit, formState: {errors, isValid}, reset} = useForm({mode: 'onChange'});
 
     const teams = [
         ...new Map(driverstats.map(d => [d.team.key, d.team]))
@@ -102,7 +102,7 @@ function RegisterForm() {
                         },
                         pattern: {
                             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: 'Voer een geldig e-mailadres in.',
+                            message: 'Ingevoerd e-mailadres is ongeldig.',
                         }
                     }}
                     register={register}
@@ -120,8 +120,12 @@ function RegisterForm() {
                             message: 'Wachtwoord is verplicht.'
                         },
                         minLength: {
-                            value: 6,
-                            message: 'Wachtwoord moet minimaal 6 tekens bevatten.',
+                            value: 8,
+                            message: 'Te weinig karakters ingevoerd. Gebruik minimaal 8 karakters.',
+                        },
+                        pattern: {
+                            value: /[^A-Za-z0-9]/,
+                            message: 'Wachtwoord moet minimaal 1 speciaal teken bevatten.'
                         }
                     }}
                     register={register}
@@ -172,7 +176,7 @@ function RegisterForm() {
                     type='submit'
                     buttonStyle='primary'
                     showArrow={!loading}
-                    disabled={loading}
+                    disabled={!isValid || loading}
                 >
                     {loading ? 'Bezig...' : 'Registreren'}
                 </Button>

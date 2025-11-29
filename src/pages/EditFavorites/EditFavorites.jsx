@@ -10,6 +10,7 @@ import driverstats from '../../constants/driver-stats.json';
 
 function EditFavorites() {
     const [selectedTeam, setSelectedTeam] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const {favoriteTeam, favoriteDriver, updateFavorites, loading}  = useContext(AuthContext);
 
@@ -17,7 +18,8 @@ function EditFavorites() {
         ...new Map(driverstats.map(d => [d.team.key, d.team]))
     ].map(([, team]) => team);
 
-    const {register, handleSubmit, setValue, formState: {errors}} = useForm({
+    const {register, handleSubmit, setValue, formState: {errors, isValid}} = useForm({
+        mode: 'onChange',
         defaultValues: {
             favoriteTeam,
             favoriteDriver
@@ -59,7 +61,11 @@ function EditFavorites() {
             favoriteTeam: teamName,
             favoriteDriver: data.favoriteDriver
         });
-        navigate('/dashboard');
+        setSuccessMessage('Favorieten succesvol opgeslagen!');
+
+        setTimeout(() => {
+            navigate('/dashboard');
+        }, 2000);
     }
 
     return (
@@ -107,10 +113,14 @@ function EditFavorites() {
                     type='submit'
                     buttonStyle='primary'
                     showArrow={!loading}
-                    disabled={loading}
+                    disabled={!isValid || loading}
                 >
                     {loading ? 'Bezig...' : 'Opslaan'}
                 </Button>
+
+                {successMessage && (
+                    <p className="success-message">{successMessage}</p>
+                )}
 
             </form>
 

@@ -10,7 +10,7 @@ function LoginForm() {
     const navigate = useNavigate();
     const [successMessage, setSuccessMessage] = useState('');
     const {login, loading, authError} = useContext(AuthContext);
-    const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({mode: 'onChange'});
 
     async function onSubmit(data) {
         setSuccessMessage('');
@@ -48,7 +48,7 @@ function LoginForm() {
                         },
                         pattern: {
                             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: 'Voer een geldig e-mailadres in.',
+                            message: 'Ingevoerd e-mailadres is ongeldig.',
                         }
                     }}
                     register={register}
@@ -66,8 +66,12 @@ function LoginForm() {
                             message: 'Wachtwoord is verplicht.'
                         },
                         minLength: {
-                            value: 6,
-                            message: 'Wachtwoord moet minimaal 6 tekens bevatten.',
+                            value: 8,
+                            message: 'Te weinig karakters ingevoerd. Gebruik minimaal 8 karakters.',
+                        },
+                        pattern: {
+                            value: /[^A-Za-z0-9]/,
+                            message: 'Wachtwoord moet minimaal 1 speciaal teken bevatten.'
                         }
                     }}
                     register={register}
@@ -78,7 +82,7 @@ function LoginForm() {
                     type='submit'
                     buttonStyle='primary'
                     showArrow={!loading}
-                    disabled={loading}
+                    disabled={!isValid || loading}
                 >
                     {loading ? 'Bezig...' : 'Inloggen'}
                 </Button>

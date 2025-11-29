@@ -28,7 +28,7 @@ function ResultsFilter({onFilterChange}) {
             >
                 <option value='all'>Type resultaat</option>
                 <option value='Race'>Race</option>
-                <option value='Qualificatie'>Qualificatie</option>
+                <option value='Qualificatie'>Kwalificatie</option>
                 <option value='Sprint'>Sprint</option>
             </select>
 
