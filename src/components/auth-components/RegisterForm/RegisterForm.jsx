@@ -3,10 +3,10 @@ import {useForm} from 'react-hook-form';
 import Input from '../Input/Input.jsx';
 import Select from '../Select/Select.jsx';
 import Button from '../../general/Button/Button.jsx';
-import {registerUser, emailExists, createPreferences, loginUser} from '../../../helpers/api.js';
+import {createPreferences, emailExists, loginUser, registerUser} from '../../../helpers/api.js';
 import {useContext, useState} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
-import { normalize } from '../../../helpers/normalizer.js';
+import {normalize} from '../../../helpers/normalizer.js';
 import driverstats from '../../../constants/driver-stats.json';
 
 function RegisterForm() {
@@ -51,7 +51,7 @@ function RegisterForm() {
             });
 
             localStorage.setItem('token', loginResult.token);
-            console.log("Token uit login:", loginResult.token);
+            console.log('Token uit login:', loginResult.token);
 
             const prefs = await createPreferences({
                 userId,
@@ -164,9 +164,9 @@ function RegisterForm() {
                     selectOptions={driverstats
                         .filter(driver => normalize(driver.team.key) === normalize(selectedTeam))
                         .map(driver => ({
-                        value: driver.name,
-                        label: driver.name,
-                    }))}
+                            value: driver.name,
+                            label: driver.name,
+                        }))}
                     register={register}
                     errors={errors.favoriteDriver?.message}
                     disabled={!selectedTeam}

@@ -1,6 +1,16 @@
 import './Select.css';
 
-function Select({selectId, selectName, selectLabel, validationRules, selectOptions, register, errors, onChange, disabled}) {
+function Select({
+                    selectId,
+                    selectName,
+                    selectLabel,
+                    validationRules,
+                    selectOptions,
+                    register,
+                    errors,
+                    onChange,
+                    disabled
+                }) {
     return (
         <div className='select-container'>
             <label htmlFor={selectId} className='select-label'>

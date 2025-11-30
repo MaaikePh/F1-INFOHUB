@@ -18,7 +18,7 @@
     "birthdate": "1999-11-13",
     "firstSeason": 2019,
     "wins": 11,
-    "poles": 15,
+    "poles": 16,
     "podiums": 43,
     "imageMain": "/drivers/main-pictures/Lando-Norris.png",
     "imageDetail": "/drivers/detail-pictures/Lando-detail.png"
@@ -65,9 +65,9 @@
     "country": "Nederland",
     "birthdate": "1997-09-30",
     "firstSeason": 2015,
-    "wins": 68,
+    "wins": 69,
     "poles": 47,
-    "podiums": 124,
+    "podiums": 125,
     "imageMain": "/drivers/main-pictures/Max-Verstappen.png",
     "imageDetail": "/drivers/detail-pictures/Max-detail.png"
   },
@@ -91,7 +91,7 @@
     "firstSeason": 2019,
     "wins": 5,
     "poles": 7,
-    "podiums": 23,
+    "podiums": 24,
     "imageMain": "/drivers/main-pictures/George-Russell.png",
     "imageDetail": "/drivers/detail-pictures/George-detail.png"
   },
@@ -161,9 +161,9 @@
     "country": "Italië",
     "birthdate": "2006-08-25",
     "firstSeason": 2025,
-    "wins": 11,
-    "poles": 15,
-    "podiums": 43,
+    "wins": 0,
+    "poles": 0,
+    "podiums": 3,
     "imageMain": "/drivers/main-pictures/Kimi-Antonelli.png",
     "imageDetail": "/drivers/detail-pictures/Kimi-detail.png"
   },
@@ -192,18 +192,18 @@
     "imageDetail": "/drivers/detail-pictures/Alex-detail.png"
   },
   {
-    "id": 9,
+    "id": 10,
     "hyperaceId": "4b1e9f86-8c8a-4887-2031-08d9161fe7c5",
     "name": "Nico Hulkenberg",
     "raceNumber": 27,
     "tla": "HUL",
     "team": {
-      "name": "Haas",
-      "key": "haas",
-      "country": "Verenigde Staten",
-      "countryCode": "us",
-      "colorVar": "--color-haas",
-      "standingsPosition": 8
+      "name": "Kick Sauber",
+      "key": "kicksauber",
+      "country": "Zwitserland",
+      "countryCode": "ch",
+      "colorVar": "--color-sauber",
+      "standingsPosition": 9
     },
     "countryCode": "de",
     "country": "Duitsland",
@@ -216,7 +216,7 @@
     "imageDetail": "/drivers/detail-pictures/Nico-detail.png"
   },
   {
-    "id": 10,
+    "id": 9,
     "hyperaceId": "36dccc49-4405-48b8-954f-a2e2d24d45b3",
     "name": "Isack Hadjar",
     "raceNumber": 6,
@@ -240,7 +240,7 @@
     "imageDetail": "/drivers/detail-pictures/Isack-detail.png"
   },
   {
-    "id": 11,
+    "id": 13,
     "hyperaceId": "7c13305f-e644-4cf9-bfd2-fdeb1c8a9e98",
     "name": "Oliver Bearman",
     "raceNumber": 87,
@@ -288,7 +288,7 @@
     "imageDetail": "/drivers/detail-pictures/Fernando-detail.png"
   },
   {
-    "id": 13,
+    "id": 11,
     "hyperaceId": "8a99b5a0-8e1a-4bbc-2155-08d9161fe7c5",
     "name": "Carlos Sainz",
     "raceNumber": 55,
@@ -329,14 +329,14 @@
     "country": "Nieuw-Zeeland",
     "birthdate": "2002-02-11",
     "firstSeason": 2023,
-    "wins": 11,
-    "poles": 15,
-    "podiums": 43,
+    "wins": 0,
+    "poles": 0,
+    "podiums": 0,
     "imageMain": "/drivers/main-pictures/Liam-Lawson.png",
     "imageDetail": "/drivers/detail-pictures/Liam-detail.png"
   },
   {
-    "id": 15,
+    "id": 16,
     "hyperaceId": "9426b65f-de5d-4e18-2196-08d9161fe7c5",
     "name": "Lance Stroll",
     "raceNumber": 18,
@@ -354,24 +354,24 @@
     "birthdate": "1998-10-29",
     "firstSeason": 2017,
     "wins": 0,
-    "poles": 0,
-    "podiums": 0,
+    "poles": 1,
+    "podiums": 3,
     "imageMain": "/drivers/main-pictures/Lance-Stroll.png",
     "imageDetail": "/drivers/detail-pictures/Lance-detail.png"
   },
   {
-    "id": 16,
+    "id": 15,
     "hyperaceId": "dd4c7365-725c-4263-20ec-08d9161fe7c5",
     "name": "Esteban Ocon",
     "raceNumber": 31,
     "tla": "OCO",
     "team": {
-      "name": "Alpine",
-      "key": "alpine",
-      "country": "Frankrijk",
-      "countryCode": "fr",
-      "colorVar": "--color-alpine",
-      "standingsPosition": 10
+      "name": "Haas",
+      "key": "haas",
+      "country": "Verenigde Staten",
+      "countryCode": "us",
+      "colorVar": "--color-haas",
+      "standingsPosition": 8
     },
     "countryCode": "fr",
     "country": "Frankrijk",
@@ -462,12 +462,12 @@
     "raceNumber": 43,
     "tla": "COL",
     "team": {
-      "name": "Kick Sauber",
-      "key": "kicksauber",
-      "country": "Zwitserland",
-      "countryCode": "ch",
-      "colorVar": "--color-sauber",
-      "standingsPosition": 9
+      "name": "Alpine",
+      "key": "alpine",
+      "country": "Frankrijk",
+      "countryCode": "fr",
+      "colorVar": "--color-alpine",
+      "standingsPosition": 10
     },
     "countryCode": "ar",
     "country": "Argentinië",

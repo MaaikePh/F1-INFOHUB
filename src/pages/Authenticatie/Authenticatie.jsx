@@ -18,7 +18,7 @@ function Authenticatie() {
 
     return (
         <div className='authentication-page'>
-            <LoginForm />
+            <LoginForm/>
 
             <img
                 src='/icons/lijn-inlogpagina.svg'

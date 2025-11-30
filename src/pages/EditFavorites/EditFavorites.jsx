@@ -12,7 +12,7 @@ function EditFavorites() {
     const [selectedTeam, setSelectedTeam] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
-    const {favoriteTeam, favoriteDriver, updateFavorites, loading}  = useContext(AuthContext);
+    const {favoriteTeam, favoriteDriver, updateFavorites, loading} = useContext(AuthContext);
 
     const teams = [
         ...new Map(driverstats.map(d => [d.team.key, d.team]))
@@ -94,13 +94,13 @@ function EditFavorites() {
                 />
 
                 <Select
-                    selectId="favoriteDriver"
-                    selectName="favoriteDriver"
-                    selectLabel="Kies een nieuwe favoriete coureur"
+                    selectId='favoriteDriver'
+                    selectName='favoriteDriver'
+                    selectLabel='Kies een nieuwe favoriete coureur'
                     validationRules={{
                         required: {
                             value: true,
-                            message: "Selecteer een coureur."
+                            message: 'Selecteer een coureur.'
                         }
                     }}
                     selectOptions={driverOptions}
@@ -119,7 +119,7 @@ function EditFavorites() {
                 </Button>
 
                 {successMessage && (
-                    <p className="success-message">{successMessage}</p>
+                    <p className='success-message'>{successMessage}</p>
                 )}
 
             </form>

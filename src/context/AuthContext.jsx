@@ -1,12 +1,12 @@
 import {createContext, useEffect, useState} from 'react';
-import api, {getUserByEmail, loginUser, getPreferenceByUserId, createPreferences} from '../helpers/api.js';
+import api, {createPreferences, getPreferenceByUserId, getUserByEmail, loginUser} from '../helpers/api.js';
 import {normalize} from '../helpers/normalizer.js';
 import driverstats from '../constants/driver-stats.json';
 import {isTokenValid} from '../helpers/isTokenValid.js';
 
 export const AuthContext = createContext();
 
-function AuthContextProvider({ children }) {
+function AuthContextProvider({children}) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem('token') || null);
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -142,10 +142,10 @@ function AuthContextProvider({ children }) {
     };
 
     return (
-    <AuthContext.Provider value={value}>
-        {children}
-    </AuthContext.Provider>
-)
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
 export default AuthContextProvider;

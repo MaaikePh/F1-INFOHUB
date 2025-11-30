@@ -10,27 +10,27 @@ function RaceResults({raceYear, allResults, loading, error}) {
 
     if (loading) {
         return (
-            <div className="race-results-section">
-                <h3 className="title">Uitslagen {raceYear}</h3>
-                <p className="race-status">Gegevens laden...</p>
+            <div className='race-results-section'>
+                <h3 className='title'>Uitslagen {raceYear}</h3>
+                <p className='race-status'>Gegevens laden...</p>
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className="race-results-section">
-                <h3 className="title">Uitslagen {raceYear}</h3>
-                <p className="race-status">{error}</p>
+            <div className='race-results-section'>
+                <h3 className='title'>Uitslagen {raceYear}</h3>
+                <p className='race-status'>{error}</p>
             </div>
         );
     }
 
     if (!allResults || allResults.length === 0) {
         return (
-            <div className="race-results-section">
-                <h3 className="title">Uitslagen {raceYear}</h3>
-                <p className="race-status">Geen resultaten gevonden.</p>
+            <div className='race-results-section'>
+                <h3 className='title'>Uitslagen {raceYear}</h3>
+                <p className='race-status'>Geen resultaten gevonden.</p>
             </div>
         );
     }
@@ -53,8 +53,8 @@ function RaceResults({raceYear, allResults, loading, error}) {
     return (
         <div className='race-results-section'>
             <header className='race-results-header'>
-                <ResultsFilter onFilterChange={setFilteredType} />
-                <ResultsSort onSortChange={setSortType} />
+                <ResultsFilter onFilterChange={setFilteredType}/>
+                <ResultsSort onSortChange={setSortType}/>
             </header>
 
             <h3 className='title'>Uitslagen {raceYear}</h3>

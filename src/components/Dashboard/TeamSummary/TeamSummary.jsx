@@ -38,14 +38,14 @@ function TeamSummary() {
     );
 
     return (
-        <article className='team-summary' style={{ '--team-color': teamColor }}>
+        <article className='team-summary' style={{'--team-color': teamColor}}>
             <h2 className='title-card'>Favoriet team</h2>
 
-                <TeamCard
-                    teamName={teamData?.name || 'Geen team gekozen'}
-                    teamKey={teamData?.key}
-                    className='team-name-box'
-                />
+            <TeamCard
+                teamName={teamData?.name || 'Geen team gekozen'}
+                teamKey={teamData?.key}
+                className='team-name-box'
+            />
 
             <div className='team-inner-container'>
                 <div className='constructor-position'>

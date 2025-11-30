@@ -22,9 +22,9 @@ function ResultsSort({onSortChange}) {
             </label>
 
             <select
-            id='sort-filter'
-            {...register('sort')}
-            className='results-sort-select'
+                id='sort-filter'
+                {...register('sort')}
+                className='results-sort-select'
             >
                 <option value='date-desc'>Datum - nieuwste eerst</option>
                 <option value='date-asc'>Datum - oudste eerst</option>

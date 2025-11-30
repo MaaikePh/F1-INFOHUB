@@ -5,7 +5,7 @@ import {useEffect} from 'react';
 function RaceFilter({onFilterChange, className}) {
     const {register, watch} = useForm({
         defaultValues: {
-        month: 'all'
+            month: 'all'
         }
     });
 
@@ -21,24 +21,24 @@ function RaceFilter({onFilterChange, className}) {
                 Filter op maand
             </label>
 
-                <select
-                    id='month-filter'
-                    {...register('month')}
-                    className='race-filter-select'
-                    >
+            <select
+                id='month-filter'
+                {...register('month')}
+                className='race-filter-select'
+            >
 
-                    <option value="all">Kies maand</option>
-                    <option value="march">Maart</option>
-                    <option value="april">April</option>
-                    <option value="may">Mei</option>
-                    <option value="june">Juni</option>
-                    <option value="july">Juli</option>
-                    <option value="august">Augustus</option>
-                    <option value="september">September</option>
-                    <option value="october">Oktober</option>
-                    <option value="november">November</option>
-                    <option value="december">December</option>
-                </select>
+                <option value='all'>Kies maand</option>
+                <option value='march'>Maart</option>
+                <option value='april'>April</option>
+                <option value='may'>Mei</option>
+                <option value='june'>Juni</option>
+                <option value='july'>Juli</option>
+                <option value='august'>Augustus</option>
+                <option value='september'>September</option>
+                <option value='october'>Oktober</option>
+                <option value='november'>November</option>
+                <option value='december'>December</option>
+            </select>
         </div>
     )
 }

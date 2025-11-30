@@ -22,7 +22,7 @@ function CoureurDetail() {
     const team = driver?.team;
 
     useEffect(() => {
-        if (!driver?.id) return;
+        if (!driver?.hyperaceId) return;
 
         const controller = new AbortController();
 
@@ -50,8 +50,8 @@ function CoureurDetail() {
 
     if (!driver) {
         return (
-            <div className="driver-detail-container">
-                <h1 className="title">Coureur niet gevonden</h1>
+            <div className='driver-detail-container'>
+                <h1 className='title'>Coureur niet gevonden</h1>
             </div>
         );
     }

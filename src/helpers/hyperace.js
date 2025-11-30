@@ -3,10 +3,10 @@ import axios from 'axios';
 // SAFE MODE CONFIG
 let errorCounter = 0;
 const ERROR_LIMIT = 10;
-const FORCE_NO_API = false;
+const FORCE_NO_API = true;
 
 const hyperaceMock = {
-    "/v2/grands-prix?seasonYear=2025&pageSize=25": {
+    '/v2/grands-prix?seasonYear=2025&pageSize=25': {
         items: []
     }
 };
@@ -15,7 +15,7 @@ const hyperaceMock = {
 export async function hyperaceGet(endpoint, signal) {
     if (FORCE_NO_API) {
         console.warn(`API volledig uitgeschakeld (dev mode) → ${endpoint}`);
-        return { items: [] };
+        return {items: []};
     }
 
     if (errorCounter >= ERROR_LIMIT) {
@@ -25,7 +25,7 @@ export async function hyperaceGet(endpoint, signal) {
             return hyperaceMock[endpoint];
         }
 
-        return { items: [] };
+        return {items: []};
     }
 
     const url = `${import.meta.env.VITE_HYPERACE_BASE_URL}${endpoint}`;
@@ -48,6 +48,6 @@ export async function hyperaceGet(endpoint, signal) {
 
         errorCounter++;
 
-        return { items: [] };
+        return {items: []};
     }
 }

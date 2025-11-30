@@ -22,5 +22,5 @@ const DRIVER_ID_MAP = {
 };
 
 export function getDriverNameById(id) {
-    return DRIVER_ID_MAP[id] ?? "Onbekend";
+    return DRIVER_ID_MAP[id] ?? 'Onbekend';
 }
