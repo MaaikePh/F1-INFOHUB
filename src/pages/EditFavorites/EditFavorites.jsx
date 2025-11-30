@@ -18,8 +18,7 @@ function EditFavorites() {
         ...new Map(driverstats.map(d => [d.team.key, d.team]))
     ].map(([, team]) => team);
 
-    const {register, handleSubmit, setValue, formState: {errors, isValid}} = useForm({
-        mode: 'onChange',
+    const {register, handleSubmit, setValue, formState: {errors}} = useForm({
         defaultValues: {
             favoriteTeam,
             favoriteDriver
@@ -113,7 +112,7 @@ function EditFavorites() {
                     type='submit'
                     buttonStyle='primary'
                     showArrow={!loading}
-                    disabled={!isValid || loading}
+                    disabled={loading}
                 >
                     {loading ? 'Bezig...' : 'Opslaan'}
                 </Button>

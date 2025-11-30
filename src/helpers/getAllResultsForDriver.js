@@ -2,68 +2,70 @@ import {hyperaceGet} from './hyperace.js';
 
 export async function getAllResultsForDriver(driverId, signal) {
     if (!driverId) {
-        console.warn('Geen driverId aan getAllResultsForDriver');
         return [];
     }
 
-    console.log('🚀 Ophalen Race/Sprint resultaten voor driver:', driverId);
-
-    // 1. Alle GP’s voor 2025 ophalen
-    const gpData = await hyperaceGet(
-        `/v2/grands-prix?seasonYear=2025&pageSize=25`,
-        signal
-    );
-
+    const gpData = await hyperaceGet(`/v2/grands-prix?seasonYear=2025&pageSize=25`, signal);
     const allGPs = gpData.items || [];
 
-    if (allGPs.length === 0) {
-        console.warn('Geen GP’s voor 2025 gevonden');
-        return [];
-    }
+    const finishedGPs = allGPs.filter(gp => gp.status === 'Finished');
 
     const results = [];
 
-    // 2. Loop door elke GP
-    for (const gp of allGPs) {
-        const gpId = gp.id;
+    for (const gp of finishedGPs) {
 
-        // Haal races voor deze GP op
-        const raceList = await hyperaceGet(
-            `/v2/grands-prix/${gpId}/races`,
-            signal
-        );
-
+        const raceList = await hyperaceGet(`/v2/grands-prix/${gp.id}/races`, signal);
         const races = raceList.items || [];
 
-        // We willen ALLEEN MainRace + Sprint
-        const relevantRaces = races.filter(
-            r => r.type === 'MainRace' || r.type === 'Sprint'
+        const mainRace = races.find(r => r.type === 'MainRace');
+        const sprintRace = races.find(
+            r => r.type === 'SprintRace' || r.type === 'Sprint'
         );
 
-        for (const race of relevantRaces) {
-            const raceId = race.id;
+        if (mainRace) {
 
-            const resultData = await hyperaceGet(
-                `/v2/grands-prix/${gpId}/races/${raceId}/results`,
+            const mainData = await hyperaceGet(
+                `/v2/grands-prix/${gp.id}/races/${mainRace.id}/results`,
                 signal
             );
 
-            const participations = resultData.participations || [];
+            const list = mainData.participations || [];
 
-            const driverEntry = participations.find(p => p.driverId === driverId);
+            const entry = list.find(p => p.driverId === driverId);
+            if (entry) {
 
-            if (!driverEntry) continue;
+                results.push({
+                    grandPrix: gp.name,
+                    type: 'Race',
+                    position: entry.result?.position ?? null,
+                    date: mainRace.endDate || gp.endDate,
+                });
+            }
+        }
 
-            results.push({
-                grandPrix: gp.name,
-                type: race.type === 'MainRace' ? 'Race' : 'Sprint',
-                date: race.endDate || race.date,
-                position: driverEntry.result?.position ?? null,
-                grid: driverEntry.result?.grid ?? null
-            });
+        if (sprintRace) {
+
+            const sprintData = await hyperaceGet(
+                `/v2/grands-prix/${gp.id}/races/${sprintRace.id}/results`,
+                signal
+            );
+
+            const list = sprintData.participations || [];
+
+            const entry = list.find(p => p.driverId === driverId);
+            if (entry) {
+
+                results.push({
+                    grandPrix: gp.name,
+                    type: 'Sprint',
+                    position: entry.result?.position ?? null,
+                    date: sprintRace.endDate || gp.endDate,
+                });
+            }
         }
     }
 
-    console.log('📦 Resultaten gevonden:', results);
+    results.sort((a, b) => new Date(b.date) - new Date(a.date));
+
     return results;
 }

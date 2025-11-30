@@ -16,7 +16,7 @@ function RegisterForm() {
     const [successMessage, setSuccessMessage] = useState('');
     const [selectedTeam, setSelectedTeam] = useState('');
 
-    const {register, handleSubmit, formState: {errors, isValid}, reset} = useForm({mode: 'onChange'});
+    const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
     const teams = [
         ...new Map(driverstats.map(d => [d.team.key, d.team]))
@@ -176,7 +176,7 @@ function RegisterForm() {
                     type='submit'
                     buttonStyle='primary'
                     showArrow={!loading}
-                    disabled={!isValid || loading}
+                    disabled={loading}
                 >
                     {loading ? 'Bezig...' : 'Registreren'}
                 </Button>

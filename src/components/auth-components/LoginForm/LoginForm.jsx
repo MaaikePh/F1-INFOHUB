@@ -10,7 +10,7 @@ function LoginForm() {
     const navigate = useNavigate();
     const [successMessage, setSuccessMessage] = useState('');
     const {login, loading, authError} = useContext(AuthContext);
-    const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({mode: 'onChange'});
+    const {register, handleSubmit, reset, formState: {errors}} = useForm();
 
     async function onSubmit(data) {
         setSuccessMessage('');
@@ -82,7 +82,7 @@ function LoginForm() {
                     type='submit'
                     buttonStyle='primary'
                     showArrow={!loading}
-                    disabled={!isValid || loading}
+                    disabled={loading}
                 >
                     {loading ? 'Bezig...' : 'Inloggen'}
                 </Button>
