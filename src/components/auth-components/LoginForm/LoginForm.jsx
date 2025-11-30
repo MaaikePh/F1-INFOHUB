@@ -48,7 +48,7 @@ function LoginForm() {
                         },
                         pattern: {
                             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: 'Voer een geldig e-mailadres in.',
+                            message: 'Ingevoerd e-mailadres is ongeldig.',
                         }
                     }}
                     register={register}
@@ -66,8 +66,12 @@ function LoginForm() {
                             message: 'Wachtwoord is verplicht.'
                         },
                         minLength: {
-                            value: 6,
-                            message: 'Wachtwoord moet minimaal 6 tekens bevatten.',
+                            value: 8,
+                            message: 'Gebruik minimaal 8 karakters.',
+                        },
+                        pattern: {
+                            value: /[^A-Za-z0-9]/,
+                            message: 'Moet minimaal 1 speciaal teken bevatten.'
                         }
                     }}
                     register={register}
@@ -83,8 +87,8 @@ function LoginForm() {
                     {loading ? 'Bezig...' : 'Inloggen'}
                 </Button>
 
-                {authError && <p className='error-message'>{authError}</p>}
-                {successMessage && <p className='success-message'>{successMessage}</p>}
+                {authError && <p className='error-message' role='alert'>{authError}</p>}
+                {successMessage && <p className='success-message' role='alert'>{successMessage}</p>}
 
             </form>
         </div>

@@ -1,24 +1,54 @@
-import testdata from '../constants/test-api-data.json';
+import {hyperaceGet} from './hyperace.js';
 
-export function getLastRaceForDriver(driverName) {
-    if (!driverName) return null;
+export async function getLastRaceForDriver(driverId, signal) {
 
-    const completedRaces = testdata.races
-        .filter(race => race.results?.race?.some(res => res.driver === driverName))
+    if (!driverId) return null;
 
-    if (completedRaces.length === 0) return null;
+    const gpData = await hyperaceGet(`/v2/grands-prix?seasonYear=2025&pageSize=25`, signal);
 
-    completedRaces.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+    const allGPs = gpData.items || [];
 
-    const lastRace = completedRaces[0];
+    if (allGPs.length === 0) return null;
 
-    const raceResult = lastRace.results.race.find(res => res.driver === driverName);
-    const qualifyingResult = lastRace.results.qualifying?.find(q => q.driver === driverName);
+    const finishedGPs = allGPs.filter(gp => gp.status === 'Finished');
+
+    if (finishedGPs.length === 0) return null;
+
+    const sorted = finishedGPs.sort((a, b) => {
+        const endA = a.schedule?.find(s => s.type === 'MainRace')?.endDate;
+        const endB = b.schedule?.find(s => s.type === 'MainRace')?.endDate;
+        return new Date(endB) - new Date(endA);
+    });
+
+    const lastGP = sorted[0];
+
+    const grandPrixId = lastGP.id;
+
+    const raceList = await hyperaceGet(`/v2/grands-prix/${grandPrixId}/races`, signal);
+
+    const races = raceList.items || [];
+
+    const mainRace = races.find(r => r.type === 'MainRace');
+
+    if (!mainRace) return null;
+
+    const raceId = mainRace.id;
+
+    const resultData = await hyperaceGet(
+        `/v2/grands-prix/${grandPrixId}/races/${raceId}/results`,
+        signal
+    );
+
+    const results = resultData.participations || [];
+
+    const resultEntry = results.find(
+        r => r.driverId === driverId
+    );
 
     return {
-        name: lastRace.name,
-        date: lastRace.endDate,
-        start: qualifyingResult?.position ?? '?',
-        finish: raceResult?.position ?? '?',
-    }
+        grandPrix: lastGP.name,
+        date: mainRace.endDate || mainRace.date,
+        start: resultEntry?.result?.grid ?? null,
+        finish: resultEntry?.result?.position ?? null,
+    };
 }

@@ -4,9 +4,37 @@ import ResultsFilter from '../../filters-and-sorting/ResultsFilter/ResultsFilter
 import ResultsSort from '../../filters-and-sorting/ResultsSort/ResultsSort.jsx';
 import {formatDutchDate} from '../../../helpers/dateFormatter.js';
 
-function RaceResults({raceYear, allResults}) {
+function RaceResults({raceYear, allResults, loading, error}) {
     const [filteredType, setFilteredType] = useState('all');
     const [sortType, setSortType] = useState('date-desc');
+
+    if (loading) {
+        return (
+            <div className='race-results-section'>
+                <h3 className='title'>Uitslagen {raceYear}</h3>
+                <p className='race-status'>Gegevens laden...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className='race-results-section'>
+                <h3 className='title'>Uitslagen {raceYear}</h3>
+                <p className='race-status'>{error}</p>
+            </div>
+        );
+    }
+
+    if (!allResults || allResults.length === 0) {
+        return (
+            <div className='race-results-section'>
+                <h3 className='title'>Uitslagen {raceYear}</h3>
+                <p className='race-status'>Geen resultaten gevonden.</p>
+            </div>
+        );
+    }
+
     const visibleResults = allResults.filter(result => {
         if (filteredType === 'all') return true;
         return result.type === filteredType;
@@ -25,8 +53,8 @@ function RaceResults({raceYear, allResults}) {
     return (
         <div className='race-results-section'>
             <header className='race-results-header'>
-                <ResultsFilter onFilterChange={setFilteredType} />
-                <ResultsSort onSortChange={setSortType} />
+                <ResultsFilter onFilterChange={setFilteredType}/>
+                <ResultsSort onSortChange={setSortType}/>
             </header>
 
             <h3 className='title'>Uitslagen {raceYear}</h3>

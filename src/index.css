@@ -97,8 +97,23 @@ p {
     font-size: var(--font-size-body);
 }
 
+.title {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary-red);
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.2em;
+    padding: 1rem;
+}
+
 .number {
     font-size: var(--font-size-number);
     font-weight: var(--font-weight-bold);
     color: var(--color-white);
+}
+
+.driver-number {
+    font-size: var(--font-size-number);
+    font-weight: var(--font-weight-bold);
+    padding: 0 1.5rem;
 }

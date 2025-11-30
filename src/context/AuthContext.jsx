@@ -1,11 +1,12 @@
 import {createContext, useEffect, useState} from 'react';
-import teams from '../constants/teams.js';
-import api, {getUserByEmail, loginUser, getPreferenceByUserId, createPreferences} from '../helpers/api.js';
+import api, {createPreferences, getPreferenceByUserId, getUserByEmail, loginUser} from '../helpers/api.js';
 import {normalize} from '../helpers/normalizer.js';
+import driverstats from '../constants/driver-stats.json';
+import {isTokenValid} from '../helpers/isTokenValid.js';
 
 export const AuthContext = createContext();
 
-function AuthContextProvider({ children }) {
+function AuthContextProvider({children}) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem('token') || null);
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -14,14 +15,20 @@ function AuthContextProvider({ children }) {
     const [favoriteTeam, setFavoriteTeam] = useState(localStorage.getItem('favoriteTeam') || '');
     const [favoriteDriver, setFavoriteDriver] = useState(localStorage.getItem('favoriteDriver') || '');
 
+    const teams = [
+        ...new Map(driverstats.map((d) => [d.team.key, d.team]))
+    ].map(([, team]) => team);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             const storedToken = localStorage.getItem('token');
 
-            if (storedToken) {
+            if (storedToken && isTokenValid(storedToken)) {
                 setToken(storedToken);
                 setIsAuthenticated(true);
             } else {
+                localStorage.removeItem('token');
+                setToken(null);
                 setIsAuthenticated(false);
             }
 
@@ -47,8 +54,7 @@ function AuthContextProvider({ children }) {
 
             const favDriver = prefs?.favoriteDriver || '';
             const favTeamKey =
-                teams.find(t => normalize(t.name) === normalize(prefs?.favoriteTeam))?.key
-                || '';
+                teams.find((t) => normalize(t.name) === normalize(prefs?.favoriteTeam))?.key || '';
 
             localStorage.setItem('favoriteTeam', favTeamKey);
             localStorage.setItem('favoriteDriver', favDriver);
@@ -136,10 +142,10 @@ function AuthContextProvider({ children }) {
     };
 
     return (
-    <AuthContext.Provider value={value}>
-        {children}
-    </AuthContext.Provider>
-)
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
 export default AuthContextProvider;

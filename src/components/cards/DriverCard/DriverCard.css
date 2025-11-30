@@ -83,12 +83,6 @@
     gap: 0.3rem;
 }
 
-.driver-number {
-    font-size: var(--font-size-number);
-    font-weight: var(--font-weight-bold);
-    padding: 0 1.5rem;
-}
-
 .flag-icon {
     font-size: 1.6rem;
     line-height: 1;

@@ -5,7 +5,6 @@
     border-radius: 50%;
     font-weight: var(--font-weight-bold);
     background-color: var(--team-color);
-    border-color: var(--team-color);
 }
 
 .size-50 {

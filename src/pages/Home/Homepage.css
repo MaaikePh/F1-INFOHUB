@@ -8,15 +8,6 @@
     padding: 1rem;
 }
 
-.title {
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: var(--color-primary-red);
-    text-decoration-thickness: 0.05em;
-    text-underline-offset: 0.2em;
-    padding: 1rem;
-}
-
 .all-drivers-container {
     display: flex;
     flex-wrap: wrap;

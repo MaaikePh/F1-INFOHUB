@@ -16,22 +16,22 @@ function ResultsSort({onSortChange}) {
     }, [selectedSort, onSortChange]);
 
     return (
-        <form className='results-sort-form'>
+        <div className='results-sort-form'>
             <label htmlFor='sort-filter' className='results-sort-label'>
                 Sorteren op
             </label>
 
             <select
-            id='sort-filter'
-            {...register('sort')}
-            className='results-sort-select'
+                id='sort-filter'
+                {...register('sort')}
+                className='results-sort-select'
             >
                 <option value='date-desc'>Datum - nieuwste eerst</option>
                 <option value='date-asc'>Datum - oudste eerst</option>
 
             </select>
 
-        </form>
+        </div>
     )
 }
 

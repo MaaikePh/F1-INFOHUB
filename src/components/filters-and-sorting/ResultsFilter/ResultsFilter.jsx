@@ -16,7 +16,7 @@ function ResultsFilter({onFilterChange}) {
     }, [selectedType, onFilterChange]);
 
     return (
-        <form className="results-filter-form">
+        <div className='results-filter-form'>
             <label htmlFor='type-filter' className='results-filter-label'>
                 Filteren op
             </label>
@@ -28,11 +28,10 @@ function ResultsFilter({onFilterChange}) {
             >
                 <option value='all'>Type resultaat</option>
                 <option value='Race'>Race</option>
-                <option value='Qualificatie'>Qualificatie</option>
                 <option value='Sprint'>Sprint</option>
             </select>
 
-        </form>
+        </div>
     )
 }
 

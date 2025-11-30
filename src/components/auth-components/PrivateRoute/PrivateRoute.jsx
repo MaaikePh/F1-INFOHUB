@@ -20,10 +20,10 @@ function PrivateRoute({children}) {
 
     if (!isAuthenticated) {
         return (
-        <div className="private-route-message">
-            <p>Je moet ingelogd zijn om deze pagina te bekijken.</p>
-            {shouldRedirect && <Navigate to='/inloggen' replace/>}
-        </div>
+            <div className='private-route-message'>
+                <p>Je moet ingelogd zijn om deze pagina te bekijken.</p>
+                {shouldRedirect && <Navigate to='/inloggen' replace/>}
+            </div>
         )
     }
 

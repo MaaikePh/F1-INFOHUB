@@ -15,7 +15,7 @@ function Navigation() {
     return (
         <header className='navigation-bar'>
 
-            <Link to={'/'}  className='logo'>
+            <Link to={'/'} className='logo'>
                 <h2>F1INFOHUB</h2>
             </Link>
 

@@ -2,13 +2,12 @@ import './RegisterForm.css';
 import {useForm} from 'react-hook-form';
 import Input from '../Input/Input.jsx';
 import Select from '../Select/Select.jsx';
-import teams from '../../../constants/teams.js'
-import testdata from '../../../constants/test-api-data.json'
 import Button from '../../general/Button/Button.jsx';
-import {registerUser, emailExists, createPreferences, loginUser} from '../../../helpers/api.js';
+import {createPreferences, emailExists, loginUser, registerUser} from '../../../helpers/api.js';
 import {useContext, useState} from 'react';
 import {AuthContext} from '../../../context/AuthContext.jsx';
-import { normalize } from '../../../helpers/normalizer.js';
+import {normalize} from '../../../helpers/normalizer.js';
+import driverstats from '../../../constants/driver-stats.json';
 
 function RegisterForm() {
     const {setFavoriteTeam, setFavoriteDriver} = useContext(AuthContext);
@@ -18,6 +17,10 @@ function RegisterForm() {
     const [selectedTeam, setSelectedTeam] = useState('');
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm();
+
+    const teams = [
+        ...new Map(driverstats.map(d => [d.team.key, d.team]))
+    ].map(([, team]) => team);
 
     async function onSubmit(data) {
         setLoading(true);
@@ -48,7 +51,7 @@ function RegisterForm() {
             });
 
             localStorage.setItem('token', loginResult.token);
-            console.log("Token uit login:", loginResult.token);
+            console.log('Token uit login:', loginResult.token);
 
             const prefs = await createPreferences({
                 userId,
@@ -99,7 +102,7 @@ function RegisterForm() {
                         },
                         pattern: {
                             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: 'Voer een geldig e-mailadres in.',
+                            message: 'Ingevoerd e-mailadres is ongeldig.',
                         }
                     }}
                     register={register}
@@ -117,8 +120,12 @@ function RegisterForm() {
                             message: 'Wachtwoord is verplicht.'
                         },
                         minLength: {
-                            value: 6,
-                            message: 'Wachtwoord moet minimaal 6 tekens bevatten.',
+                            value: 8,
+                            message: 'Gebruik minimaal 8 karakters.',
+                        },
+                        pattern: {
+                            value: /[^A-Za-z0-9]/,
+                            message: 'Moet minimaal 1 speciaal teken bevatten.'
                         }
                     }}
                     register={register}
@@ -154,12 +161,12 @@ function RegisterForm() {
                             message: 'Selecteer een coureur.'
                         },
                     }}
-                    selectOptions={testdata.drivers
-                        .filter(driver => normalize(driver.team) === normalize(selectedTeam))
+                    selectOptions={driverstats
+                        .filter(driver => normalize(driver.team.key) === normalize(selectedTeam))
                         .map(driver => ({
-                        value: driver.name,
-                        label: driver.name,
-                    }))}
+                            value: driver.name,
+                            label: driver.name,
+                        }))}
                     register={register}
                     errors={errors.favoriteDriver?.message}
                     disabled={!selectedTeam}

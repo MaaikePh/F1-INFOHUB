@@ -4,11 +4,10 @@ import {getRaceStatus} from '../../../helpers/raceStatus.js';
 import {useState} from 'react';
 
 
-function RaceCard({raceName, countryFlag, startDate, endDate, positionOne, positionTwo, positionThree}) {
+function RaceCard({raceName, countryFlag, startDate, endDate, hasPodium, positionOne, positionTwo, positionThree}) {
     const [isOpen, setOpen] = useState(false);
     const {start, end} = formatDutchRange(startDate, endDate);
     const status = getRaceStatus(startDate, endDate);
-    const hasResults = positionOne && positionTwo && positionThree;
 
     return (
         <div className='race-card-wrapper'>
@@ -39,7 +38,7 @@ function RaceCard({raceName, countryFlag, startDate, endDate, positionOne, posit
                 <div className='results-panel'>
                     <h3 className='title'>Raceresultaten</h3>
 
-                    {hasResults ? (
+                    {hasPodium ? (
                         <ol className='positions-list'>
                             <li>{positionOne}</li>
                             <li>{positionTwo}</li>

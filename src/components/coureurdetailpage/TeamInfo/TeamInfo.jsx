@@ -6,20 +6,24 @@ function TeamInfo({teamName, teamCountry, countryCode}) {
 
             <h3 className='title'>Team informatie</h3>
 
-            <div className='info-row'>
-                <p className='info-label'>Naam:</p>
-                <p className='info-value'>{teamName}</p>
-            </div>
+            <dl>
 
-            <div className='info-row'>
-                <p className='info-label'>Land:</p>
-                <p className='info-value'>
-                    {countryCode && (
-                        <i className={`fi fi-${countryCode} flag-icon`}></i>
-                    )}
-                    {teamCountry}
-                </p>
-            </div>
+                <div className='info-row'>
+                    <dt className='info-label'>Naam:</dt>
+                    <dd className='info-value'>{teamName}</dd>
+                </div>
+
+                <div className='info-row'>
+                    <dt className='info-label'>Land:</dt>
+                    <dd className='info-value'>
+                        {countryCode && (
+                            <i className={`fi fi-${countryCode} flag-icon`}></i>
+                        )}
+                        {teamCountry}
+                    </dd>
+                </div>
+
+            </dl>
 
         </div>
     )

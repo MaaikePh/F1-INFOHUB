@@ -14,7 +14,9 @@ function Input({inputId, inputName, inputType, inputLabel, validationRules, regi
                 className='input-field'
             />
 
-            {errors[inputName] && <p className='error-message'>{errors[inputName].message}</p>}
+            {errors && errors[inputName] && (
+                <p className='error-message'>{errors[inputName].message}</p>
+            )}
 
         </div>
     )

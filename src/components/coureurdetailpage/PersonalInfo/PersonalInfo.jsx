@@ -5,30 +5,34 @@ function PersonalInfo({country, birthdate, age, firstSeason, countryCode}) {
         <div className='personal-info-section'>
             <h3 className='title'>Persoonlijke informatie</h3>
 
-            <div className='info-row'>
-                <p className='info-label'>Land:</p>
-                <p className='info-value'>
-                    {countryCode && (
-                        <i className={`fi fi-${countryCode} flag-icon`}></i>
-                    )}
-                    {country}
-                </p>
-            </div>
+            <dl>
 
-            <div className='info-row'>
-                <p className='info-label'>Geboortedatum:</p>
-                <p className='info-value'>{birthdate}</p>
-            </div>
+                <div className='info-row'>
+                    <dt className='info-label'>Land:</dt>
+                    <dd className='info-value'>
+                        {countryCode && (
+                            <i className={`fi fi-${countryCode} flag-icon`}></i>
+                        )}
+                        {country}
+                    </dd>
+                </div>
 
-            <div className='info-row'>
-                <p className='info-label'>Leeftijd:</p>
-                <p className='info-value'>{age}</p>
-            </div>
+                <div className='info-row'>
+                    <dt className='info-label'>Geboortedatum:</dt>
+                    <dd className='info-value'>{birthdate}</dd>
+                </div>
 
-            <div className='info-row'>
-                <p className='info-label'>Eerste F1 seizoen:</p>
-                <p className='info-value'>{firstSeason}</p>
-            </div>
+                <div className='info-row'>
+                    <dt className='info-label'>Leeftijd:</dt>
+                    <dd className='info-value'>{age}</dd>
+                </div>
+
+                <div className='info-row'>
+                    <dt className='info-label'>Eerste F1 seizoen:</dt>
+                    <dd className='info-value'>{firstSeason}</dd>
+                </div>
+
+            </dl>
 
         </div>
     )

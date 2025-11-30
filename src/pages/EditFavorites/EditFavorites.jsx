@@ -1,6 +1,4 @@
 import './EditFavorites.css';
-import teams from '../../constants/teams.js';
-import testdata from '../../constants/test-api-data.json';
 import {useForm} from 'react-hook-form';
 import {useContext, useEffect, useState} from 'react';
 import {AuthContext} from '../../context/AuthContext.jsx';
@@ -8,11 +6,17 @@ import {useNavigate} from 'react-router-dom';
 import Select from '../../components/auth-components/Select/Select.jsx';
 import Button from '../../components/general/Button/Button.jsx';
 import {normalize} from '../../helpers/normalizer.js';
+import driverstats from '../../constants/driver-stats.json';
 
 function EditFavorites() {
     const [selectedTeam, setSelectedTeam] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
-    const {favoriteTeam, favoriteDriver, updateFavorites, loading}  = useContext(AuthContext);
+    const {favoriteTeam, favoriteDriver, updateFavorites, loading} = useContext(AuthContext);
+
+    const teams = [
+        ...new Map(driverstats.map(d => [d.team.key, d.team]))
+    ].map(([, team]) => team);
 
     const {register, handleSubmit, setValue, formState: {errors}} = useForm({
         defaultValues: {
@@ -24,11 +28,9 @@ function EditFavorites() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const t = teams.find(team =>
-        normalize(team.name) === normalize(favoriteTeam));
-        if (t) {
-            setValue('favoriteTeam', t.key);
-            setSelectedTeam(t.key);
+        if (favoriteTeam) {
+            setValue('favoriteTeam', favoriteTeam);
+            setSelectedTeam(favoriteTeam);
         }
     }, [favoriteTeam, setValue]);
 
@@ -44,14 +46,12 @@ function EditFavorites() {
         label: team.name
     }))
 
-    const selectedTeamName = teams.find(t => t.key === selectedTeam)?.name;
-
-    const driverOptions = testdata.drivers
-    .filter(driver => normalize(driver.team) === normalize(selectedTeamName))
-    .map(driver => ({
-        value: driver.name,
-        label: driver.name,
-    }))
+    const driverOptions = driverstats
+        .filter(driver => normalize(driver.team.key) === normalize(selectedTeam))
+        .map(driver => ({
+            value: driver.name,
+            label: driver.name
+        }));
 
     async function onSubmit(data) {
         const teamName = teams.find(t => t.key === data.favoriteTeam)?.name;
@@ -60,7 +60,11 @@ function EditFavorites() {
             favoriteTeam: teamName,
             favoriteDriver: data.favoriteDriver
         });
-        navigate('/dashboard');
+        setSuccessMessage('Favorieten succesvol opgeslagen!');
+
+        setTimeout(() => {
+            navigate('/dashboard');
+        }, 2000);
     }
 
     return (
@@ -89,18 +93,18 @@ function EditFavorites() {
                 />
 
                 <Select
-                    selectId="favoriteDriver"
-                    selectName="favoriteDriver"
-                    selectLabel="Kies een nieuwe favoriete coureur"
+                    selectId='favoriteDriver'
+                    selectName='favoriteDriver'
+                    selectLabel='Kies een nieuwe favoriete coureur'
                     validationRules={{
                         required: {
                             value: true,
-                            message: "Selecteer een coureur."
+                            message: 'Selecteer een coureur.'
                         }
                     }}
                     selectOptions={driverOptions}
                     register={register}
-                    disabled={selectedTeam === '' || selectedTeamName === null}
+                    disabled={!selectedTeam}
                     errors={errors.favoriteDriver?.message}
                 />
 
@@ -112,6 +116,10 @@ function EditFavorites() {
                 >
                     {loading ? 'Bezig...' : 'Opslaan'}
                 </Button>
+
+                {successMessage && (
+                    <p className='success-message'>{successMessage}</p>
+                )}
 
             </form>
 

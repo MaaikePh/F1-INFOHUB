@@ -1,61 +1,60 @@
 import './CoureurDetail.css';
 import TeamCard from '../../components/cards/TeamCard/TeamCard.jsx';
 import driverStats from '../../constants/driver-stats.json';
-import testdata from '/src/constants/test-api-data.json';
-import teams from '../../constants/teams.js';
 import RaceResults from '../../components/coureurdetailpage/RaceResults/RaceResults.jsx';
 import PersonalInfo from '../../components/coureurdetailpage/PersonalInfo/PersonalInfo.jsx';
 import TeamInfo from '../../components/coureurdetailpage/TeamInfo/TeamInfo.jsx';
 import calculateAge from '../../helpers/calculateAge.js';
 import {formatDutchDate} from '../../helpers/dateFormatter.js';
 import {useParams} from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {getAllResultsForDriver} from '../../helpers/getAllResultsForDriver.js';
 
 function CoureurDetail() {
+    const [raceResultsForDriver, setRaceResultsForDriver] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
     const {id} = useParams();
 
-    const driver = driverStats.find(s => s.id === Number(id));
-    const data = testdata.drivers.find(d => d.id === Number(id));
-    const team = teams.find(t => t.name === data.team);
-    const races = testdata.races;
+    const driver = driverStats.find(s =>
+        s.hyperaceId === id || String(s.id) === id
+    );
+    const team = driver?.team;
 
-    const raceResultsForDriver = races.flatMap(race => {
-        const driverName = data.name;
+    useEffect(() => {
+        if (!driver?.hyperaceId) return;
 
-        const raceResult = race.results.race.find(r => r.driver === driverName);
-        const qualiResult = race.results.qualifying.find(r => r.driver === driverName);
-        const sprintResult = race.results.sprint.find(r => r.driver === driverName);
+        const controller = new AbortController();
 
-        const results = [];
+        async function loadResults() {
+            setLoading(true);
+            setError('');
 
-        if (raceResult) {
-            results.push({
-                grandPrix: race.name,
-                type: "Race",
-                position: raceResult.position,
-                date: race.endDate
-            });
+            try {
+                const results = await getAllResultsForDriver(driver.hyperaceId, controller.signal);
+                setRaceResultsForDriver(results);
+            } catch (err) {
+                if (err.name !== 'CanceledError') {
+                    console.error(err);
+                    setError('Kan racegegevens niet ophalen.');
+                }
+            } finally {
+                setLoading(false);
+            }
         }
 
-        if (qualiResult) {
-            results.push({
-                grandPrix: race.name,
-                type: "Qualificatie",
-                position: qualiResult.position,
-                date: race.endDate
-            });
-        }
+        loadResults();
+        return () => controller.abort();
 
-        if (sprintResult) {
-            results.push({
-                grandPrix: race.name,
-                type: "Sprint",
-                position: sprintResult.position,
-                date: race.endDate
-            });
-        }
+    }, [driver?.hyperaceId]);
 
-        return results;
-    })
+    if (!driver) {
+        return (
+            <div className='driver-detail-container'>
+                <h1 className='title'>Coureur niet gevonden</h1>
+            </div>
+        );
+    }
 
     return (
         <div className='driver-detail-container'>
@@ -84,37 +83,42 @@ function CoureurDetail() {
                 </div>
 
                 <div className='driver-header-photo'>
-                    <img
-                        src={driver.imageDetail}
-                        alt={driver.name}
-                        className='driver-detail-img'
-                    />
+                    <div className='driver-photo-wrapper'>
+                        <img
+                            src={driver.imageDetail}
+                            alt={driver.name}
+                            className='driver-detail-img'
+                        />
 
-                    <p className='driver-number number-detail'>{data.raceNumber}</p>
+                        <p className='driver-number number-detail'>{driver.raceNumber}</p>
+                    </div>
 
                     <TeamCard
                         teamName={team.name}
                         teamKey={team.key}
                         className='team-card-detail'
                     />
+
                 </div>
 
             </header>
 
             <section className='race-results-panel'>
                 <RaceResults
-                    raceYear={testdata.season}
+                    raceYear={2025}
                     allResults={raceResultsForDriver}
+                    loading={loading}
+                    error={error}
                 />
             </section>
 
             <section className='personal-panel'>
                 <PersonalInfo
-                    country={data.country}
-                    countryCode={data.countryCode}
-                    birthdate={formatDutchDate(data.birthdate)}
-                    age={calculateAge(data.birthdate)}
-                    firstSeason={data.firstSeason}
+                    country={driver.country}
+                    countryCode={driver.countryCode}
+                    birthdate={formatDutchDate(driver.birthdate)}
+                    age={calculateAge(driver.birthdate)}
+                    firstSeason={driver.firstSeason}
                 />
             </section>
 

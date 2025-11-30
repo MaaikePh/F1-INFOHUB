@@ -36,16 +36,6 @@ export async function emailExists(email) {
     }
 }
 
-export async function updateUser(id, data) {
-    try {
-        const response = await api.patch(`/users/${id}`, data);
-        return response.data;
-    } catch (error) {
-        console.error('User update mislukt: ', error);
-        throw error;
-    }
-}
-
 export async function createPreferences(data) {
     try {
         const response = await api.post('/userPreferences', data);
